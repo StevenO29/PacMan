@@ -474,7 +474,7 @@ class PacMan
         entityPosition[15, 1] = 2;
         entityPosition[15, 2] = 1;
         entityPosition[15, 3] = 1;
-        entityPosition[15, 4] = 2;
+        entityPosition[15, 4] = 7;
         entityPosition[15, 5] = 1;
         entityPosition[15, 6] = 1;
         entityPosition[15, 7] = 2;
@@ -496,7 +496,7 @@ class PacMan
         entityPosition[15, 23] = 2;
         entityPosition[15, 24] = 1;
         entityPosition[15, 25] = 1;
-        entityPosition[15, 26] = 2;
+        entityPosition[15, 26] = 7;
         entityPosition[15, 27] = 1;
         entityPosition[15, 28] = 1;
         entityPosition[15, 29] = 2;
@@ -2334,7 +2334,7 @@ class PacMan
         entityPosition[75, 1] = 2;
         entityPosition[75, 2] = 1;
         entityPosition[75, 3] = 1;
-        entityPosition[75, 4] = 2;
+        entityPosition[75, 4] = 7;
         entityPosition[75, 5] = 1;
         entityPosition[75, 6] = 1;
         entityPosition[75, 7] = 2;
@@ -2356,7 +2356,7 @@ class PacMan
         entityPosition[75, 23] = 2;
         entityPosition[75, 24] = 1;
         entityPosition[75, 25] = 1;
-        entityPosition[75, 26] = 2;
+        entityPosition[75, 26] = 7;
         entityPosition[75, 27] = 1;
         entityPosition[75, 28] = 1;
         entityPosition[75, 29] = 2;
@@ -2919,6 +2919,32 @@ class PacMan
         entityPosition[93, 28] = 1;
         entityPosition[93, 29] = 1;
         entityPosition[93, 30] = 1;
+        Console.SetCursorPosition(30, 0);
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.Write("PAC-MAN");
+        Console.SetCursorPosition(29, 2);
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.Write("Made By : ");
+        Console.SetCursorPosition(26, 3);
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.Write("Angeline Ivana");
+        Console.SetCursorPosition(23, 4);
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.Write("Fahrizal Dwi Rinaldi");
+        Console.SetCursorPosition(29, 5);
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.Write("Jemmie R");
+        Console.SetCursorPosition(26, 6);
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.Write("Patricia Lowis");
+        Console.SetCursorPosition(24, 7);
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.Write("Steven Ongkowidjojo");
+        Console.SetCursorPosition(21, 11);
+        Console.ForegroundColor = ConsoleColor.Blue;
+        Console.Write("Press ENTER to start....");
+        Console.ReadKey();
+        Console.Clear();
         for (int verticalEntity = 0; verticalEntity < 31; verticalEntity++) //0 : space, 1 : wall, 2 : food, 3 : pacman, 4 : ghost(blinky), 5 : ghost(pinky), 6 : ghost(inky), 7 : power up
         {
             for (int horizontalEntity = 0; horizontalEntity < 94; horizontalEntity++)
@@ -2963,5 +2989,6 @@ class PacMan
             }
             Console.Write("\n");
         }
+        Console.ReadKey();
     }
 }
