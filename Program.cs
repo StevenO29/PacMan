@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Drawing;
+using System.Drawing.Imaging;
+
 class PacMan
 {
     static void Main(string[] args)
@@ -2931,9 +2934,9 @@ class PacMan
         Console.SetCursorPosition(23, 4);
         Console.ForegroundColor = ConsoleColor.Cyan;
         Console.Write("Fahrizal Dwi Rinaldi");
-        Console.SetCursorPosition(29, 5);
+        Console.SetCursorPosition(27, 5);
         Console.ForegroundColor = ConsoleColor.Cyan;
-        Console.Write("Jemmie R");
+        Console.Write("Jemmie Renard");
         Console.SetCursorPosition(26, 6);
         Console.ForegroundColor = ConsoleColor.Cyan;
         Console.Write("Patricia Lowis");
@@ -2989,6 +2992,126 @@ class PacMan
             }
             Console.Write("\n");
         }
-        Console.ReadKey();
+        ConsoleKey bacaKey = Console.ReadKey(true).Key;
+        int vertical = 48;
+        int horizontal = 22;
+        int ghost1Vertical = 0;
+        int ghost1Horizontal = 0;
+        int score = 0;
+        while (true) //perulangan game
+        {
+            ConsoleKey bacaKeySebelumnya = bacaKey;
+            int verticalOld = vertical;
+            int horizontalOld = horizontal;
+            int ghost1VerticalOld = ghost1Vertical;
+            int ghost1HorizontalOld = ghost1Horizontal;
+            if (Console.KeyAvailable) //baca key yang dipencet
+                bacaKey = Console.ReadKey(true).Key;
+            //switch (bacaKey) //cek ada wall atau tidak
+            //{
+            //    case ConsoleKey.RightArrow:
+            //        if (entityPosition[horizontal, vertical + 1] == 1)
+            //            bacaKey = bacaKeySebelumnya;
+            //        break;
+            //    case ConsoleKey.LeftArrow:
+            //        if (entityPosition[horizontal, vertical + 1] == 1)
+            //            bacaKey = bacaKeySebelumnya;
+            //        break;
+            //    case ConsoleKey.UpArrow:
+            //        if (entityPosition[horizontal, vertical + 1] == 1)
+            //            bacaKey = bacaKeySebelumnya;
+            //        break;
+            //    case ConsoleKey.DownArrow:
+            //        if (entityPosition[horizontal, vertical + 1] == 1)
+            //            bacaKey = bacaKeySebelumnya;
+            //        break;
+            //}
+            //menggerakkan pacman
+            if (bacaKey == ConsoleKey.RightArrow) //gerak pacman ke kanan
+            {
+                //if (entityPosition[horizontal, vertical] != 1)
+                //{
+                //    //if (entityPosition[horizontal, vertical + 1] == 3)
+                //    //{
+                //    //    score++;//kurang set cursor position
+                //    //    Console.Write(score);
+                //    //}
+                //    horizontal++;
+                //    Console.SetCursorPosition(vertical, horizontal);
+                //    Console.ForegroundColor = ConsoleColor.Yellow;
+                //    Console.Write("C");
+                //    //Console.SetCursorPosition(verticalOld, horizontalOld);
+                //    //Console.Write(" ");
+                //    //entityPosition[horizontalOld, verticalOld] = 0;
+                //}
+                vertical += 3;
+                Console.SetCursorPosition(vertical, horizontal);
+                Console.Write("C");
+            }
+            if (bacaKey == ConsoleKey.LeftArrow) //gerak pacman ke kiri
+            {
+                //if (entityPosition[horizontal, vertical - 1] != 1)
+                //{
+                //    //if (entityPosition[horizontal, vertical - 1] == 3)
+                //    //{
+                //    //    score++;//kurang set cursor position
+                //    //    Console.Write(score);
+                //    //}
+                //    horizontal--;
+                //    Console.SetCursorPosition(vertical, horizontal);
+                //    Console.ForegroundColor = ConsoleColor.Yellow;
+                //    Console.Write("C");
+                //    //Console.SetCursorPosition(verticalOld, horizontalOld);
+                //    //Console.Write(" ");
+                //    //entityPosition[horizontalOld, verticalOld] = 0;
+                //}
+                vertical -= 3;
+                Console.SetCursorPosition(vertical, horizontal);
+                Console.Write("C");
+            }
+            if (bacaKey == ConsoleKey.UpArrow) //gerak pacman ke atas
+            {
+                //if (entityPosition[horizontal, vertical - 1] != 1)
+                //{
+                //    //if (entityPosition[horizontal, vertical - 1] == 3)
+                //    //{
+                //    //    score++;//kurang set cursor position
+                //    //    Console.Write(score);
+                //    //}
+                //    vertical--;
+                //    Console.SetCursorPosition(verticalOld, horizontalOld);
+                //    Console.ForegroundColor = ConsoleColor.Yellow;
+                //    Console.Write("C");
+                //    //Console.SetCursorPosition(verticalOld, horizontalOld);
+                //    //Console.Write(" ");
+                //    //entityPosition[horizontalOld, verticalOld] = 0;
+                //}
+                horizontal--;
+                Console.SetCursorPosition(vertical, horizontal);
+                Console.Write("C");
+            }
+            if (bacaKey == ConsoleKey.DownArrow) //gerak pacman ke bawah
+            {
+                //if (entityPosition[horizontal, vertical - 1] != 1)
+                //{
+                //    //if (entityPosition[horizontal, vertical - 1] == 3)
+                //    //{
+                //    //    score++;//kurang set cursor position
+                //    //    Console.Write(score);
+                //    //}
+                //    vertical++;
+                //    Console.SetCursorPosition(vertical, horizontal);
+                //    Console.ForegroundColor = ConsoleColor.Yellow;
+                //    Console.Write("C");
+                //    //Console.SetCursorPosition(verticalOld, horizontalOld);
+                //    //Console.Write(" ");
+                //    //entityPosition[horizontalOld, verticalOld] = 0;
+                //}
+                horizontal++;
+                Console.SetCursorPosition(vertical, horizontal);
+                Console.Write("C");
+            }
+            System.Threading.Thread.Sleep(250);
+        }
     }
 }
