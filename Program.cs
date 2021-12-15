@@ -9,6 +9,11 @@ class PacMan
         Console.Title = "PacMan";
         int[,] entityPosition = new int[94, 31]; //koordinat entity(keseluruhan) = (x,y)
         Console.SetWindowSize(94,32); //merubah ukuran window sesuai map
+        int posisiHorizontal = 48;
+        int posisiVertical = 22;
+        int ghost1Horizontal = 0;
+        int ghost1Vertical = 0;
+        int score = 0;
         entityPosition[0, 0] = 1; //0 : space, 1 : wall, 2 : food, 3 : pacman, 4 : ghost(blinky), 5 : ghost(pinky), 6 : ghost(inky), 7 : power up
         entityPosition[0, 1] = 1;
         entityPosition[0, 2] = 1;
@@ -2923,28 +2928,28 @@ class PacMan
         entityPosition[93, 28] = 1;
         entityPosition[93, 29] = 1;
         entityPosition[93, 30] = 1;
-        Console.SetCursorPosition(30, 0);
+        Console.SetCursorPosition(41, 2);
         Console.ForegroundColor = ConsoleColor.Yellow;
         Console.Write("PAC-MAN");
-        Console.SetCursorPosition(29, 2);
+        Console.SetCursorPosition(41, 5);
         Console.ForegroundColor = ConsoleColor.Red;
         Console.Write("Made By : ");
-        Console.SetCursorPosition(26, 3);
+        Console.SetCursorPosition(38, 6);
         Console.ForegroundColor = ConsoleColor.Cyan;
         Console.Write("Angeline Ivana");
-        Console.SetCursorPosition(23, 4);
+        Console.SetCursorPosition(35, 7);
         Console.ForegroundColor = ConsoleColor.Cyan;
         Console.Write("Fahrizal Dwi Rinaldi");
-        Console.SetCursorPosition(27, 5);
+        Console.SetCursorPosition(38, 8);
         Console.ForegroundColor = ConsoleColor.Cyan;
         Console.Write("Jemmie Renard");
-        Console.SetCursorPosition(26, 6);
+        Console.SetCursorPosition(38, 9);
         Console.ForegroundColor = ConsoleColor.Cyan;
         Console.Write("Patricia Lowis");
-        Console.SetCursorPosition(24, 7);
+        Console.SetCursorPosition(35, 10);
         Console.ForegroundColor = ConsoleColor.Cyan;
         Console.Write("Steven Ongkowidjojo");
-        Console.SetCursorPosition(21, 11);
+        Console.SetCursorPosition(32, 15);
         Console.ForegroundColor = ConsoleColor.Blue;
         Console.Write("Press ENTER to start....");
         Console.ReadKey();
@@ -2993,11 +2998,6 @@ class PacMan
             }
             Console.Write("\n");
         }
-        int posisiHorizontal = 48;
-        int posisiVertical = 22;
-        int ghost1Horizontal = 0;
-        int ghost1Vertical = 0;
-        int score = 0;
         Console.SetCursorPosition(0, 31);
         Console.ForegroundColor = ConsoleColor.White;
         Console.Write($"Score : {score}");
