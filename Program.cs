@@ -3014,19 +3014,19 @@ class PacMan
             switch (bacaKey) //cek ada wall atau tidak
             {
                 case ConsoleKey.RightArrow:
-                    if (entityPosition[posisiHorizontal, posisiVertical + 3] == 1)
+                    if (entityPosition[posisiHorizontal, posisiVertical] == 1)
                         bacaKey = bacaKeySebelumnya;
                     break;
                 case ConsoleKey.LeftArrow:
-                    if (entityPosition[posisiHorizontal, posisiVertical - 3] == 1)
+                    if (entityPosition[posisiHorizontal, posisiVertical] == 1)
                         bacaKey = bacaKeySebelumnya;
                     break;
                 case ConsoleKey.UpArrow:
-                    if (entityPosition[posisiHorizontal - 3, posisiVertical] == 1)
+                    if (entityPosition[posisiHorizontal, posisiVertical] == 1)
                         bacaKey = bacaKeySebelumnya;
                     break;
                 case ConsoleKey.DownArrow:
-                    if (entityPosition[posisiHorizontal + 3, posisiVertical] == 1)
+                    if (entityPosition[posisiHorizontal, posisiVertical] == 1)
                         bacaKey = bacaKeySebelumnya;
                     break;
             }
