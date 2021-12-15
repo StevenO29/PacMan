@@ -3050,7 +3050,7 @@ class PacMan
                     entityPosition[posisiHorizontalOld, horizontalOld] = 0;
                 }
                 //vertical += 3;
-                //Console.SetCursorPosition(vertical, horizontal);
+                //Console.SetCursorPosition(posisiHorizontal, posisiVertical);
                 //Console.Write("C");
             }
             if (bacaKey == ConsoleKey.LeftArrow) //gerak pacman ke kiri
@@ -3071,8 +3071,8 @@ class PacMan
                     Console.Write(" ");
                     entityPosition[posisiHorizontalOld, horizontalOld] = 0;
                 }
-                //vertical -= 3;
-                //Console.SetCursorPosition(vertical, horizontal);
+                //posisiHorizontal -= 3;
+                //Console.SetCursorPosition(posisiHorizontal, posisiVertical);
                 //Console.Write("C");
             }
             if (bacaKey == ConsoleKey.UpArrow) //gerak pacman ke atas
@@ -3093,8 +3093,8 @@ class PacMan
                     Console.Write(" ");
                     entityPosition[posisiHorizontalOld, horizontalOld] = 0;
                 }
-                //horizontal--;
-                //Console.SetCursorPosition(vertical, horizontal);
+                //posisiVertical--;
+                //Console.SetCursorPosition(posisiHorizontal, posisiVertical);
                 //Console.Write("C");
             }
             if (bacaKey == ConsoleKey.DownArrow) //gerak pacman ke bawah
@@ -3115,8 +3115,8 @@ class PacMan
                     Console.Write(" ");
                     entityPosition[posisiHorizontalOld, horizontalOld] = 0;
                 }
-                //horizontal++;
-                //Console.SetCursorPosition(vertical, horizontal);
+                //posisiVertical++;
+                //Console.SetCursorPosition(posisiHorizontal, posisiVertical);
                 //Console.Write("C");
             }
             System.Threading.Thread.Sleep(400);
