@@ -2995,8 +2995,8 @@ class PacMan
         }
         int posisiHorizontal = 48;
         int posisiVertical = 22;
-        int ghost1Vertical = 0;
         int ghost1Horizontal = 0;
+        int ghost1Vertical = 0;
         int score = 0;
         Console.SetCursorPosition(0, 31);
         Console.ForegroundColor = ConsoleColor.White;
@@ -3006,36 +3006,36 @@ class PacMan
         {
             ConsoleKey bacaKeySebelumnya = bacaKey;
             int posisiHorizontalOld = posisiHorizontal;
-            int horizontalOld = posisiVertical;
-            int ghost1posisiHorizontalOld = ghost1Vertical;
+            int posisiVerticalOld = posisiVertical;
             int ghost1HorizontalOld = ghost1Horizontal;
+            int ghost1VerticalOld = ghost1Vertical;
             if (Console.KeyAvailable) //baca key yang dipencet
                 bacaKey = Console.ReadKey(true).Key;
             switch (bacaKey) //cek ada wall atau tidak
             {
                 case ConsoleKey.RightArrow:
-                    if (entityPosition[posisiHorizontal, posisiVertical + 1] == 1)
+                    if (entityPosition[posisiHorizontal, posisiVertical + 3] == 1)
                         bacaKey = bacaKeySebelumnya;
                     break;
                 case ConsoleKey.LeftArrow:
-                    if (entityPosition[posisiHorizontal, posisiVertical - 1] == 1)
+                    if (entityPosition[posisiHorizontal, posisiVertical - 3] == 1)
                         bacaKey = bacaKeySebelumnya;
                     break;
                 case ConsoleKey.UpArrow:
-                    if (entityPosition[posisiHorizontal - 1, posisiVertical] == 1)
+                    if (entityPosition[posisiHorizontal - 3, posisiVertical] == 1)
                         bacaKey = bacaKeySebelumnya;
                     break;
                 case ConsoleKey.DownArrow:
-                    if (entityPosition[posisiHorizontal + 1, posisiVertical] == 1)
+                    if (entityPosition[posisiHorizontal + 3, posisiVertical] == 1)
                         bacaKey = bacaKeySebelumnya;
                     break;
             }
             //menggerakkan pacman
             if (bacaKey == ConsoleKey.RightArrow) //gerak pacman ke kanan
             {
-                if (entityPosition[posisiHorizontal, posisiVertical + 1] != 1)
+                if (entityPosition[posisiHorizontal, posisiVertical] != 1)
                 {
-                    if (entityPosition[posisiHorizontal, posisiVertical + 1] == 3)
+                    if (entityPosition[posisiHorizontal, posisiVertical] == 3)
                     {
                         score += 50;
                         Console.SetCursorPosition(8, 31);
@@ -3045,9 +3045,9 @@ class PacMan
                     Console.SetCursorPosition(posisiHorizontal, posisiVertical);
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.Write("C");
-                    Console.SetCursorPosition(posisiHorizontalOld, horizontalOld);
+                    Console.SetCursorPosition(posisiHorizontalOld, posisiVerticalOld);
                     Console.Write(" ");
-                    entityPosition[posisiHorizontalOld, horizontalOld] = 0;
+                    entityPosition[posisiHorizontalOld, posisiVerticalOld] = 0;
                 }
                 //vertical += 3;
                 //Console.SetCursorPosition(posisiHorizontal, posisiVertical);
@@ -3055,9 +3055,9 @@ class PacMan
             }
             if (bacaKey == ConsoleKey.LeftArrow) //gerak pacman ke kiri
             {
-                if (entityPosition[posisiHorizontal, posisiVertical - 1] != 1)
+                if (entityPosition[posisiHorizontal, posisiVertical] != 1)
                 {
-                    if (entityPosition[posisiHorizontal, posisiVertical - 1] == 3)
+                    if (entityPosition[posisiHorizontal, posisiVertical] == 3)
                     {
                         score += 50;
                         Console.SetCursorPosition(8, 31);
@@ -3067,9 +3067,9 @@ class PacMan
                     Console.SetCursorPosition(posisiHorizontal, posisiVertical);
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.Write("C");
-                    Console.SetCursorPosition(posisiHorizontalOld, horizontalOld);
+                    Console.SetCursorPosition(posisiHorizontalOld, posisiVerticalOld);
                     Console.Write(" ");
-                    entityPosition[posisiHorizontalOld, horizontalOld] = 0;
+                    entityPosition[posisiHorizontalOld, posisiVerticalOld] = 0;
                 }
                 //posisiHorizontal -= 3;
                 //Console.SetCursorPosition(posisiHorizontal, posisiVertical);
@@ -3077,9 +3077,9 @@ class PacMan
             }
             if (bacaKey == ConsoleKey.UpArrow) //gerak pacman ke atas
             {
-                if (entityPosition[posisiHorizontal - 1, posisiVertical] != 1)
+                if (entityPosition[posisiHorizontal, posisiVertical] != 1)
                 {
-                    if (entityPosition[posisiHorizontal - 1, posisiVertical] == 3)
+                    if (entityPosition[posisiHorizontal, posisiVertical] == 3)
                     {
                         score += 50;
                         Console.SetCursorPosition(8, 31);
@@ -3089,9 +3089,9 @@ class PacMan
                     Console.SetCursorPosition(posisiHorizontal, posisiVertical);
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.Write("C");
-                    Console.SetCursorPosition(posisiHorizontalOld, horizontalOld);
+                    Console.SetCursorPosition(posisiHorizontalOld, posisiVerticalOld);
                     Console.Write(" ");
-                    entityPosition[posisiHorizontalOld, horizontalOld] = 0;
+                    entityPosition[posisiHorizontalOld, posisiVerticalOld] = 0;
                 }
                 //posisiVertical--;
                 //Console.SetCursorPosition(posisiHorizontal, posisiVertical);
@@ -3099,9 +3099,9 @@ class PacMan
             }
             if (bacaKey == ConsoleKey.DownArrow) //gerak pacman ke bawah
             {
-                if (entityPosition[posisiHorizontal + 1, posisiVertical] != 1)
+                if (entityPosition[posisiHorizontal, posisiVertical] != 1)
                 {
-                    if (entityPosition[posisiHorizontal + 1, posisiVertical] == 3)
+                    if (entityPosition[posisiHorizontal, posisiVertical] == 3)
                     {
                         score += 50;
                         Console.SetCursorPosition(8, 31);
@@ -3111,9 +3111,9 @@ class PacMan
                     Console.SetCursorPosition(posisiHorizontal, posisiVertical);
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.Write("C");
-                    Console.SetCursorPosition(posisiHorizontalOld, horizontalOld);
+                    Console.SetCursorPosition(posisiHorizontalOld, posisiVerticalOld);
                     Console.Write(" ");
-                    entityPosition[posisiHorizontalOld, horizontalOld] = 0;
+                    entityPosition[posisiHorizontalOld, posisiVerticalOld] = 0;
                 }
                 //posisiVertical++;
                 //Console.SetCursorPosition(posisiHorizontal, posisiVertical);
