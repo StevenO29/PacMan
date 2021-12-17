@@ -7,6 +7,32 @@ class PacMan
     static void Main(string[] args)
     {
         Console.Title = "PacMan";
+        Console.SetCursorPosition(41, 2);
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.Write("PAC-MAN");
+        Console.SetCursorPosition(41, 5);
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.Write("Made By : ");
+        Console.SetCursorPosition(38, 6);
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.Write("Angeline Ivana");
+        Console.SetCursorPosition(35, 7);
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.Write("Fahrizal Dwi Rinaldi");
+        Console.SetCursorPosition(38, 8);
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.Write("Jemmie Renard");
+        Console.SetCursorPosition(38, 9);
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.Write("Patricia Lowis");
+        Console.SetCursorPosition(35, 10);
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.Write("Steven Ongkowidjojo");
+        Console.SetCursorPosition(32, 15);
+        Console.ForegroundColor = ConsoleColor.Blue;
+        Console.Write("Press ENTER to start....");
+        Console.ReadKey();
+        Console.Clear();
         int[,] entityPosition = new int[94, 31]; //koordinat entity(keseluruhan) = (x,y)
         Console.SetWindowSize(94,32); //merubah ukuran window sesuai map
         int posisiHorizontal = 48;
@@ -2928,32 +2954,6 @@ class PacMan
         entityPosition[93, 28] = 1;
         entityPosition[93, 29] = 1;
         entityPosition[93, 30] = 1;
-        Console.SetCursorPosition(41, 2);
-        Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.Write("PAC-MAN");
-        Console.SetCursorPosition(41, 5);
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.Write("Made By : ");
-        Console.SetCursorPosition(38, 6);
-        Console.ForegroundColor = ConsoleColor.Cyan;
-        Console.Write("Angeline Ivana");
-        Console.SetCursorPosition(35, 7);
-        Console.ForegroundColor = ConsoleColor.Cyan;
-        Console.Write("Fahrizal Dwi Rinaldi");
-        Console.SetCursorPosition(38, 8);
-        Console.ForegroundColor = ConsoleColor.Cyan;
-        Console.Write("Jemmie Renard");
-        Console.SetCursorPosition(38, 9);
-        Console.ForegroundColor = ConsoleColor.Cyan;
-        Console.Write("Patricia Lowis");
-        Console.SetCursorPosition(35, 10);
-        Console.ForegroundColor = ConsoleColor.Cyan;
-        Console.Write("Steven Ongkowidjojo");
-        Console.SetCursorPosition(32, 15);
-        Console.ForegroundColor = ConsoleColor.Blue;
-        Console.Write("Press ENTER to start....");
-        Console.ReadKey();
-        Console.Clear();
         for (int verticalEntity = 0; verticalEntity < 31; verticalEntity++) //0 : space, 1 : wall, 2 : food, 3 : pacman, 4 : ghost(blinky), 5 : ghost(pinky), 6 : ghost(inky), 7 : power up, 8 : ghost's door
         {
             for (int horizontalEntity = 0; horizontalEntity < 94; horizontalEntity++)
@@ -3054,9 +3054,6 @@ class PacMan
                     Console.Write(" ");
                     entityPosition[posisiHorizontalOld, posisiVerticalOld] = 0;
                 }
-                //vertical += 3;
-                //Console.SetCursorPosition(posisiHorizontal, posisiVertical);
-                //Console.Write("C");
             }
             if (bacaKey == ConsoleKey.LeftArrow) //gerak pacman ke kiri
             {
@@ -3076,9 +3073,6 @@ class PacMan
                     Console.Write(" ");
                     entityPosition[posisiHorizontalOld, posisiVerticalOld] = 0;
                 }
-                //posisiHorizontal -= 3;
-                //Console.SetCursorPosition(posisiHorizontal, posisiVertical);
-                //Console.Write("C");
             }
             if (bacaKey == ConsoleKey.UpArrow) //gerak pacman ke atas
             {
@@ -3098,9 +3092,6 @@ class PacMan
                     Console.Write(" ");
                     entityPosition[posisiHorizontalOld, posisiVerticalOld] = 0;
                 }
-                //posisiVertical--;
-                //Console.SetCursorPosition(posisiHorizontal, posisiVertical);
-                //Console.Write("C");
             }
             if (bacaKey == ConsoleKey.DownArrow) //gerak pacman ke bawah
             {
@@ -3120,9 +3111,6 @@ class PacMan
                     Console.Write(" ");
                     entityPosition[posisiHorizontalOld, posisiVerticalOld] = 0;
                 }
-                //posisiVertical++;
-                //Console.SetCursorPosition(posisiHorizontal, posisiVertical);
-                //Console.Write("C");
             }
             System.Threading.Thread.Sleep(400);
         }
