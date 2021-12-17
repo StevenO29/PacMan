@@ -1513,7 +1513,7 @@ class PacMan
         entityPosition[48, 8] = 1;
         entityPosition[48, 9] = 1;
         entityPosition[48, 10] = 0;
-        entityPosition[48, 11] = 0;
+        entityPosition[48, 11] = 8;
         entityPosition[48, 12] = 0;
         entityPosition[48, 13] = 4;
         entityPosition[48, 14] = 0;
@@ -1544,7 +1544,7 @@ class PacMan
         entityPosition[49, 8] = 1;
         entityPosition[49, 9] = 1;
         entityPosition[49, 10] = 0;
-        entityPosition[49, 11] = 0;
+        entityPosition[49, 11] = 8;
         entityPosition[49, 12] = 0;
         entityPosition[49, 13] = 0;
         entityPosition[49, 14] = 0;
@@ -1575,7 +1575,7 @@ class PacMan
         entityPosition[50, 8] = 1;
         entityPosition[50, 9] = 1;
         entityPosition[50, 10] = 0;
-        entityPosition[50, 11] = 0;
+        entityPosition[50, 11] = 8;
         entityPosition[50, 12] = 0;
         entityPosition[50, 13] = 5;
         entityPosition[50, 14] = 0;
@@ -1606,7 +1606,7 @@ class PacMan
         entityPosition[51, 8] = 1;
         entityPosition[51, 9] = 1;
         entityPosition[51, 10] = 0;
-        entityPosition[51, 11] = 0;
+        entityPosition[51, 11] = 8;
         entityPosition[51, 12] = 0;
         entityPosition[51, 13] = 0;
         entityPosition[51, 14] = 0;
@@ -1637,7 +1637,7 @@ class PacMan
         entityPosition[52, 8] = 1;
         entityPosition[52, 9] = 1;
         entityPosition[52, 10] = 0;
-        entityPosition[52, 11] = 0;
+        entityPosition[52, 11] = 8;
         entityPosition[52, 12] = 0;
         entityPosition[52, 13] = 6;
         entityPosition[52, 14] = 0;
@@ -1668,7 +1668,7 @@ class PacMan
         entityPosition[53, 8] = 1;
         entityPosition[53, 9] = 1;
         entityPosition[53, 10] = 0;
-        entityPosition[53, 11] = 0;
+        entityPosition[53, 11] = 8;
         entityPosition[53, 12] = 0;
         entityPosition[53, 13] = 0;
         entityPosition[53, 14] = 0;
@@ -2954,7 +2954,7 @@ class PacMan
         Console.Write("Press ENTER to start....");
         Console.ReadKey();
         Console.Clear();
-        for (int verticalEntity = 0; verticalEntity < 31; verticalEntity++) //0 : space, 1 : wall, 2 : food, 3 : pacman, 4 : ghost(blinky), 5 : ghost(pinky), 6 : ghost(inky), 7 : power up
+        for (int verticalEntity = 0; verticalEntity < 31; verticalEntity++) //0 : space, 1 : wall, 2 : food, 3 : pacman, 4 : ghost(blinky), 5 : ghost(pinky), 6 : ghost(inky), 7 : power up, 8 : ghost's door
         {
             for (int horizontalEntity = 0; horizontalEntity < 94; horizontalEntity++)
             {
@@ -2995,6 +2995,11 @@ class PacMan
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
                     Console.Write("o");
                 }
+                if (entityPosition[horizontalEntity, verticalEntity] == 8)
+                {
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.Write("-");
+                }
             }
             Console.Write("\n");
         }
@@ -3014,26 +3019,26 @@ class PacMan
             switch (bacaKey) //cek ada wall atau tidak
             {
                 case ConsoleKey.RightArrow:
-                    if (entityPosition[posisiHorizontal, posisiVertical] == 1)
+                    if (entityPosition[posisiHorizontal + 3, posisiVertical] == 1 || entityPosition[posisiHorizontal + 3, posisiVertical] == 8)
                         bacaKey = bacaKeySebelumnya;
                     break;
                 case ConsoleKey.LeftArrow:
-                    if (entityPosition[posisiHorizontal, posisiVertical] == 1)
+                    if (entityPosition[posisiHorizontal - 3, posisiVertical] == 1 || entityPosition[posisiHorizontal - 3, posisiVertical] == 8)
                         bacaKey = bacaKeySebelumnya;
                     break;
                 case ConsoleKey.UpArrow:
-                    if (entityPosition[posisiHorizontal, posisiVertical] == 1)
+                    if (entityPosition[posisiHorizontal, posisiVertical - 1] == 1 || entityPosition[posisiHorizontal, posisiVertical - 1] == 8)
                         bacaKey = bacaKeySebelumnya;
                     break;
                 case ConsoleKey.DownArrow:
-                    if (entityPosition[posisiHorizontal, posisiVertical] == 1)
+                    if (entityPosition[posisiHorizontal, posisiVertical + 1] == 1 || entityPosition[posisiHorizontal, posisiVertical + 1] == 8)
                         bacaKey = bacaKeySebelumnya;
                     break;
             }
             //menggerakkan pacman
             if (bacaKey == ConsoleKey.RightArrow) //gerak pacman ke kanan
             {
-                if (entityPosition[posisiHorizontal, posisiVertical] != 1)
+                if (entityPosition[posisiHorizontal + 3, posisiVertical] != 1 && entityPosition[posisiHorizontal + 3, posisiVertical] != 8)
                 {
                     if (entityPosition[posisiHorizontal, posisiVertical] == 3)
                     {
@@ -3055,7 +3060,7 @@ class PacMan
             }
             if (bacaKey == ConsoleKey.LeftArrow) //gerak pacman ke kiri
             {
-                if (entityPosition[posisiHorizontal, posisiVertical] != 1)
+                if (entityPosition[posisiHorizontal - 3, posisiVertical] != 1 && entityPosition[posisiHorizontal - 3, posisiVertical] != 8)
                 {
                     if (entityPosition[posisiHorizontal, posisiVertical] == 3)
                     {
@@ -3077,7 +3082,7 @@ class PacMan
             }
             if (bacaKey == ConsoleKey.UpArrow) //gerak pacman ke atas
             {
-                if (entityPosition[posisiHorizontal, posisiVertical] != 1)
+                if (entityPosition[posisiHorizontal, posisiVertical - 1] != 1 && entityPosition[posisiHorizontal, posisiVertical - 1] != 8)
                 {
                     if (entityPosition[posisiHorizontal, posisiVertical] == 3)
                     {
@@ -3099,7 +3104,7 @@ class PacMan
             }
             if (bacaKey == ConsoleKey.DownArrow) //gerak pacman ke bawah
             {
-                if (entityPosition[posisiHorizontal, posisiVertical] != 1)
+                if (entityPosition[posisiHorizontal, posisiVertical + 1] != 1 && entityPosition[posisiHorizontal, posisiVertical + 1] != 8)
                 {
                     if (entityPosition[posisiHorizontal, posisiVertical] == 3)
                     {
