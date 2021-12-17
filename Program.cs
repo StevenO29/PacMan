@@ -35,7 +35,7 @@ class PacMan
         Console.Clear();
         int[,] entityPosition = new int[94, 31]; //koordinat entity(keseluruhan) = (x,y)
         Console.SetWindowSize(94,32); //merubah ukuran window sesuai map
-        int posisiHorizontal = 48;
+        int posisiHorizontal = 51;
         int posisiVertical = 22;
         int ghost1Horizontal = 0;
         int ghost1Vertical = 0;
@@ -3040,7 +3040,7 @@ class PacMan
             {
                 if (entityPosition[posisiHorizontal + 3, posisiVertical] != 1 && entityPosition[posisiHorizontal + 3, posisiVertical] != 8)
                 {
-                    if (entityPosition[posisiHorizontal, posisiVertical] == 3)
+                    if (entityPosition[posisiHorizontal, posisiVertical] == 2)
                     {
                         score += 50;
                         Console.SetCursorPosition(8, 31);
@@ -3059,7 +3059,7 @@ class PacMan
             {
                 if (entityPosition[posisiHorizontal - 3, posisiVertical] != 1 && entityPosition[posisiHorizontal - 3, posisiVertical] != 8)
                 {
-                    if (entityPosition[posisiHorizontal, posisiVertical] == 3)
+                    if (entityPosition[posisiHorizontal, posisiVertical] == 2)
                     {
                         score += 50;
                         Console.SetCursorPosition(8, 31);
@@ -3078,7 +3078,7 @@ class PacMan
             {
                 if (entityPosition[posisiHorizontal, posisiVertical - 1] != 1 && entityPosition[posisiHorizontal, posisiVertical - 1] != 8)
                 {
-                    if (entityPosition[posisiHorizontal, posisiVertical] == 3)
+                    if (entityPosition[posisiHorizontal, posisiVertical] == 2)
                     {
                         score += 50;
                         Console.SetCursorPosition(8, 31);
@@ -3097,7 +3097,7 @@ class PacMan
             {
                 if (entityPosition[posisiHorizontal, posisiVertical + 1] != 1 && entityPosition[posisiHorizontal, posisiVertical + 1] != 8)
                 {
-                    if (entityPosition[posisiHorizontal, posisiVertical] == 3)
+                    if (entityPosition[posisiHorizontal, posisiVertical] == 2)
                     {
                         score += 50;
                         Console.SetCursorPosition(8, 31);
