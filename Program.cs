@@ -3007,7 +3007,7 @@ class PacMan
         Console.ForegroundColor = ConsoleColor.White;
         Console.Write($"Score : {score}");
         ConsoleKey bacaKey = Console.ReadKey(true).Key;
-        while (true) //perulangan game
+        while (score < 17900) //perulangan game
         {
             ConsoleKey bacaKeySebelumnya = bacaKey;
             int posisiHorizontalOld = posisiHorizontal;
@@ -3113,6 +3113,22 @@ class PacMan
                 }
             }
             System.Threading.Thread.Sleep(400);
+        }
+        if (score == 17900) //semua makanan habis
+        {
+            Console.Clear();
+            Console.WriteLine(@"
+            /$$$$$$$$/$$                        /$$             /$$     /$$               
+            |__  $$__| $$                       | $$            |  $$   /$$/               
+            | $$  | $$$$$$$  /$$$$$$ /$$$$$$$| $$   /$$       \  $$ /$$/$$$$$$ /$$   /$$
+            | $$  | $$__  $$|____  $| $$__  $| $$  /$$/        \  $$$$/$$__  $| $$  | $$
+            | $$  | $$  \ $$ /$$$$$$| $$  \ $| $$$$$$/          \  $$| $$  \ $| $$  | $$
+            | $$  | $$  | $$/$$__  $| $$  | $| $$_  $$           | $$| $$  | $| $$  | $$
+            | $$  | $$  | $|  $$$$$$| $$  | $| $$ \  $$          | $$|  $$$$$$|  $$$$$$/
+            |__/  |__/  |__/\_______|__/  |__|__/  \__/          |__/ \______/ \______/ ");
+            Console.SetCursorPosition(37, 10);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("YOU WIN THIS GAME!!!");
         }
     }
 }
