@@ -1,11 +1,20 @@
 ﻿using System;
-using System.Drawing;
-using System.Drawing.Imaging;
 
 class PacMan
 {
     static void Main(string[] args)
     {
+        int posisiHorizontal = 51;
+        int posisiVertical = 22;
+        int ghost1Horizontal = 0;
+        int ghost1Vertical = 0;
+        int score = 0;
+        ConsoleKey bacaKey = Console.ReadKey(true).Key;
+        ConsoleKey bacaKeySebelumnya = bacaKey;
+        int posisiHorizontalOld = posisiHorizontal;
+        int posisiVerticalOld = posisiVertical;
+        int ghost1HorizontalOld = ghost1Horizontal;
+        int ghost1VerticalOld = ghost1Vertical;
         Console.Title = "PacMan";
         Console.SetCursorPosition(41, 2);
         Console.ForegroundColor = ConsoleColor.Yellow;
@@ -35,11 +44,6 @@ class PacMan
         Console.Clear();
         int[,] entityPosition = new int[94, 31]; //koordinat entity(keseluruhan) = (x,y)
         Console.SetWindowSize(94,32); //merubah ukuran window sesuai map
-        int posisiHorizontal = 51;
-        int posisiVertical = 22;
-        int ghost1Horizontal = 0;
-        int ghost1Vertical = 0;
-        int score = 0;
         entityPosition[0, 0] = 1; //0 : space, 1 : wall, 2 : food, 3 : pacman, 4 : ghost(blinky), 5 : ghost(pinky), 6 : ghost(inky), 7 : power up
         entityPosition[0, 1] = 1;
         entityPosition[0, 2] = 1;
@@ -2954,48 +2958,48 @@ class PacMan
         entityPosition[93, 28] = 1;
         entityPosition[93, 29] = 1;
         entityPosition[93, 30] = 1;
-        for (int verticalEntity = 0; verticalEntity < 31; verticalEntity++) //0 : space, 1 : wall, 2 : food, 3 : pacman, 4 : ghost(blinky), 5 : ghost(pinky), 6 : ghost(inky), 7 : power up, 8 : ghost's door
-        {
+        for (int verticalEntity = 0; verticalEntity < 31; verticalEntity++)
+        { 
             for (int horizontalEntity = 0; horizontalEntity < 94; horizontalEntity++)
             {
-                if (entityPosition[horizontalEntity, verticalEntity] == 0)
+                if (entityPosition[horizontalEntity, verticalEntity] == 0) //space
                     Console.Write(" ");
-                if (entityPosition[horizontalEntity, verticalEntity] == 1)
+                if (entityPosition[horizontalEntity, verticalEntity] == 1) //wall
                 {
                     Console.ForegroundColor = ConsoleColor.Blue;
                     Console.Write("X");
                 }
-                if (entityPosition[horizontalEntity, verticalEntity] == 2)
+                if (entityPosition[horizontalEntity, verticalEntity] == 2) //food
                 {
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.Write(".");
                 }
-                if (entityPosition[horizontalEntity, verticalEntity] == 3)
+                if (entityPosition[horizontalEntity, verticalEntity] == 3) //pacman
                 {
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.Write("C");
                 }
-                if (entityPosition[horizontalEntity, verticalEntity] == 4)
+                if (entityPosition[horizontalEntity, verticalEntity] == 4) //blinky
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.Write("@");
                 }
-                if (entityPosition[horizontalEntity, verticalEntity] == 5)
+                if (entityPosition[horizontalEntity, verticalEntity] == 5) //pinky
                 {
                     Console.ForegroundColor = ConsoleColor.Magenta;
                     Console.Write("@");
                 }
-                if (entityPosition[horizontalEntity, verticalEntity] == 6)
+                if (entityPosition[horizontalEntity, verticalEntity] == 6) //inky
                 {
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.Write("@");
                 }
-                if (entityPosition[horizontalEntity, verticalEntity] == 7)
+                if (entityPosition[horizontalEntity, verticalEntity] == 7) //power up
                 {
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
                     Console.Write("o");
                 }
-                if (entityPosition[horizontalEntity, verticalEntity] == 8)
+                if (entityPosition[horizontalEntity, verticalEntity] == 8) //ghost's door
                 {
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.Write("-");
@@ -3006,14 +3010,8 @@ class PacMan
         Console.SetCursorPosition(0, 31);
         Console.ForegroundColor = ConsoleColor.White;
         Console.Write($"Score : {score}");
-        ConsoleKey bacaKey = Console.ReadKey(true).Key;
         while (score < 17900) //perulangan game
         {
-            ConsoleKey bacaKeySebelumnya = bacaKey;
-            int posisiHorizontalOld = posisiHorizontal;
-            int posisiVerticalOld = posisiVertical;
-            int ghost1HorizontalOld = ghost1Horizontal;
-            int ghost1VerticalOld = ghost1Vertical;
             if (Console.KeyAvailable) //baca key yang dipencet
                 bacaKey = Console.ReadKey(true).Key;
             switch (bacaKey) //cek ada wall atau tidak
@@ -3126,9 +3124,9 @@ class PacMan
             | $$  | $$  | $$/$$__  $| $$  | $| $$_  $$           | $$| $$  | $| $$  | $$
             | $$  | $$  | $|  $$$$$$| $$  | $| $$ \  $$          | $$|  $$$$$$|  $$$$$$/
             |__/  |__/  |__/\_______|__/  |__|__/  \__/          |__/ \______/ \______/ ");
-            Console.SetCursorPosition(37, 10);
+            Console.SetCursorPosition(44, 12);
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write("YOU WIN THIS GAME!!!");
+            Console.Write("YOU WIN THIS GAME!!!\n\n");
         }
     }
 }
