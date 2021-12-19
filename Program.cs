@@ -13,14 +13,6 @@ class PacMan
         int posisiInkyHorizontal = 52;
         int posisiInkyVertical = 13;
         int score = 0;
-        int posisiHorizontalOld = posisiHorizontal;
-        int posisiVerticalOld = posisiVertical;
-        int posisiBLinkyHorizontalOld = posisiBlinkyHorizontal;
-        int posisiBlinkyVerticalOld = posisiBlinkyVertical;
-        int posisiPinkyHorizontalOld = posisiPinkyHorizontal;
-        int posisiPinkyVerticalOld = posisiPinkyVertical;
-        int posisiInkyHorizontalOld = posisiInkyHorizontal;
-        int posisiInkyVerticalOld = posisiInkyVertical;
         Console.Title = "PacMan";
         Console.SetCursorPosition(41, 2);
         Console.ForegroundColor = ConsoleColor.Yellow;
@@ -3020,6 +3012,14 @@ class PacMan
         ConsoleKey bacaKeySebelumnya = bacaKey;
         while (score < 17900) //perulangan game
         {
+            int posisiHorizontalOld = posisiHorizontal;
+            int posisiVerticalOld = posisiVertical;
+            int posisiBLinkyHorizontalOld = posisiBlinkyHorizontal;
+            int posisiBlinkyVerticalOld = posisiBlinkyVertical;
+            int posisiPinkyHorizontalOld = posisiPinkyHorizontal;
+            int posisiPinkyVerticalOld = posisiPinkyVertical;
+            int posisiInkyHorizontalOld = posisiInkyHorizontal;
+            int posisiInkyVerticalOld = posisiInkyVertical;
             if (Console.KeyAvailable) //baca key yang dipencet
                 bacaKey = Console.ReadKey(true).Key;
             switch (bacaKey) //cek ada wall atau tidak
