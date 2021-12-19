@@ -6,15 +6,21 @@ class PacMan
     {
         int posisiHorizontal = 51;
         int posisiVertical = 22;
-        int ghost1Horizontal = 0;
-        int ghost1Vertical = 0;
+        int posisiBlinkyHorizontal = 48;
+        int posisiBlinkyVertical = 10;
+        int posisiPinkyHorizontal = 50;
+        int posisiPinkyVertical = 13;
+        int posisiInkyHorizontal = 52;
+        int posisiInkyVertical = 13;
         int score = 0;
-        ConsoleKey bacaKey = Console.ReadKey(true).Key;
-        ConsoleKey bacaKeySebelumnya = bacaKey;
         int posisiHorizontalOld = posisiHorizontal;
         int posisiVerticalOld = posisiVertical;
-        int ghost1HorizontalOld = ghost1Horizontal;
-        int ghost1VerticalOld = ghost1Vertical;
+        int posisiBLinkyHorizontalOld = posisiBlinkyHorizontal;
+        int posisiBlinkyVerticalOld = posisiBlinkyVertical;
+        int posisiPinkyHorizontalOld = posisiPinkyHorizontal;
+        int posisiPinkyVerticalOld = posisiPinkyVertical;
+        int posisiInkyHorizontalOld = posisiInkyHorizontal;
+        int posisiInkyVerticalOld = posisiInkyVertical;
         Console.Title = "PacMan";
         Console.SetCursorPosition(41, 2);
         Console.ForegroundColor = ConsoleColor.Yellow;
@@ -1542,10 +1548,10 @@ class PacMan
         entityPosition[48, 7] = 1;
         entityPosition[48, 8] = 1;
         entityPosition[48, 9] = 1;
-        entityPosition[48, 10] = 0;
+        entityPosition[48, 10] = 4;
         entityPosition[48, 11] = 8;
         entityPosition[48, 12] = 0;
-        entityPosition[48, 13] = 4;
+        entityPosition[48, 13] = 0;
         entityPosition[48, 14] = 0;
         entityPosition[48, 15] = 1;
         entityPosition[48, 16] = 2;
@@ -3010,6 +3016,8 @@ class PacMan
         Console.SetCursorPosition(0, 31);
         Console.ForegroundColor = ConsoleColor.White;
         Console.Write($"Score : {score}");
+        ConsoleKey bacaKey = Console.ReadKey(true).Key;
+        ConsoleKey bacaKeySebelumnya = bacaKey;
         while (score < 17900) //perulangan game
         {
             if (Console.KeyAvailable) //baca key yang dipencet
