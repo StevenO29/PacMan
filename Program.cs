@@ -6,12 +6,12 @@ class PacMan
     {
         int posisiHorizontal = 51;
         int posisiVertical = 22;
-        int posisiBlinkyHorizontal = 48;
-        int posisiBlinkyVertical = 10;
-        int posisiPinkyHorizontal = 50;
-        int posisiPinkyVertical = 13;
-        int posisiInkyHorizontal = 52;
-        int posisiInkyVertical = 13;
+        //int posisiBlinkyHorizontal = 48;
+        //int posisiBlinkyVertical = 10;
+        //int posisiPinkyHorizontal = 50;
+        //int posisiPinkyVertical = 13;
+        //int posisiInkyHorizontal = 52;
+        //int posisiInkyVertical = 13;
         int score = 0;
         Console.Title = "PacMan";
         Console.SetCursorPosition(41, 2);
@@ -3009,17 +3009,17 @@ class PacMan
         Console.ForegroundColor = ConsoleColor.White;
         Console.Write($"Score : {score}");
         ConsoleKey bacaKey = Console.ReadKey(true).Key;
-        ConsoleKey bacaKeySebelumnya = bacaKey;
         while (score < 17900) //perulangan game
         {
             int posisiHorizontalOld = posisiHorizontal;
             int posisiVerticalOld = posisiVertical;
-            int posisiBLinkyHorizontalOld = posisiBlinkyHorizontal;
-            int posisiBlinkyVerticalOld = posisiBlinkyVertical;
-            int posisiPinkyHorizontalOld = posisiPinkyHorizontal;
-            int posisiPinkyVerticalOld = posisiPinkyVertical;
-            int posisiInkyHorizontalOld = posisiInkyHorizontal;
-            int posisiInkyVerticalOld = posisiInkyVertical;
+            ConsoleKey bacaKeySebelumnya = bacaKey;
+            //int posisiBLinkyHorizontalOld = posisiBlinkyHorizontal;
+            //int posisiBlinkyVerticalOld = posisiBlinkyVertical;
+            //int posisiPinkyHorizontalOld = posisiPinkyHorizontal;
+            //int posisiPinkyVerticalOld = posisiPinkyVertical;
+            //int posisiInkyHorizontalOld = posisiInkyHorizontal;
+            //int posisiInkyVerticalOld = posisiInkyVertical;
             if (Console.KeyAvailable) //baca key yang dipencet
                 bacaKey = Console.ReadKey(true).Key;
             switch (bacaKey) //cek ada wall atau tidak
