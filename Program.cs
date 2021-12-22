@@ -6,12 +6,13 @@ class PacMan
     {
         int posisiHorizontal = 51;
         int posisiVertical = 22;
-        //int posisiBlinkyHorizontal = 48;
-        //int posisiBlinkyVertical = 10;
-        //int posisiPinkyHorizontal = 50;
-        //int posisiPinkyVertical = 13;
-        //int posisiInkyHorizontal = 52;
-        //int posisiInkyVertical = 13;
+        int posisiBlinkyHorizontal = 48;
+        int posisiBlinkyVertical = 10;
+        int posisiPinkyHorizontal = 50;
+        int posisiPinkyVertical = 13;
+        int posisiInkyHorizontal = 52;
+        int posisiInkyVertical = 13;
+        int tujuanBlinky = 0;
         int score = 0;
         Console.Title = "PacMan";
         Console.SetCursorPosition(41, 2);
@@ -3014,12 +3015,12 @@ class PacMan
             int posisiHorizontalOld = posisiHorizontal;
             int posisiVerticalOld = posisiVertical;
             ConsoleKey bacaKeySebelumnya = bacaKey;
-            //int posisiBLinkyHorizontalOld = posisiBlinkyHorizontal;
-            //int posisiBlinkyVerticalOld = posisiBlinkyVertical;
-            //int posisiPinkyHorizontalOld = posisiPinkyHorizontal;
-            //int posisiPinkyVerticalOld = posisiPinkyVertical;
-            //int posisiInkyHorizontalOld = posisiInkyHorizontal;
-            //int posisiInkyVerticalOld = posisiInkyVertical;
+            int posisiBLinkyHorizontalOld = posisiBlinkyHorizontal;
+            int posisiBlinkyVerticalOld = posisiBlinkyVertical;
+            int posisiPinkyHorizontalOld = posisiPinkyHorizontal;
+            int posisiPinkyVerticalOld = posisiPinkyVertical;
+            int posisiInkyHorizontalOld = posisiInkyHorizontal;
+            int posisiInkyVerticalOld = posisiInkyVertical;
             if (Console.KeyAvailable) //baca key yang dipencet
                 bacaKey = Console.ReadKey(true).Key;
             switch (bacaKey) //cek ada wall atau tidak
@@ -3050,6 +3051,7 @@ class PacMan
                     {
                         score += 50;
                         Console.SetCursorPosition(8, 31);
+                        Console.ForegroundColor = ConsoleColor.White;
                         Console.Write(score);
                     }
                     posisiHorizontal += 3;
@@ -3069,6 +3071,7 @@ class PacMan
                     {
                         score += 50;
                         Console.SetCursorPosition(8, 31);
+                        Console.ForegroundColor = ConsoleColor.White;
                         Console.Write(score);
                     }
                     posisiHorizontal -= 3;
@@ -3088,6 +3091,7 @@ class PacMan
                     {
                         score += 50;
                         Console.SetCursorPosition(8, 31);
+                        Console.ForegroundColor = ConsoleColor.White;
                         Console.Write(score);
                     }
                     posisiVertical--;
@@ -3107,6 +3111,7 @@ class PacMan
                     {
                         score += 50;
                         Console.SetCursorPosition(8, 31);
+                        Console.ForegroundColor = ConsoleColor.White;
                         Console.Write(score);
                     }
                     posisiVertical++;
@@ -3116,6 +3121,252 @@ class PacMan
                     Console.SetCursorPosition(posisiHorizontalOld, posisiVerticalOld);
                     Console.Write(" ");
                     entityPosition[posisiHorizontalOld, posisiVerticalOld] = 0;
+                }
+            }
+            if (tujuanBlinky == 0) //menentukan arah jalan awal blinky
+            {
+                if (Math.Abs(posisiHorizontal - posisiBlinkyHorizontal) <= Math.Abs(posisiVertical - posisiBlinkyVertical))
+                {
+                    if (posisiHorizontal <= posisiBlinkyHorizontal)
+                        tujuanBlinky = 1; //blinky jalan ke kiri
+                    else
+                        tujuanBlinky = 2; //blinky jalan ke kanan
+                }
+                else
+                {
+                    if (posisiVertical <= posisiBlinkyVertical)
+                        tujuanBlinky = 3; //blinky jalan ke atas
+                    else
+                        tujuanBlinky = 4; //blinky jalan ke bawah
+                }
+            }
+            if (tujuanBlinky == 1) //mengecek ada wall/tidak dan menentukan rute tercepat
+            {
+                if (posisiBlinkyHorizontal <= posisiHorizontal || entityPosition[posisiBlinkyHorizontal - 3, posisiBlinkyVertical] == 1 || entityPosition[posisiBlinkyHorizontal - 3, posisiBlinkyVertical] == 8)
+                {
+                    if (posisiVertical <= posisiBlinkyVertical && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical - 1] != 1 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical - 1] != 8)
+                        tujuanBlinky = 3;
+                    if (posisiVertical > posisiBlinkyVertical && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 1 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 8)
+                        tujuanBlinky = 4;
+                    if (tujuanBlinky == 1 && (entityPosition[posisiBlinkyHorizontal - 3, posisiBlinkyVertical] == 1 || entityPosition[posisiBlinkyHorizontal - 3, posisiBlinkyVertical] == 8))
+                    {
+                        if (entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical - 1] != 1 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical - 1] != 8)
+                            tujuanBlinky = 3;
+                        if (entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 1 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 8)
+                            tujuanBlinky = 4;
+                    }
+                }
+            }
+            else
+            {
+                if (tujuanBlinky == 2)
+                {
+                    if (posisiHorizontal <= posisiBlinkyHorizontal || entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] == 1 || entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] == 8)
+                    {
+                        if (posisiVertical <= posisiBlinkyVertical && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical - 1] != 1 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical - 1] != 8)
+                            tujuanBlinky = 3;
+                        if (posisiVertical > posisiBlinkyVertical && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 1 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 8)
+                            tujuanBlinky = 4;
+                        if (tujuanBlinky == 2 && (entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] == 1 || entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] == 8))
+                        {
+                            if (entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical - 1] != 1 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical - 1] != 8)
+                                tujuanBlinky = 3;
+                            if (entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 1 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 8)
+                                tujuanBlinky = 4;
+                        }
+                    }
+                }
+                else
+                {
+                    if (tujuanBlinky == 3)
+                    {
+                        if (posisiBlinkyVertical <= posisiVertical || entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical - 1] == 1 || entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical - 1] == 8)
+                        {
+                            if (posisiHorizontal <= posisiBlinkyHorizontal && entityPosition[posisiBlinkyHorizontal - 3, posisiBlinkyVertical] != 1 && entityPosition[posisiBlinkyHorizontal - 3, posisiBlinkyVertical] != 8)
+                                tujuanBlinky = 1;
+                            if (posisiHorizontal > posisiBlinkyHorizontal && entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] != 1 && entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] != 8)
+                                tujuanBlinky = 2;
+                            if (tujuanBlinky == 3 && (entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical - 1] == 1 || entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical - 1] == 8))
+                            {
+                                if (entityPosition[posisiBlinkyHorizontal - 3, posisiBlinkyVertical] != 1 && entityPosition[posisiBlinkyHorizontal - 3, posisiBlinkyVertical] != 8)
+                                    tujuanBlinky = 1;
+                                if (entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] != 1 && entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] != 8)
+                                    tujuanBlinky = 2;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (tujuanBlinky == 4)
+                        {
+                            if (posisiVertical <= posisiBlinkyVertical || entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] == 1 || entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] == 8)
+                            {
+                                if (posisiHorizontal <= posisiBlinkyHorizontal && entityPosition[posisiBlinkyHorizontal - 3, posisiBlinkyVertical] != 1 && entityPosition[posisiBlinkyHorizontal - 3, posisiBlinkyVertical] != 8)
+                                    tujuanBlinky = 1;
+                                if (posisiHorizontal > posisiBlinkyHorizontal && entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] != 1 && entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] != 8)
+                                    tujuanBlinky = 2;
+                                if (tujuanBlinky == 4 && (entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] == 1 || entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] == 8))
+                                {
+                                    if (entityPosition[posisiBlinkyHorizontal - 3, posisiBlinkyVertical] != 1 && entityPosition[posisiBlinkyHorizontal - 3, posisiBlinkyVertical] != 8)
+                                        tujuanBlinky = 1;
+                                    if (entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] != 1 && entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] != 8)
+                                        tujuanBlinky = 2;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if (tujuanBlinky == 1) //menggerakkan blinky ke kiri
+            {
+                posisiBlinkyHorizontal -= 3;
+                Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write("@");
+                Console.SetCursorPosition(posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld);
+                Console.Write(" ");
+                if (entityPosition[posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld] == 0)
+                {
+                    Console.SetCursorPosition(posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld);
+                    Console.Write(" ");
+                }
+                if (entityPosition[posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld] == 2)
+                {
+                    Console.SetCursorPosition(posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld);
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.Write(".");
+                }
+                if (entityPosition[posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld] == 5)
+                {
+                    Console.SetCursorPosition(posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld);
+                    Console.ForegroundColor = ConsoleColor.Magenta;
+                    Console.Write("@");
+                }
+                if (entityPosition[posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld] == 6)
+                {
+                    Console.SetCursorPosition(posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld);
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.Write("@");
+                }
+                if (entityPosition[posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld] == 7)
+                {
+                    Console.SetCursorPosition(posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld);
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.Write("o");
+                }
+            }
+            if (tujuanBlinky == 2) //menggerakkan blinky ke kanan
+            {
+                posisiBlinkyHorizontal += 3;
+                Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write("@");
+                Console.SetCursorPosition(posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld);
+                Console.Write(" ");
+                if (entityPosition[posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld] == 0)
+                {
+                    Console.SetCursorPosition(posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld);
+                    Console.Write(" ");
+                }
+                if (entityPosition[posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld] == 2)
+                {
+                    Console.SetCursorPosition(posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld);
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.Write(".");
+                }
+                if (entityPosition[posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld] == 5)
+                {
+                    Console.SetCursorPosition(posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld);
+                    Console.ForegroundColor = ConsoleColor.Magenta;
+                    Console.Write("@");
+                }
+                if (entityPosition[posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld] == 6)
+                {
+                    Console.SetCursorPosition(posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld);
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.Write("@");
+                }
+                if (entityPosition[posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld] == 7)
+                {
+                    Console.SetCursorPosition(posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld);
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.Write("o");
+                }
+            }
+            if (tujuanBlinky == 3) //menggerakkan blinky ke atas
+            {
+                posisiBlinkyVertical -= 1;
+                Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write("@");
+                Console.SetCursorPosition(posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld);
+                Console.Write(" ");
+                if (entityPosition[posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld] == 0)
+                {
+                    Console.SetCursorPosition(posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld);
+                    Console.Write(" ");
+                }
+                if (entityPosition[posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld] == 2)
+                {
+                    Console.SetCursorPosition(posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld);
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.Write(".");
+                }
+                if (entityPosition[posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld] == 5)
+                {
+                    Console.SetCursorPosition(posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld);
+                    Console.ForegroundColor = ConsoleColor.Magenta;
+                    Console.Write("@");
+                }
+                if (entityPosition[posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld] == 6)
+                {
+                    Console.SetCursorPosition(posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld);
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.Write("@");
+                }
+                if (entityPosition[posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld] == 7)
+                {
+                    Console.SetCursorPosition(posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld);
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.Write("o");
+                }
+            }
+            if (tujuanBlinky == 4) //menggerakkan blinky ke bawah
+            {
+                posisiBlinkyVertical += 1;
+                Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write("@");
+                Console.SetCursorPosition(posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld);
+                Console.Write(" ");
+                if (entityPosition[posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld] == 0)
+                {
+                    Console.SetCursorPosition(posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld);
+                    Console.Write(" ");
+                }
+                if (entityPosition[posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld] == 2)
+                {
+                    Console.SetCursorPosition(posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld);
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.Write(".");
+                }
+                if (entityPosition[posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld] == 5)
+                {
+                    Console.SetCursorPosition(posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld);
+                    Console.ForegroundColor = ConsoleColor.Magenta;
+                    Console.Write("@");
+                }
+                if (entityPosition[posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld] == 6)
+                {
+                    Console.SetCursorPosition(posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld);
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.Write("@");
+                }
+                if (entityPosition[posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld] == 7)
+                {
+                    Console.SetCursorPosition(posisiBLinkyHorizontalOld, posisiBlinkyVerticalOld);
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.Write("o");
                 }
             }
             System.Threading.Thread.Sleep(400);
