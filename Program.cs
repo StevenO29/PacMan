@@ -14,6 +14,7 @@ class PacMan
         int posisiInkyVertical = 13;
         int tujuanBlinky = 0;
         int score = 0;
+        int livesPacMan = 3;
         Console.Title = "PacMan";
         Console.SetCursorPosition(41, 2);
         Console.ForegroundColor = ConsoleColor.Yellow;
@@ -42,11 +43,11 @@ class PacMan
         Console.ReadKey();
         Console.Clear();
         int[,] entityPosition = new int[94, 31]; //koordinat entity(keseluruhan) = (x,y)
-        Console.SetWindowSize(94,32); //merubah ukuran window sesuai map
+        Console.SetWindowSize(94, 33); //merubah ukuran window sesuai map (hapus ini jika dijalankan dengan mac)
         Map pacManEntity = new Map();
         entityPosition = pacManEntity.mapEntity();
         for (int verticalEntity = 0; verticalEntity < 31; verticalEntity++)
-        { 
+        {
             for (int horizontalEntity = 0; horizontalEntity < 94; horizontalEntity++)
             {
                 if (entityPosition[horizontalEntity, verticalEntity] == 0) //space
@@ -96,6 +97,9 @@ class PacMan
         }
         Console.SetCursorPosition(0, 31);
         Console.ForegroundColor = ConsoleColor.White;
+        Console.Write($"Lives : {livesPacMan}");
+        Console.SetCursorPosition(0, 32);
+        Console.ForegroundColor = ConsoleColor.White;
         Console.Write($"Score : {score}");
         ConsoleKey bacaKey = Console.ReadKey(true).Key;
         while (score < 17900) //perulangan game
@@ -138,7 +142,7 @@ class PacMan
                     if (entityPosition[posisiHorizontal, posisiVertical] == 2)
                     {
                         score += 50;
-                        Console.SetCursorPosition(8, 31);
+                        Console.SetCursorPosition(8, 32);
                         Console.ForegroundColor = ConsoleColor.White;
                         Console.Write(score);
                     }
@@ -158,7 +162,7 @@ class PacMan
                     if (entityPosition[posisiHorizontal, posisiVertical] == 2)
                     {
                         score += 50;
-                        Console.SetCursorPosition(8, 31);
+                        Console.SetCursorPosition(8, 32);
                         Console.ForegroundColor = ConsoleColor.White;
                         Console.Write(score);
                     }
@@ -178,7 +182,7 @@ class PacMan
                     if (entityPosition[posisiHorizontal, posisiVertical] == 2)
                     {
                         score += 50;
-                        Console.SetCursorPosition(8, 31);
+                        Console.SetCursorPosition(8, 32);
                         Console.ForegroundColor = ConsoleColor.White;
                         Console.Write(score);
                     }
@@ -198,7 +202,7 @@ class PacMan
                     if (entityPosition[posisiHorizontal, posisiVertical] == 2)
                     {
                         score += 50;
-                        Console.SetCursorPosition(8, 31);
+                        Console.SetCursorPosition(8, 32);
                         Console.ForegroundColor = ConsoleColor.White;
                         Console.Write(score);
                     }
@@ -457,12 +461,72 @@ class PacMan
                     Console.Write("o");
                 }
             }
-            System.Threading.Thread.Sleep(400);
-        }
-        if (score == 17900) //semua makanan habis
-        {
-            Console.Clear();
-            Console.WriteLine(@"
+            if (posisiBlinkyHorizontal == posisiHorizontal && posisiBlinkyVertical == posisiVertical) //hantu ditabrak/nabrak pacman
+            {
+                Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
+                Console.Write(" ");
+                Console.SetCursorPosition(posisiHorizontal, posisiVertical);
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write("C");
+                tujuanBlinky = 5; //tujuanBlinky = 5 : hantu tidak gerak
+            }
+            if (tujuanBlinky == 5) //respawn blinky dan pacman
+            {
+                tujuanBlinky = 0;
+                posisiBlinkyHorizontal = 48;
+                posisiBlinkyVertical = 10;
+                posisiHorizontal = 51;
+                posisiVertical = 22;
+                livesPacMan--;
+                if (entityPosition[posisiHorizontalOld, posisiVerticalOld] == 0)
+                {
+                    Console.SetCursorPosition(posisiHorizontalOld, posisiVerticalOld);
+                    Console.Write(" ");
+                }
+                if (entityPosition[posisiHorizontalOld, posisiVerticalOld] == 2)
+                {
+                    Console.SetCursorPosition(posisiHorizontalOld, posisiVerticalOld);
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.Write(".");
+                }
+                if (entityPosition[posisiHorizontalOld, posisiVerticalOld] == 7)
+                {
+                    Console.SetCursorPosition(posisiHorizontalOld, posisiVerticalOld);
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.Write("o");
+                }
+                Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write("@");
+                Console.SetCursorPosition(posisiHorizontal, posisiVertical);
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write("C");
+                Console.SetCursorPosition(8, 31);
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.Write(livesPacMan);
+            }
+            if (livesPacMan < 1) //nyawa habis
+            {
+                Console.Clear();
+                Console.WriteLine(@"
+                ▓██   ██▓ ▒█████   █    ██    ▓█████▄  ██▓▓█████ ▓█████▄ 
+                 ▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▒██▀ ██▌▓██▒▓█   ▀ ▒██▀ ██▌
+                  ▒██ ██░▒██░  ██▒▓██  ▒██░   ░██   █▌▒██▒▒███   ░██   █▌
+                  ░ ▐██▓░▒██   ██░▓▓█  ░██░   ░▓█▄   ▌░██░▒▓█  ▄ ░▓█▄   ▌
+                  ░ ██▒▓░░ ████▓▒░▒▒█████▓    ░▒████▓ ░██░░▒████▒░▒████▓ 
+                   ██▒▒▒ ░ ▒░▒░▒░ ░▒▓▒ ▒ ▒     ▒▒▓  ▒ ░▓  ░░ ▒░ ░ ▒▒▓  ▒ 
+                 ▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░     ░ ▒  ▒  ▒ ░ ░ ░  ░ ░ ▒  ▒ 
+                 ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ 
+                 ░ ░         ░ ░     ░           ░     ░     ░  ░   ░    
+                 ░ ░                           ░                  ░      
+
+                                 Press Enter to restart ");
+                break;
+            }
+            if (score == 17900) //semua makanan habis
+            {
+                Console.Clear();
+                Console.WriteLine(@"
             /$$$$$$$$/$$                        /$$             /$$     /$$               
             |__  $$__| $$                       | $$            |  $$   /$$/               
             | $$  | $$$$$$$  /$$$$$$ /$$$$$$$| $$   /$$       \  $$ /$$/$$$$$$ /$$   /$$
@@ -471,9 +535,12 @@ class PacMan
             | $$  | $$  | $$/$$__  $| $$  | $| $$_  $$           | $$| $$  | $| $$  | $$
             | $$  | $$  | $|  $$$$$$| $$  | $| $$ \  $$          | $$|  $$$$$$|  $$$$$$/
             |__/  |__/  |__/\_______|__/  |__|__/  \__/          |__/ \______/ \______/ ");
-            Console.SetCursorPosition(44, 12);
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write("YOU WIN THIS GAME!!!\n\n");
+                Console.SetCursorPosition(44, 12);
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write("YOU WIN THIS GAME!!!\n\n");
+                break;
+            }
+            System.Threading.Thread.Sleep(400);
         }
     }
 }
