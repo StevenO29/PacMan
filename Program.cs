@@ -921,8 +921,9 @@ class PacMan
                     if (powerUp >= 30 && powerUp < 40 && tujuanBlinky != 5)
                     {
                         Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
-                        Console.ForegroundColor = ConsoleColor.DarkBlue;
+                        Console.ForegroundColor = ConsoleColor.White;
                         Console.Write("@");
+                        break;
                     }
                 }
             }
