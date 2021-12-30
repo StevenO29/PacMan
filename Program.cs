@@ -18,8 +18,8 @@ class PacMan
         int tujuanBlinky = 0;
         int tujuanPinky = 0;
         int tujuanInky = 0;
-        int powerUp = 1;
         int score = 0;
+        int scoreAfter = 0;
         int livesPacMan = 3;
         Console.SetWindowSize(94, 33); //merubah ukuran window sesuai map (hapus ini jika dijalankan dengan mac)
         Console.Title = "PacMan";
@@ -378,7 +378,6 @@ class PacMan
                     Console.Write(".");
                 }
                 statusBlinky++;
-                //System.Threading.Thread.Sleep(200);
             }
             //scatter Pinky
             if (statusPinky <= 45)
@@ -557,9 +556,8 @@ class PacMan
                     Console.Write(".");
                 }
                 statusPinky++;
-                //System.Threading.Thread.Sleep(200);
             }
-            if (score >= 1500)
+            if (score - scoreAfter >= 1500)
             {
                 //scatter inky
                 if (statusInky <= 59)
@@ -713,7 +711,6 @@ class PacMan
                         Console.Write(".");
                     }
                     statusInky++;
-                    //System.Threading.Thread.Sleep(200);
                 }
             }
             //chase Blinky
@@ -721,6 +718,7 @@ class PacMan
             {
                 if (tujuanBlinky == 0) //menentukan arah jalan awal blinky
                 {
+
                     if (Math.Abs(posisiHorizontal - posisiBlinkyHorizontal) <= Math.Abs(posisiVertical - posisiBlinkyVertical))
                     {
                         if (posisiHorizontal <= posisiBlinkyHorizontal)
@@ -829,6 +827,12 @@ class PacMan
                         Console.ForegroundColor = ConsoleColor.DarkYellow;
                         Console.Write("o");
                     }
+                    else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 8)
+                    {
+                        Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.Write("-");
+                    }
                 }
                 else if (tujuanBlinky == 2) //menggerakkan blinky ke kanan
                 {
@@ -854,6 +858,12 @@ class PacMan
                         Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
                         Console.ForegroundColor = ConsoleColor.DarkYellow;
                         Console.Write("o");
+                    }
+                    else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 8)
+                    {
+                        Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.Write("-");
                     }
                 }
                 else if (tujuanBlinky == 3) //menggerakkan blinky ke atas
@@ -881,6 +891,12 @@ class PacMan
                         Console.ForegroundColor = ConsoleColor.DarkYellow;
                         Console.Write("o");
                     }
+                    else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 8)
+                    {
+                        Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.Write("-");
+                    }
                 }
                 else if (tujuanBlinky == 4) //menggerakkan blinky ke bawah
                 {
@@ -907,6 +923,12 @@ class PacMan
                         Console.ForegroundColor = ConsoleColor.DarkYellow;
                         Console.Write("o");
                     }
+                    else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 8)
+                    {
+                        Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.Write("-");
+                    }
                 }
             }
             //chase Pinky
@@ -914,6 +936,7 @@ class PacMan
             {
                 if (tujuanPinky == 0 && score >= 100) //menentukan arah jalan awal Pinky
                 {
+
                     if (Math.Abs((posisiHorizontal + 12) - posisiPinkyHorizontal) <= Math.Abs((posisiVertical + 4) - posisiPinkyVertical))
                     {
                         if (posisiHorizontal <= posisiPinkyHorizontal)
@@ -988,7 +1011,7 @@ class PacMan
                             tujuanPinky = 1;
                         else if (posisiHorizontal + 12 > posisiPinkyHorizontal && entityPosition[posisiPinkyHorizontal + 3, posisiPinkyVertical] != 1 && entityPosition[posisiPinkyHorizontal + 3, posisiPinkyVertical] != 4 && entityPosition[posisiPinkyHorizontal + 3, posisiPinkyVertical] != 6 && entityPosition[posisiPinkyHorizontal + 3, posisiPinkyVertical] != 8)
                             tujuanPinky = 2;
-                        if (tujuanPinky == 4 && (entityPosition[posisiPinkyVertical, posisiPinkyVertical + 1] == 1 || entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] == 4 || entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] == 6 || entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] == 8))
+                        if (tujuanPinky == 4 && (entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] == 1 || entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] == 4 || entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] == 6 || entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] == 8))
                         {
                             if (entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] != 1 && entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] != 4 && entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] != 6 && entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] != 8)
                                 tujuanPinky = 1;
@@ -1022,6 +1045,12 @@ class PacMan
                         Console.ForegroundColor = ConsoleColor.DarkYellow;
                         Console.Write("o");
                     }
+                    else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 8)
+                    {
+                        Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.Write("-");
+                    }
                 }
                 else if (tujuanPinky == 2) //menggerakkan pinky ke kanan
                 {
@@ -1047,6 +1076,12 @@ class PacMan
                         Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
                         Console.ForegroundColor = ConsoleColor.DarkYellow;
                         Console.Write("o");
+                    }
+                    else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 8)
+                    {
+                        Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.Write("-");
                     }
                 }
                 else if (tujuanPinky == 3) //menggerakkan pinky ke atas
@@ -1074,6 +1109,12 @@ class PacMan
                         Console.ForegroundColor = ConsoleColor.DarkYellow;
                         Console.Write("o");
                     }
+                    else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 8)
+                    {
+                        Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.Write("-");
+                    }
                 }
                 else if (tujuanPinky == 4) //menggerakkan pinky ke bawah
                 {
@@ -1100,14 +1141,20 @@ class PacMan
                         Console.ForegroundColor = ConsoleColor.DarkYellow;
                         Console.Write("o");
                     }
+                    else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 8)
+                    {
+                        Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.Write("-");
+                    }
                 }
             }
-            if (score >= 1500)
+            if (score - scoreAfter >= 1500)
             {
                 //chase inky
                 if (statusInky > 59)
                 {
-                    if (tujuanInky == 0 && score >= 1500) //menentukan jalan awal inky
+                    if (tujuanInky == 0) //menentukan jalan awal inky
                     {
                         if (Math.Abs(((posisiHorizontal + 6) + posisiBlinkyHorizontal) - posisiInkyHorizontal) <= Math.Abs(((posisiVertical + 2) + posisiBlinkyVertical) - posisiInkyVertical))
                         {
@@ -1183,7 +1230,7 @@ class PacMan
                                 tujuanInky = 1;
                             if ((posisiHorizontal + 6) + Math.Abs((posisiHorizontal + 6) - posisiBlinkyHorizontal) > posisiInkyHorizontal && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 1 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 4 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 5 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 8)
                                 tujuanInky = 2;
-                            if (tujuanInky == 4 && (entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] == 1 || entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] == 4 || entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] == 5 || entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] == 8))
+                            if (tujuanInky == 4 && (entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] == 1 || entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] == 4 || entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] == 5 || entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] == 8))
                             {
                                 if (entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 1 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 4 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 5 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 8)
                                     tujuanInky = 1;
@@ -1217,6 +1264,12 @@ class PacMan
                             Console.ForegroundColor = ConsoleColor.DarkYellow;
                             Console.Write("o");
                         }
+                        else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 8)
+                        {
+                            Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.Write("-");
+                        }
                     }
                     else if (tujuanInky == 2) //menggerakkan inky ke kanan
                     {
@@ -1242,6 +1295,12 @@ class PacMan
                             Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
                             Console.ForegroundColor = ConsoleColor.DarkYellow;
                             Console.Write("o");
+                        }
+                        else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 8)
+                        {
+                            Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.Write("-");
                         }
                     }
                     else if (tujuanInky == 3) //menggerakkan inky ke atas
@@ -1269,6 +1328,12 @@ class PacMan
                             Console.ForegroundColor = ConsoleColor.DarkYellow;
                             Console.Write("o");
                         }
+                        else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 8)
+                        {
+                            Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.Write("-");
+                        }
                     }
                     else if (tujuanInky == 4) //menggerakkan inky ke bawah
                     {
@@ -1295,6 +1360,12 @@ class PacMan
                             Console.ForegroundColor = ConsoleColor.DarkYellow;
                             Console.Write("o");
                         }
+                        else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 8)
+                        {
+                            Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.Write("-");
+                        }
                     }
                 }
             }
@@ -1316,7 +1387,7 @@ class PacMan
                     Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
                     Console.Write(" ");
                     posisiBlinkyHorizontal = 48;
-                    posisiBlinkyVertical = 10;
+                    posisiBlinkyVertical = 13;
                     tujuanBlinky = 0;
                     Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
                     Console.ForegroundColor = ConsoleColor.Red;
@@ -1385,6 +1456,7 @@ class PacMan
                 tujuanBlinky = 0;
                 tujuanPinky = 0;
                 tujuanInky = 0;
+                int powerUp = 1;
                 while (powerUp <= 40)
                 {
                     posisiHorizontalOld = posisiHorizontal;
@@ -1603,7 +1675,7 @@ class PacMan
                         }
                         if (tujuanPinky == 0 && score >= 100) //menentukan arah jalan awal Pinky
                         {
-                            if (Math.Abs((posisiHorizontal + 12) - posisiPinkyHorizontal) <= Math.Abs((posisiVertical + 4) - posisiPinkyVertical))
+                            if (Math.Abs(posisiHorizontal - posisiPinkyHorizontal) <= Math.Abs(posisiVertical - posisiPinkyVertical))
                             {
                                 if (posisiHorizontal >= posisiPinkyHorizontal)
                                     tujuanPinky = 1; //Pinky jalan ke kiri
@@ -1618,7 +1690,7 @@ class PacMan
                                     tujuanPinky = 4; //Pinky jalan ke atas
                             }
                         }
-                        if (tujuanPinky == 1) //menentukan rute tercepat (menjauhi target) dan mengecek wall/ghost/door
+                        if (tujuanPinky == 1) //menentukan rute tercepat (target : +12 horizontal dan +4 vertical di depan pacman) dan mengecek wall/ghost/door
                         {
                             if (posisiPinkyHorizontal >= posisiHorizontal || entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] == 1 || entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] == 4 || entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] == 6 || entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] == 8)
                             {
@@ -1677,7 +1749,7 @@ class PacMan
                                     tujuanPinky = 1;
                                 else if (posisiHorizontal + 12 <= posisiPinkyHorizontal && entityPosition[posisiPinkyHorizontal + 3, posisiPinkyVertical] != 1 && entityPosition[posisiPinkyHorizontal + 3, posisiPinkyVertical] != 4 && entityPosition[posisiPinkyHorizontal + 3, posisiPinkyVertical] != 6 && entityPosition[posisiPinkyHorizontal + 3, posisiPinkyVertical] != 8)
                                     tujuanPinky = 2;
-                                if (tujuanPinky == 4 && (entityPosition[posisiPinkyVertical, posisiPinkyVertical + 1] == 1 || entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] == 4 || entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] == 6 || entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] == 8))
+                                if (tujuanPinky == 4 && (entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] == 1 || entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] == 4 || entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] == 6 || entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] == 8))
                                 {
                                     if (entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] != 1 && entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] != 4 && entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] != 6 && entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] != 8)
                                         tujuanPinky = 1;
@@ -1686,88 +1758,91 @@ class PacMan
                                 }
                             }
                         }
-                        if (tujuanInky == 0 && score >= 1500) //menentukan jalan awal inky
+                        if (statusInky > 2)
                         {
-                            if (Math.Abs(((posisiHorizontal + 6) + posisiBlinkyHorizontal) - posisiInkyHorizontal) <= Math.Abs(((posisiVertical + 2) + posisiBlinkyVertical) - posisiInkyVertical))
+                            if (tujuanInky == 0 && score >= 1500) //menentukan jalan awal inky
                             {
-                                if (posisiHorizontal <= posisiInkyHorizontal)
-                                    tujuanInky = 1;
-                                else
-                                    tujuanInky = 2;
-                            }
-                            else
-                            {
-                                if (posisiVertical <= posisiInkyVertical)
-                                    tujuanInky = 3;
-                                else
-                                    tujuanInky = 4;
-                            }
-                        }
-                        if (tujuanInky == 1) //menentukan rute tercepat (menjauhi target) dan mengecek wall/ghost/door
-                        {
-                            if (posisiInkyHorizontal >= posisiHorizontal || entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] == 1 || entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] == 4 || entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] == 5 || entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] == 8)
-                            {
-                                if ((posisiVertical - 2) - Math.Abs((posisiVertical - 2) - posisiBlinkyVertical) > posisiInkyVertical && entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] != 1 && entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] != 4 && entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] != 5 && entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] != 8)
-                                    tujuanInky = 3;
-                                if ((posisiVertical + 2) + Math.Abs((posisiVertical + 2) - posisiBlinkyVertical) < posisiInkyVertical && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 1 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 4 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 5 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 8)
-                                    tujuanInky = 4;
-                                if (tujuanInky == 1 && (entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] == 1 || entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] == 4 || entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] == 5 || entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] == 8))
+                                if (Math.Abs(posisiHorizontal - posisiInkyHorizontal) <= Math.Abs(posisiVertical - posisiInkyVertical))
                                 {
-                                    if (entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] != 1 && entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] != 4 && entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] != 5 && entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] != 8)
+                                    if (posisiHorizontal <= posisiInkyHorizontal)
+                                        tujuanInky = 1;
+                                    else
+                                        tujuanInky = 2;
+                                }
+                                else
+                                {
+                                    if (posisiVertical <= posisiInkyVertical)
                                         tujuanInky = 3;
-                                    if (entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 1 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 4 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 5 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 8)
+                                    else
                                         tujuanInky = 4;
                                 }
                             }
-                        }
-                        else if (tujuanInky == 2)
-                        {
-                            if (posisiHorizontal >= posisiInkyHorizontal || entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] == 1 || entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] == 4 || entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] == 5 || entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] == 8)
+                            if (tujuanInky == 1) //menentukan rute tercepat (target : +6 horizontal atau +2 vertical) dan mengecek wall/ghost/door
                             {
-                                if ((posisiVertical - 2) - Math.Abs((posisiVertical - 2) - posisiBlinkyVertical) > posisiInkyVertical && entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] != 1 && entityPosition[posisiInkyHorizontal, posisiInkyVertical] != 4 && entityPosition[posisiInkyHorizontal, posisiInkyVertical] != 5 && entityPosition[posisiInkyHorizontal, posisiInkyVertical] != 8)
-                                    tujuanInky = 3;
-                                if ((posisiVertical + 2) + Math.Abs((posisiVertical + 2) - posisiBlinkyVertical) <= posisiInkyVertical && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 1 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 4 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 5 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 8)
-                                    tujuanInky = 4;
-                                if (tujuanInky == 2 && (entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] == 1 || entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] == 4 || entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] == 5 || entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] == 8))
+                                if (posisiInkyHorizontal >= posisiHorizontal || entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] == 1 || entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] == 4 || entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] == 5 || entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] == 8)
                                 {
-                                    if (entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] != 1 && entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] != 4 && entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] != 5 && entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] != 8)
+                                    if ((posisiVertical - 2) - Math.Abs((posisiVertical - 2) - posisiBlinkyVertical) > posisiInkyVertical && entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] != 1 && entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] != 4 && entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] != 5 && entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] != 8)
                                         tujuanInky = 3;
-                                    if (entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 1 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 4 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 5 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 8)
+                                    if ((posisiVertical + 2) + Math.Abs((posisiVertical + 2) - posisiBlinkyVertical) <= posisiInkyVertical && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 1 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 4 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 5 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 8)
                                         tujuanInky = 4;
+                                    if (tujuanInky == 1 && (entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] == 1 || entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] == 4 || entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] == 5 || entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] == 8))
+                                    {
+                                        if (entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] != 1 && entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] != 4 && entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] != 5 && entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] != 8)
+                                            tujuanInky = 3;
+                                        if (entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 1 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 4 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 5 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 8)
+                                            tujuanInky = 4;
+                                    }
                                 }
                             }
-                        }
-                        else if (tujuanInky == 3)
-                        {
-                            if (posisiInkyVertical >= posisiVertical || entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] == 1 || entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] == 4 || entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] == 5 || entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] == 8)
+                            else if (tujuanInky == 2)
                             {
-                                if ((posisiHorizontal - 6) - Math.Abs((posisiHorizontal - 6) - posisiBlinkyHorizontal) > posisiInkyHorizontal && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 1 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 4 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 5 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 8)
-                                    tujuanInky = 1;
-                                if ((posisiHorizontal + 6) + Math.Abs((posisiHorizontal + 6) - posisiBlinkyHorizontal) <= posisiInkyHorizontal && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 1 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 4 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 5 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 8)
-                                    tujuanInky = 2;
-                                if (tujuanInky == 3 && (entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] == 1 || entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] == 4 || entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] == 5 || entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] == 8))
+                                if (posisiHorizontal >= posisiInkyHorizontal || entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] == 1 || entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] == 4 || entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] == 5 || entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] == 8)
                                 {
-                                    if (entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 1 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 4 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 5 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 8)
-                                        tujuanInky = 1;
-                                    if (entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 1 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 4 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 5 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 8)
-                                        tujuanInky = 2;
+                                    if ((posisiVertical - 2) - Math.Abs((posisiVertical - 2) - posisiBlinkyVertical) > posisiInkyVertical && entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] != 1 && entityPosition[posisiInkyHorizontal, posisiInkyVertical] != 4 && entityPosition[posisiInkyHorizontal, posisiInkyVertical] != 5 && entityPosition[posisiInkyHorizontal, posisiInkyVertical] != 8)
+                                        tujuanInky = 3;
+                                    if ((posisiVertical + 2) + Math.Abs((posisiVertical + 2) - posisiBlinkyVertical) <= posisiInkyVertical && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 1 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 4 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 5 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 8)
+                                        tujuanInky = 4;
+                                    if (tujuanInky == 2 && (entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] == 1 || entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] == 4 || entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] == 5 || entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] == 8))
+                                    {
+                                        if (entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] != 1 && entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] != 4 && entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] != 5 && entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] != 8)
+                                            tujuanInky = 3;
+                                        if (entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 1 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 4 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 5 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 8)
+                                            tujuanInky = 4;
+                                    }
                                 }
                             }
-                        }
-                        else if (tujuanInky == 4)
-                        {
-                            if (posisiVertical >= posisiInkyVertical || entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] == 1 || entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] == 4 || entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] == 5 || entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] == 8)
+                            else if (tujuanInky == 3)
                             {
-                                if ((posisiHorizontal - 6) - Math.Abs((posisiHorizontal - 6) - posisiBlinkyHorizontal) > posisiInkyHorizontal && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 1 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 4 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 5 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 8)
-                                    tujuanInky = 1;
-                                if ((posisiHorizontal + 6) + Math.Abs((posisiHorizontal + 6) - posisiBlinkyHorizontal) <= posisiInkyHorizontal && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 1 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 4 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 5 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 8)
-                                    tujuanInky = 2;
-                                if (tujuanInky == 4 && (entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] == 1 || entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] == 4 || entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] == 5 || entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] == 8))
+                                if (posisiInkyVertical >= posisiVertical || entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] == 1 || entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] == 4 || entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] == 5 || entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] == 8)
                                 {
-                                    if (entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 1 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 4 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 5 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 8)
+                                    if ((posisiHorizontal - 6) - Math.Abs((posisiHorizontal - 6) - posisiBlinkyHorizontal) > posisiInkyHorizontal && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 1 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 4 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 5 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 8)
                                         tujuanInky = 1;
-                                    if (entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 1 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 4 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 5 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 8)
+                                    if ((posisiHorizontal + 6) + Math.Abs((posisiHorizontal + 6) - posisiBlinkyHorizontal) <= posisiInkyHorizontal && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 1 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 4 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 5 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 8)
                                         tujuanInky = 2;
+                                    if (tujuanInky == 3 && (entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] == 1 || entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] == 4 || entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] == 5 || entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] == 8))
+                                    {
+                                        if (entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 1 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 4 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 5 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 8)
+                                            tujuanInky = 1;
+                                        if (entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 1 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 4 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 5 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 8)
+                                            tujuanInky = 2;
+                                    }
+                                }
+                            }
+                            else if (tujuanInky == 4)
+                            {
+                                if (posisiVertical >= posisiInkyVertical || entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] == 1 || entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] == 4 || entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] == 5 || entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] == 8)
+                                {
+                                    if ((posisiHorizontal - 6) - Math.Abs((posisiHorizontal - 6) - posisiBlinkyHorizontal) > posisiInkyHorizontal && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 1 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 4 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 5 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 8)
+                                        tujuanInky = 1;
+                                    if ((posisiHorizontal + 6) + Math.Abs((posisiHorizontal + 6) - posisiBlinkyHorizontal) <= posisiInkyHorizontal && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 1 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 4 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 5 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 8)
+                                        tujuanInky = 2;
+                                    if (tujuanInky == 4 && (entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] == 1 || entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] == 4 || entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] == 5 || entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] == 8))
+                                    {
+                                        if (entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 1 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 4 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 5 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 8)
+                                            tujuanInky = 1;
+                                        if (entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 1 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 4 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 5 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 8)
+                                            tujuanInky = 2;
+                                    }
                                 }
                             }
                         }
@@ -2089,6 +2164,8 @@ class PacMan
                         if (posisiBlinkyHorizontal == posisiHorizontal && posisiBlinkyVertical == posisiVertical)
                         {
                             tujuanBlinky = 5; //supaya tidak kemana-mana (berhenti)
+                            posisiBlinkyHorizontal = 48;
+                            posisiBlinkyVertical = 13;
                             Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
                             Console.Write(" ");
                             Console.SetCursorPosition(posisiHorizontal, posisiVertical);
@@ -2098,6 +2175,8 @@ class PacMan
                         if (posisiPinkyHorizontal == posisiHorizontal && posisiPinkyVertical == posisiVertical)
                         {
                             tujuanPinky = 5; //supaya tidak kemana-mana (berhenti)
+                            posisiPinkyHorizontal = 50;
+                            posisiPinkyVertical = 13;
                             Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
                             Console.Write(" ");
                             Console.SetCursorPosition(posisiHorizontal, posisiVertical);
@@ -2107,6 +2186,9 @@ class PacMan
                         if (posisiInkyHorizontal == posisiHorizontal && posisiInkyVertical == posisiVertical)
                         {
                             tujuanInky = 5; //supaya tidak kemana-mana (berhenti)
+                            posisiInkyHorizontal = 52;
+                            posisiInkyVertical = 13;
+                            scoreAfter = score;
                             Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
                             Console.Write(" ");
                             Console.SetCursorPosition(posisiHorizontal, posisiVertical);
@@ -2140,6 +2222,7 @@ class PacMan
                             tujuanBlinky = 0;
                             posisiBlinkyHorizontal = 48;
                             posisiBlinkyVertical = 13;
+                            statusBlinky = 0;
                             Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
                             Console.ForegroundColor = ConsoleColor.Red;
                             Console.Write("@");
@@ -2150,8 +2233,9 @@ class PacMan
                             Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
                             Console.Write(" ");
                             tujuanPinky = 0;
-                            posisiPinkyHorizontal = 51;
+                            posisiPinkyHorizontal = 50;
                             posisiPinkyVertical = 13;
+                            statusPinky = 0;
                             Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
                             Console.ForegroundColor = ConsoleColor.Magenta;
                             Console.Write("@");
@@ -2162,8 +2246,9 @@ class PacMan
                             Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
                             Console.Write(" ");
                             tujuanInky = 0;
-                            posisiInkyHorizontal = 54;
+                            posisiInkyHorizontal = 52;
                             posisiInkyVertical = 13;
+                            statusInky = 0;
                             Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
                             Console.ForegroundColor = ConsoleColor.Cyan;
                             Console.Write("@");
