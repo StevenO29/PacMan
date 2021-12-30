@@ -1566,7 +1566,7 @@
         entityPosition[50, 10] = 0;
         entityPosition[50, 11] = 8;
         entityPosition[50, 12] = 0;
-        entityPosition[50, 13] = 5;
+        entityPosition[50, 13] = 0;
         entityPosition[50, 14] = 0;
         entityPosition[50, 15] = 1;
         entityPosition[50, 16] = 0;
@@ -1597,7 +1597,7 @@
         entityPosition[51, 10] = 0;
         entityPosition[51, 11] = 8;
         entityPosition[51, 12] = 0;
-        entityPosition[51, 13] = 0;
+        entityPosition[51, 13] = 5;
         entityPosition[51, 14] = 0;
         entityPosition[51, 15] = 1;
         entityPosition[51, 16] = 2;
@@ -1628,7 +1628,7 @@
         entityPosition[52, 10] = 0;
         entityPosition[52, 11] = 8;
         entityPosition[52, 12] = 0;
-        entityPosition[52, 13] = 6;
+        entityPosition[52, 13] = 0;
         entityPosition[52, 14] = 0;
         entityPosition[52, 15] = 1;
         entityPosition[52, 16] = 0;
@@ -1659,7 +1659,7 @@
         entityPosition[53, 10] = 0;
         entityPosition[53, 11] = 8;
         entityPosition[53, 12] = 0;
-        entityPosition[53, 13] = 0;
+        entityPosition[53, 13] = 6;
         entityPosition[53, 14] = 0;
         entityPosition[53, 15] = 1;
         entityPosition[53, 16] = 0;
