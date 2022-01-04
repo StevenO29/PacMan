@@ -1,6 +1,6 @@
 ﻿using System;
 
-class PacMan
+class Program
 {
     static void Main(string[] args)
     {
@@ -804,7 +804,7 @@ class PacMan
                 }
                 if (tujuanBlinky == 1) //menggerakkan blinky ke kiri
                 {
-                    posisiBlinkyHorizontal -= 3;
+                    posisiBlinkyHorizontal -= 3; 
                     Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.Write("@");

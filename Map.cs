@@ -3,7 +3,7 @@
     public int[,] mapEntity()
     {
         int[,] entityPosition = new int[94, 31];
-        entityPosition[0, 0] = 1; //0 : space, 1 : wall, 2 : food, 3 : pacman, 4 : ghost(blinky), 5 : ghost(pinky), 6 : ghost(inky), 7 : power up
+        entityPosition[0, 0] = 1; //0 : space, 1 : wall, 2 : food, 3 : pacman, 4 : ghost(blinky), 5 : ghost(pinky), 6 : ghost(inky), 7 : power up, 8 : ghost house door
         entityPosition[0, 1] = 1;
         entityPosition[0, 2] = 1;
         entityPosition[0, 3] = 1;
