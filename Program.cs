@@ -127,6 +127,7 @@ class Program
 		Console.SetCursorPosition(0, 32);
 		Console.ForegroundColor = ConsoleColor.White;
 		Console.Write($"Score : {score}");
+		Console.SetBufferSize(0, 33);
 		Console.ForegroundColor = ConsoleColor.White;
 		Console.Write($"Level : {levelPacMan}");
 		ConsoleKey bacaKey = Console.ReadKey(true).Key; //mengecek key yang dipencet
