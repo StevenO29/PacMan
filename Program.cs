@@ -34,7 +34,7 @@ class Program
 		///SetCursorPosition untuk mengganti posisi cursor (by default (0,0))
 		///ForegroundColor untuk mengganti warna character
 		///ReadKey untuk membaca key yang dipencet
-		Console.SetWindowSize(94, 33); //merubah ukuran window sesuai map (hapus ini jika dijalankan dengan mac)
+		Console.SetWindowSize(94, 34); //merubah ukuran window sesuai map (hapus ini jika dijalankan dengan mac)
 		Console.Title = "PacMan";
 		Console.SetCursorPosition(41, 2);
 		Console.ForegroundColor = ConsoleColor.Yellow;
