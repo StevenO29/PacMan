@@ -2,8 +2,9 @@
 
 class Program
 {
-	static void Main(string[] args)
-	{
+    static void Main(string[] args)
+    {
+
         //DECLARE VARIABLE
         int posisiHorizontal = 51;
         int posisiVertical = 22;
@@ -57,15 +58,10 @@ class Program
         Console.ForegroundColor = ConsoleColor.Blue;
         Console.Write("Press ENTER to start....");
         Console.ReadKey();
-        //
+    //
 
-        //CHOOSE STAGE LEVEL PAGE
-        ///Level 1 : Scatter Phase = Blinky (41 steps), Pinky (45 steps), Inky (59 steps)
-        ///Level 1 : Frightened Phase = 40 steps
-        ///Level 2 : Scatter Phase = Blinky (36 steps), Pinky (40 steps), Inky (54 steps)
-        ///Level 2 : Frightened Phase = 35 steps
-        ///Level 3 : Scatter Phase = Blinky (31 steps), Pinky (35 steps), Inky (49 steps)
-        ///Level 3 : Frightened Phase = 30 steps
+    //CHOOSE STAGE LEVEL PAGE
+    stagePage:
         Console.Clear();
         Console.SetCursorPosition(39, 2);
         Console.ForegroundColor = ConsoleColor.Yellow;
@@ -80,7 +76,7 @@ class Program
         Console.ForegroundColor = ConsoleColor.Red;
         Console.Write("3. Level 3");
         ConsoleKey pilihLevel = Console.ReadKey(true).Key;
-        if (pilihLevel == ConsoleKey.NumPad1 || pilihLevel == ConsoleKey.D1)
+        if (pilihLevel == ConsoleKey.D1 || pilihLevel == ConsoleKey.NumPad1)
         {
             //MENCETAK MAP
             ///Clear untuk menghapus INTRO PAGE sebelumnya
@@ -150,7 +146,7 @@ class Program
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write("Level : 1");
             ConsoleKey bacaKey = Console.ReadKey(true).Key; //mengecek key yang dipencet
-            //
+                                                            //
 
             //GAME
             ///Game akan dijalankan selama score < 17900 / semua makanan habis
@@ -1551,7 +1547,8 @@ class Program
                          ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ 
                          ░ ░         ░ ░     ░           ░     ░     ░  ░   ░    
                          ░ ░                           ░                  ░      ");
-                        break;
+                        System.Threading.Thread.Sleep(3000);
+                        goto stagePage;
                     }
                 }
                 if (score == 17900) //Jika semua makanan habis
@@ -1568,8 +1565,9 @@ class Program
             | $$  | $$  | $|  $$$$$$| $$  | $| $$ \  $$          | $$|  $$$$$$|  $$$$$$/
             |__/  |__/  |__/\_______|__/  |__|__/  \__/          |__/ \______/ \______/ 
 
-                              YOU WON LEVEL 1!!! LET'S PLAY VALORANT :D");
-                    break;
+                             YOU WIN THIS GAME!!! LET'S PLAY VALORANT :D");
+                    System.Threading.Thread.Sleep(3000);
+                    goto stagePage;
                 }
                 if (entityPosition[posisiHorizontal, posisiVertical] == 7) //Jika pacman makan power up
                 {
@@ -2337,8 +2335,9 @@ class Program
                         | $$  | $$  | $|  $$$$$$| $$  | $| $$ \  $$          | $$|  $$$$$$|  $$$$$$/
                         |__/  |__/  |__/\_______|__/  |__|__/  \__/          |__/ \______/ \______/ 
 
-                                       YOU WON LEVEL 1!!! LET'S PLAY VALORANT :D");
-                            break;
+                                     YOU WIN THIS GAME!!! LET'S PLAY VALORANT :D");
+                            System.Threading.Thread.Sleep(3000);
+                            goto stagePage;
                         }
                         if ((powerUp == 40 || tujuanBlinky == 5) || (powerUp == 40 || tujuanPinky == 5) || (powerUp == 40 || tujuanInky == 5))
                         {
@@ -2413,7 +2412,7 @@ class Program
                 System.Threading.Thread.Sleep(400);
             }
         }
-        else if (pilihLevel == ConsoleKey.NumPad2 || pilihLevel == ConsoleKey.D2)
+        else if (pilihLevel == ConsoleKey.D2 || pilihLevel == ConsoleKey.NumPad2)
         {
             //MENCETAK MAP
             ///Clear untuk menghapus INTRO PAGE sebelumnya
@@ -3884,7 +3883,8 @@ class Program
                          ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ 
                          ░ ░         ░ ░     ░           ░     ░     ░  ░   ░    
                          ░ ░                           ░                  ░      ");
-                        break;
+                        System.Threading.Thread.Sleep(3000);
+                        goto stagePage;
                     }
                 }
                 if (score == 17900) //Jika semua makanan habis
@@ -3901,8 +3901,9 @@ class Program
             | $$  | $$  | $|  $$$$$$| $$  | $| $$ \  $$          | $$|  $$$$$$|  $$$$$$/
             |__/  |__/  |__/\_______|__/  |__|__/  \__/          |__/ \______/ \______/ 
 
-                              YOU WON LEVEL 2!!! LET'S PLAY VALORANT :D");
-                    break;
+                             YOU WIN THIS GAME!!! LET'S PLAY VALORANT :D");
+                    System.Threading.Thread.Sleep(3000);
+                    goto stagePage;
                 }
                 if (entityPosition[posisiHorizontal, posisiVertical] == 7) //Jika pacman makan power up
                 {
@@ -4670,8 +4671,9 @@ class Program
                         | $$  | $$  | $|  $$$$$$| $$  | $| $$ \  $$          | $$|  $$$$$$|  $$$$$$/
                         |__/  |__/  |__/\_______|__/  |__|__/  \__/          |__/ \______/ \______/ 
 
-                                       YOU WON LEVEL 2!!! LET'S PLAY VALORANT :D");
-                            break;
+                                     YOU WIN THIS GAME!!! LET'S PLAY VALORANT :D");
+                            System.Threading.Thread.Sleep(3000);
+                            goto stagePage;
                         }
                         if ((powerUp == 35 || tujuanBlinky == 5) || (powerUp == 35 || tujuanPinky == 5) || (powerUp == 35 || tujuanInky == 5))
                         {
@@ -4746,7 +4748,7 @@ class Program
                 System.Threading.Thread.Sleep(400);
             }
         }
-        else if (pilihLevel == ConsoleKey.NumPad3 || pilihLevel == ConsoleKey.D3)
+        else if (pilihLevel == ConsoleKey.D3 || pilihLevel == ConsoleKey.NumPad3)
         {
             //MENCETAK MAP
             ///Clear untuk menghapus INTRO PAGE sebelumnya
@@ -6217,7 +6219,8 @@ class Program
                          ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ 
                          ░ ░         ░ ░     ░           ░     ░     ░  ░   ░    
                          ░ ░                           ░                  ░      ");
-                        break;
+                        System.Threading.Thread.Sleep(3000);
+                        goto stagePage;
                     }
                 }
                 if (score == 17900) //Jika semua makanan habis
@@ -6234,8 +6237,9 @@ class Program
             | $$  | $$  | $|  $$$$$$| $$  | $| $$ \  $$          | $$|  $$$$$$|  $$$$$$/
             |__/  |__/  |__/\_______|__/  |__|__/  \__/          |__/ \______/ \______/ 
 
-                              YOU WON LEVEL 3!!! LET'S PLAY VALORANT :D");
-                    break;
+                             YOU WIN THIS GAME!!! LET'S PLAY VALORANT :D");
+                    System.Threading.Thread.Sleep(3000);
+                    goto stagePage;
                 }
                 if (entityPosition[posisiHorizontal, posisiVertical] == 7) //Jika pacman makan power up
                 {
@@ -7003,8 +7007,9 @@ class Program
                         | $$  | $$  | $|  $$$$$$| $$  | $| $$ \  $$          | $$|  $$$$$$|  $$$$$$/
                         |__/  |__/  |__/\_______|__/  |__|__/  \__/          |__/ \______/ \______/ 
 
-                                         YOU WON LEVEL 3!!! LET'S PLAY VALORANT :D");
-                            break;
+                                     YOU WIN THIS GAME!!! LET'S PLAY VALORANT :D");
+                            System.Threading.Thread.Sleep(3000);
+                            goto stagePage;
                         }
                         if ((powerUp == 30 || tujuanBlinky == 5) || (powerUp == 30 || tujuanPinky == 5) || (powerUp == 30 || tujuanInky == 5))
                         {
