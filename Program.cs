@@ -309,6 +309,12 @@ class Program
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
                                 }
+                                else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 8)
+                                {
+                                    Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.White;
+                                    Console.Write("-");
+                                }
                             }
                             else if (entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] == 1)//Jika kanan BLINKY ada wall, jalan ke atas
                             {
@@ -407,7 +413,6 @@ class Program
                                 Console.Write("@");
                                 Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
                                 Console.Write(" ");
-
                                 if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 2)
                                 {
                                     Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
