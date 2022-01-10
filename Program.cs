@@ -4,7 +4,6 @@ class Program
 {
 	static void Main(string[] args)
 	{
-
         //DECLARE VARIABLE
         int posisiHorizontal = 51;
         int posisiVertical = 22;
@@ -61,6 +60,12 @@ class Program
         //
 
         //CHOOSE STAGE LEVEL PAGE
+        ///Level 1 : Scatter Phase = Blinky (41 steps), Pinky (45 steps), Inky (59 steps)
+        ///Level 1 : Frightened Phase = 40 steps
+        ///Level 2 : Scatter Phase = Blinky (36 steps), Pinky (40 steps), Inky (54 steps)
+        ///Level 2 : Frightened Phase = 35 steps
+        ///Level 3 : Scatter Phase = Blinky (31 steps), Pinky (35 steps), Inky (49 steps)
+        ///Level 3 : Frightened Phase = 30 steps
         Console.Clear();
         Console.SetCursorPosition(39, 2);
         Console.ForegroundColor = ConsoleColor.Yellow;
@@ -145,7 +150,7 @@ class Program
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write("Level : 1");
             ConsoleKey bacaKey = Console.ReadKey(true).Key; //mengecek key yang dipencet
-                                                            //
+            //
 
             //GAME
             ///Game akan dijalankan selama score < 17900 / semua makanan habis
