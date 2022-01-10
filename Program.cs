@@ -80,7 +80,7 @@ class Program
         Console.ForegroundColor = ConsoleColor.Red;
         Console.Write("3. Level 3");
         ConsoleKey pilihLevel = Console.ReadKey(true).Key;
-        if (pilihLevel == ConsoleKey.NumPad1)
+        if (pilihLevel == ConsoleKey.NumPad1 || pilihLevel == ConsoleKey.D1)
         {
             //MENCETAK MAP
             ///Clear untuk menghapus INTRO PAGE sebelumnya
@@ -2413,7 +2413,7 @@ class Program
                 System.Threading.Thread.Sleep(400);
             }
         }
-        else if (pilihLevel == ConsoleKey.NumPad2)
+        else if (pilihLevel == ConsoleKey.NumPad2 || pilihLevel == ConsoleKey.D2)
         {
             //MENCETAK MAP
             ///Clear untuk menghapus INTRO PAGE sebelumnya
@@ -4746,7 +4746,7 @@ class Program
                 System.Threading.Thread.Sleep(400);
             }
         }
-        else if (pilihLevel == ConsoleKey.NumPad3)
+        else if (pilihLevel == ConsoleKey.NumPad3 || pilihLevel == ConsoleKey.D3)
         {
             //MENCETAK MAP
             ///Clear untuk menghapus INTRO PAGE sebelumnya
