@@ -1596,7 +1596,7 @@ class Program
                         statusBlinky = 0;
                         statusInky = 0;
                         statusPinky = 0;
-                        livesPacMan = 3;
+                        lifesPacMan = 3;
                         scoreAfter = score;
                         goto stagePage;
                     }
@@ -1654,7 +1654,7 @@ class Program
                     statusBlinky = 0;
                     statusInky = 0;
                     statusPinky = 0;
-                    livesPacMan = 3;
+                    lifesPacMan = 3;
                     score = 0;
                     scoreAfter = score;
                     goto stagePage;
@@ -2464,7 +2464,7 @@ class Program
                             statusBlinky = 0;
                             statusInky = 0;
                             statusPinky = 0;
-                            livesPacMan = 3;
+                            lifesPacMan = 3;
                             score = 0;
                             scoreAfter = score;
                             goto stagePage;
@@ -4057,7 +4057,7 @@ class Program
                         statusBlinky = 0;
                         statusInky = 0;
                         statusPinky = 0;
-                        livesPacMan = 3;
+                        lifesPacMan = 3;
                         scoreAfter = score;
                         goto stagePage;
                     }
@@ -4115,7 +4115,7 @@ class Program
                     statusBlinky = 0;
                     statusInky = 0;
                     statusPinky = 0;
-                    livesPacMan = 3;
+                    lifesPacMan = 3;
                     score = 0;
                     scoreAfter = score;
                     goto stagePage;
@@ -4925,7 +4925,7 @@ class Program
                             statusBlinky = 0;
                             statusInky = 0;
                             statusPinky = 0;
-                            livesPacMan = 3;
+                            lifesPacMan = 3;
                             score = 0;
                             scoreAfter = score;
                             goto stagePage;
@@ -6518,7 +6518,7 @@ class Program
                         statusBlinky = 0;
                         statusInky = 0;
                         statusPinky = 0;
-                        livesPacMan = 3;
+                        lifesPacMan = 3;
                         scoreAfter = score;
                         goto stagePage;
                     }
@@ -6576,7 +6576,7 @@ class Program
                     statusBlinky = 0;
                     statusInky = 0;
                     statusPinky = 0;
-                    livesPacMan = 3;
+                    lifesPacMan = 3;
                     score = 0;
                     scoreAfter = score;
                     goto stagePage;
@@ -7386,7 +7386,7 @@ class Program
                             statusBlinky = 0;
                             statusInky = 0;
                             statusPinky = 0;
-                            livesPacMan = 3;
+                            lifesPacMan = 3;
                             score = 0;
                             scoreAfter = score;
                             goto stagePage;
