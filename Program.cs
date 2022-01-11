@@ -22,7 +22,7 @@ class Program
         int tujuanInky = 0;
         int score = 0;
         int scoreAfter = 0;
-        int livesPacMan = 3;
+        int lifesPacMan = 3;
         //
 
         //INTRO PAGE
@@ -138,7 +138,7 @@ class Program
             }
             Console.SetCursorPosition(0, 31);
             Console.ForegroundColor = ConsoleColor.White;
-            Console.Write($"Lives : {livesPacMan}");
+            Console.Write($"Lifes : {lifesPacMan}");
             Console.SetCursorPosition(0, 32);
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write($"Score : {score}");
@@ -1493,11 +1493,11 @@ class Program
                 //Jika GHOST menabrak PACMAN
                 if ((posisiHorizontal == posisiBlinkyHorizontal && posisiVertical == posisiBlinkyVertical) || (posisiPinkyHorizontal == posisiHorizontal && posisiPinkyVertical == posisiVertical) || (posisiInkyHorizontal == posisiHorizontal && posisiInkyVertical == posisiVertical)) //hantu nabrak pacman (game reset)
                 {
-                    livesPacMan--;
+                    lifesPacMan--;
                     Console.SetCursorPosition(8, 31);
                     Console.ForegroundColor = ConsoleColor.White;
-                    Console.Write(livesPacMan);
-                    if (livesPacMan >= 1) //jika nyawa masih >= 1
+                    Console.Write(lifesPacMan);
+                    if (lifesPacMan >= 1) //jika nyawa masih >= 1
                     {
                         //pacman
                         posisiHorizontal = 51;
@@ -1537,7 +1537,7 @@ class Program
                         statusInky = 0;
                         statusPinky = 0;
                     }
-                    else if (livesPacMan < 1) //Jika nyawa habis
+                    else if (lifesPacMan < 1) //Jika nyawa habis
                     {
                         Console.Clear();
                         Console.ForegroundColor = ConsoleColor.Red;
@@ -2479,7 +2479,7 @@ class Program
             }
             Console.SetCursorPosition(0, 31);
             Console.ForegroundColor = ConsoleColor.White;
-            Console.Write($"Lives : {livesPacMan}");
+            Console.Write($"Lifes : {lifesPacMan}");
             Console.SetCursorPosition(0, 32);
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write($"Score : {score}");
@@ -3829,11 +3829,11 @@ class Program
                 //Jika GHOST menabrak PACMAN
                 if ((posisiHorizontal == posisiBlinkyHorizontal && posisiVertical == posisiBlinkyVertical) || (posisiPinkyHorizontal == posisiHorizontal && posisiPinkyVertical == posisiVertical) || (posisiInkyHorizontal == posisiHorizontal && posisiInkyVertical == posisiVertical)) //hantu nabrak pacman (game reset)
                 {
-                    livesPacMan--;
+                    lifesPacMan--;
                     Console.SetCursorPosition(8, 31);
                     Console.ForegroundColor = ConsoleColor.White;
-                    Console.Write(livesPacMan);
-                    if (livesPacMan >= 1) //jika nyawa masih >= 1
+                    Console.Write(lifesPacMan);
+                    if (lifesPacMan >= 1) //jika nyawa masih >= 1
                     {
                         //pacman
                         posisiHorizontal = 51;
@@ -3873,7 +3873,7 @@ class Program
                         statusInky = 0;
                         statusPinky = 0;
                     }
-                    else if (livesPacMan < 1) //Jika nyawa habis
+                    else if (lifesPacMan < 1) //Jika nyawa habis
                     {
                         Console.Clear();
                         Console.ForegroundColor = ConsoleColor.Red;
@@ -4815,7 +4815,7 @@ class Program
             }
             Console.SetCursorPosition(0, 31);
             Console.ForegroundColor = ConsoleColor.White;
-            Console.Write($"Lives : {livesPacMan}");
+            Console.Write($"Lifes : {lifesPacMan}");
             Console.SetCursorPosition(0, 32);
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write($"Score : {score}");
@@ -6165,11 +6165,11 @@ class Program
                 //Jika GHOST menabrak PACMAN
                 if ((posisiHorizontal == posisiBlinkyHorizontal && posisiVertical == posisiBlinkyVertical) || (posisiPinkyHorizontal == posisiHorizontal && posisiPinkyVertical == posisiVertical) || (posisiInkyHorizontal == posisiHorizontal && posisiInkyVertical == posisiVertical)) //hantu nabrak pacman (game reset)
                 {
-                    livesPacMan--;
+                    lifesPacMan--;
                     Console.SetCursorPosition(8, 31);
                     Console.ForegroundColor = ConsoleColor.White;
-                    Console.Write(livesPacMan);
-                    if (livesPacMan >= 1) //jika nyawa masih >= 1
+                    Console.Write(lifesPacMan);
+                    if (lifesPacMan >= 1) //jika nyawa masih >= 1
                     {
                         //pacman
                         posisiHorizontal = 51;
@@ -6209,7 +6209,7 @@ class Program
                         statusInky = 0;
                         statusPinky = 0;
                     }
-                    else if (livesPacMan < 1) //Jika nyawa habis
+                    else if (lifesPacMan < 1) //Jika nyawa habis
                     {
                         Console.Clear();
                         Console.ForegroundColor = ConsoleColor.Red;
