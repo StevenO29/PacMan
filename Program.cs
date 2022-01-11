@@ -58,10 +58,10 @@ class Program
         Console.ForegroundColor = ConsoleColor.Blue;
         Console.Write("Press ENTER to start....");
         Console.ReadKey();
-    //
+        //
 
-    //CHOOSE STAGE LEVEL PAGE
-    stagePage:
+        //CHOOSE STAGE LEVEL PAGE
+        stagePage:
         Console.Clear();
         Console.SetCursorPosition(39, 2);
         Console.ForegroundColor = ConsoleColor.Yellow;
@@ -69,10 +69,10 @@ class Program
         Console.SetCursorPosition(40, 5);
         Console.ForegroundColor = ConsoleColor.Green;
         Console.Write("1. Level 1");
-        Console.SetCursorPosition(40, 6);
+        Console.SetCursorPosition(40, 7);
         Console.ForegroundColor = ConsoleColor.DarkYellow;
         Console.Write("2. Level 2");
-        Console.SetCursorPosition(40, 7);
+        Console.SetCursorPosition(40, 9);
         Console.ForegroundColor = ConsoleColor.Red;
         Console.Write("3. Level 3");
         ConsoleKey pilihLevel = Console.ReadKey(true).Key;
