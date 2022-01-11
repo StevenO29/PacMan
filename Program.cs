@@ -316,7 +316,7 @@ class Program
                                     Console.Write("-");
                                 }
                             }
-                            else if (entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] == 1)//Jika kanan BLINKY ada wall, jalan ke atas
+                            else if (entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] == 1)//Jika kanan BLINKY ada wall, jalan ke bawah
                             {
                                 posisiBlinkyVertical++;
                                 Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
@@ -381,6 +381,12 @@ class Program
                                 Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
                                 Console.ForegroundColor = ConsoleColor.White;
                                 Console.Write(".");
+                            }
+                            else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 8)
+                            {
+                                Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                                Console.ForegroundColor = ConsoleColor.White;
+                                Console.Write("-");
                             }
                         }
                         else if (entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 1 && posisiBlinkyHorizontal == 90) //Jika bawah BLINKY bukan wall dan posisi BLINKY secara horizontal di 90
@@ -1066,7 +1072,7 @@ class Program
                                 if (entityPosition[posisiPinkyHorizontal, posisiPinkyVertical - 1] != 1 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical - 1] != 4 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical - 1] != 6 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical - 1] != 8)
                                     tujuanPinky = 3;
                                 //Jika bawah PINKY tidak ada halangan, jalan ke bawah
-                                else if (entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 1 || entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 4 || entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 6 || entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 8)
+                                else if (entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 1 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 4 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 6 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 8)
                                     tujuanPinky = 4;
                             }
                         }
@@ -1553,6 +1559,45 @@ class Program
                          ░ ░         ░ ░     ░           ░     ░     ░  ░   ░    
                          ░ ░                           ░                  ░      ");
                         System.Threading.Thread.Sleep(3000);
+                        //pacman
+                        posisiHorizontal = 51;
+                        posisiVertical = 22;
+                        Console.SetCursorPosition(posisiHorizontal, posisiVertical);
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.Write("C");
+                        //blinky
+                        Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
+                        Console.Write(" ");
+                        posisiBlinkyHorizontal = 48;
+                        posisiBlinkyVertical = 10;
+                        tujuanBlinky = 0;
+                        Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write("@");
+                        //pinky
+                        Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
+                        Console.Write(" ");
+                        posisiPinkyHorizontal = 50;
+                        posisiPinkyVertical = 13;
+                        tujuanPinky = 0;
+                        Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        Console.Write("@");
+                        //inky
+                        Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
+                        Console.Write(" ");
+                        posisiInkyHorizontal = 52;
+                        posisiInkyVertical = 13;
+                        tujuanInky = 0;
+                        Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.Write("@");
+                        //status
+                        statusBlinky = 0;
+                        statusInky = 0;
+                        statusPinky = 0;
+                        livesPacMan = 3;
+                        scoreAfter = score;
                         goto stagePage;
                     }
                 }
@@ -1561,17 +1606,57 @@ class Program
                     Console.Clear();
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine(@"
-            /$$$$$$$$/$$                        /$$            /$$     /$$               
-            |__  $$__| $$                       | $$          |  $$   /$$/               
-            | $$  | $$$$$$$  /$$$$$$ /$$$$$$$| $$   /$$       \  $$ /$$/$$$$$$ /$$   /$$
-            | $$  | $$__  $$|____  $| $$__  $| $$  /$$/        \  $$$$/$$__  $| $$  | $$
-            | $$  | $$  \ $$ /$$$$$$| $$  \ $| $$$$$$/          \  $$| $$  \ $| $$  | $$
-            | $$  | $$  | $$/$$__  $| $$  | $| $$_  $$           | $$| $$  | $| $$  | $$
-            | $$  | $$  | $|  $$$$$$| $$  | $| $$ \  $$          | $$|  $$$$$$|  $$$$$$/
-            |__/  |__/  |__/\_______|__/  |__|__/  \__/          |__/ \______/ \______/ 
+              /$$$$$$$$/$$                        /$$             /$$     /$$               
+             |__  $$__| $$                       | $$            |  $$   /$$/               
+                | $$  | $$$$$$$  /$$$$$$ /$$$$$$$| $$   /$$       \  $$ /$$/$$$$$$ /$$   /$$
+                | $$  | $$__  $$|____  $| $$__  $| $$  /$$/        \  $$$$/$$__  $| $$  | $$
+                | $$  | $$  \ $$ /$$$$$$| $$  \ $| $$$$$$/          \  $$| $$  \ $| $$  | $$
+                | $$  | $$  | $$/$$__  $| $$  | $| $$_  $$           | $$| $$  | $| $$  | $$
+                | $$  | $$  | $|  $$$$$$| $$  | $| $$ \  $$          | $$|  $$$$$$|  $$$$$$/
+                |__/  |__/  |__/\_______|__/  |__|__/  \__/          |__/ \______/ \______/ 
 
                              YOU WIN THIS GAME!!! LET'S PLAY VALORANT :D");
                     System.Threading.Thread.Sleep(3000);
+                    //pacman
+                    posisiHorizontal = 51;
+                    posisiVertical = 22;
+                    Console.SetCursorPosition(posisiHorizontal, posisiVertical);
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write("C");
+                    //blinky
+                    Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
+                    Console.Write(" ");
+                    posisiBlinkyHorizontal = 48;
+                    posisiBlinkyVertical = 10;
+                    tujuanBlinky = 0;
+                    Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write("@");
+                    //pinky
+                    Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
+                    Console.Write(" ");
+                    posisiPinkyHorizontal = 50;
+                    posisiPinkyVertical = 13;
+                    tujuanPinky = 0;
+                    Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
+                    Console.ForegroundColor = ConsoleColor.Magenta;
+                    Console.Write("@");
+                    //inky
+                    Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
+                    Console.Write(" ");
+                    posisiInkyHorizontal = 52;
+                    posisiInkyVertical = 13;
+                    tujuanInky = 0;
+                    Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.Write("@");
+                    //status
+                    statusBlinky = 0;
+                    statusInky = 0;
+                    statusPinky = 0;
+                    livesPacMan = 3;
+                    score = 0;
+                    scoreAfter = score;
                     goto stagePage;
                 }
                 if (entityPosition[posisiHorizontal, posisiVertical] == 7) //Jika pacman makan power up
@@ -1849,7 +1934,7 @@ class Program
                                     {
                                         if (entityPosition[posisiPinkyHorizontal, posisiPinkyVertical - 1] != 1 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical - 1] != 4 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical - 1] != 6 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical - 1] != 8)
                                             tujuanPinky = 3;
-                                        else if (entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 1 || entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 4 || entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 6 || entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 8)
+                                        else if (entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 1 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 4 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 6 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 8)
                                             tujuanPinky = 4;
                                     }
                                 }
@@ -2326,22 +2411,62 @@ class Program
                                 Console.Write("C");
                             }
                         }
-                        if (score == 17900) //semua makanan habis
+                        if (score == 17900) //Jika semua makanan habis
                         {
                             Console.Clear();
                             Console.ForegroundColor = ConsoleColor.Yellow;
                             Console.WriteLine(@"
-                    /$$$$$$$$/$$                        /$$            /$$     /$$               
-                    |__  $$__| $$                       | $$          |  $$   /$$/               
-                        | $$  | $$$$$$$  /$$$$$$ /$$$$$$$| $$   /$$       \  $$ /$$/$$$$$$ /$$   /$$
-                        | $$  | $$__  $$|____  $| $$__  $| $$  /$$/        \  $$$$/$$__  $| $$  | $$
-                        | $$  | $$  \ $$ /$$$$$$| $$  \ $| $$$$$$/          \  $$| $$  \ $| $$  | $$
-                        | $$  | $$  | $$/$$__  $| $$  | $| $$_  $$           | $$| $$  | $| $$  | $$
-                        | $$  | $$  | $|  $$$$$$| $$  | $| $$ \  $$          | $$|  $$$$$$|  $$$$$$/
-                        |__/  |__/  |__/\_______|__/  |__|__/  \__/          |__/ \______/ \______/ 
+              /$$$$$$$$/$$                        /$$             /$$     /$$               
+             |__  $$__| $$                       | $$            |  $$   /$$/               
+                | $$  | $$$$$$$  /$$$$$$ /$$$$$$$| $$   /$$       \  $$ /$$/$$$$$$ /$$   /$$
+                | $$  | $$__  $$|____  $| $$__  $| $$  /$$/        \  $$$$/$$__  $| $$  | $$
+                | $$  | $$  \ $$ /$$$$$$| $$  \ $| $$$$$$/          \  $$| $$  \ $| $$  | $$
+                | $$  | $$  | $$/$$__  $| $$  | $| $$_  $$           | $$| $$  | $| $$  | $$
+                | $$  | $$  | $|  $$$$$$| $$  | $| $$ \  $$          | $$|  $$$$$$|  $$$$$$/
+                |__/  |__/  |__/\_______|__/  |__|__/  \__/          |__/ \______/ \______/ 
 
-                                     YOU WIN THIS GAME!!! LET'S PLAY VALORANT :D");
+                             YOU WIN THIS GAME!!! LET'S PLAY VALORANT :D");
                             System.Threading.Thread.Sleep(3000);
+                            //pacman
+                            posisiHorizontal = 51;
+                            posisiVertical = 22;
+                            Console.SetCursorPosition(posisiHorizontal, posisiVertical);
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.Write("C");
+                            //blinky
+                            Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
+                            Console.Write(" ");
+                            posisiBlinkyHorizontal = 48;
+                            posisiBlinkyVertical = 10;
+                            tujuanBlinky = 0;
+                            Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.Write("@");
+                            //pinky
+                            Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
+                            Console.Write(" ");
+                            posisiPinkyHorizontal = 50;
+                            posisiPinkyVertical = 13;
+                            tujuanPinky = 0;
+                            Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
+                            Console.ForegroundColor = ConsoleColor.Magenta;
+                            Console.Write("@");
+                            //inky
+                            Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
+                            Console.Write(" ");
+                            posisiInkyHorizontal = 52;
+                            posisiInkyVertical = 13;
+                            tujuanInky = 0;
+                            Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
+                            Console.ForegroundColor = ConsoleColor.Cyan;
+                            Console.Write("@");
+                            //status
+                            statusBlinky = 0;
+                            statusInky = 0;
+                            statusPinky = 0;
+                            livesPacMan = 3;
+                            score = 0;
+                            scoreAfter = score;
                             goto stagePage;
                         }
                         if ((powerUp == 40 || tujuanBlinky == 5) || (powerUp == 40 || tujuanPinky == 5) || (powerUp == 40 || tujuanInky == 5))
@@ -2716,6 +2841,12 @@ class Program
                                 Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
                                 Console.ForegroundColor = ConsoleColor.White;
                                 Console.Write(".");
+                            }
+                            else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 8)
+                            {
+                                Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                                Console.ForegroundColor = ConsoleColor.White;
+                                Console.Write("-");
                             }
                         }
                         else if (entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 1 && posisiBlinkyHorizontal == 90) //Jika bawah BLINKY bukan wall dan posisi BLINKY secara horizontal di 90
@@ -3402,7 +3533,7 @@ class Program
                                 if (entityPosition[posisiPinkyHorizontal, posisiPinkyVertical - 1] != 1 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical - 1] != 4 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical - 1] != 6 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical - 1] != 8)
                                     tujuanPinky = 3;
                                 //Jika bawah PINKY tidak ada halangan, jalan ke bawah
-                                else if (entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 1 || entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 4 || entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 6 || entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 8)
+                                else if (entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 1 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 4 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 6 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 8)
                                     tujuanPinky = 4;
                             }
                         }
@@ -3889,6 +4020,45 @@ class Program
                          ░ ░         ░ ░     ░           ░     ░     ░  ░   ░    
                          ░ ░                           ░                  ░      ");
                         System.Threading.Thread.Sleep(3000);
+                        //pacman
+                        posisiHorizontal = 51;
+                        posisiVertical = 22;
+                        Console.SetCursorPosition(posisiHorizontal, posisiVertical);
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.Write("C");
+                        //blinky
+                        Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
+                        Console.Write(" ");
+                        posisiBlinkyHorizontal = 48;
+                        posisiBlinkyVertical = 10;
+                        tujuanBlinky = 0;
+                        Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write("@");
+                        //pinky
+                        Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
+                        Console.Write(" ");
+                        posisiPinkyHorizontal = 50;
+                        posisiPinkyVertical = 13;
+                        tujuanPinky = 0;
+                        Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        Console.Write("@");
+                        //inky
+                        Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
+                        Console.Write(" ");
+                        posisiInkyHorizontal = 52;
+                        posisiInkyVertical = 13;
+                        tujuanInky = 0;
+                        Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.Write("@");
+                        //status
+                        statusBlinky = 0;
+                        statusInky = 0;
+                        statusPinky = 0;
+                        livesPacMan = 3;
+                        scoreAfter = score;
                         goto stagePage;
                     }
                 }
@@ -3897,17 +4067,57 @@ class Program
                     Console.Clear();
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine(@"
-            /$$$$$$$$/$$                        /$$            /$$     /$$               
-            |__  $$__| $$                       | $$          |  $$   /$$/               
-            | $$  | $$$$$$$  /$$$$$$ /$$$$$$$| $$   /$$       \  $$ /$$/$$$$$$ /$$   /$$
-            | $$  | $$__  $$|____  $| $$__  $| $$  /$$/        \  $$$$/$$__  $| $$  | $$
-            | $$  | $$  \ $$ /$$$$$$| $$  \ $| $$$$$$/          \  $$| $$  \ $| $$  | $$
-            | $$  | $$  | $$/$$__  $| $$  | $| $$_  $$           | $$| $$  | $| $$  | $$
-            | $$  | $$  | $|  $$$$$$| $$  | $| $$ \  $$          | $$|  $$$$$$|  $$$$$$/
-            |__/  |__/  |__/\_______|__/  |__|__/  \__/          |__/ \______/ \______/ 
+              /$$$$$$$$/$$                        /$$             /$$     /$$               
+             |__  $$__| $$                       | $$            |  $$   /$$/               
+                | $$  | $$$$$$$  /$$$$$$ /$$$$$$$| $$   /$$       \  $$ /$$/$$$$$$ /$$   /$$
+                | $$  | $$__  $$|____  $| $$__  $| $$  /$$/        \  $$$$/$$__  $| $$  | $$
+                | $$  | $$  \ $$ /$$$$$$| $$  \ $| $$$$$$/          \  $$| $$  \ $| $$  | $$
+                | $$  | $$  | $$/$$__  $| $$  | $| $$_  $$           | $$| $$  | $| $$  | $$
+                | $$  | $$  | $|  $$$$$$| $$  | $| $$ \  $$          | $$|  $$$$$$|  $$$$$$/
+                |__/  |__/  |__/\_______|__/  |__|__/  \__/          |__/ \______/ \______/ 
 
                              YOU WIN THIS GAME!!! LET'S PLAY VALORANT :D");
                     System.Threading.Thread.Sleep(3000);
+                    //pacman
+                    posisiHorizontal = 51;
+                    posisiVertical = 22;
+                    Console.SetCursorPosition(posisiHorizontal, posisiVertical);
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write("C");
+                    //blinky
+                    Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
+                    Console.Write(" ");
+                    posisiBlinkyHorizontal = 48;
+                    posisiBlinkyVertical = 10;
+                    tujuanBlinky = 0;
+                    Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write("@");
+                    //pinky
+                    Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
+                    Console.Write(" ");
+                    posisiPinkyHorizontal = 50;
+                    posisiPinkyVertical = 13;
+                    tujuanPinky = 0;
+                    Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
+                    Console.ForegroundColor = ConsoleColor.Magenta;
+                    Console.Write("@");
+                    //inky
+                    Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
+                    Console.Write(" ");
+                    posisiInkyHorizontal = 52;
+                    posisiInkyVertical = 13;
+                    tujuanInky = 0;
+                    Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.Write("@");
+                    //status
+                    statusBlinky = 0;
+                    statusInky = 0;
+                    statusPinky = 0;
+                    livesPacMan = 3;
+                    score = 0;
+                    scoreAfter = score;
                     goto stagePage;
                 }
                 if (entityPosition[posisiHorizontal, posisiVertical] == 7) //Jika pacman makan power up
@@ -4185,7 +4395,7 @@ class Program
                                     {
                                         if (entityPosition[posisiPinkyHorizontal, posisiPinkyVertical - 1] != 1 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical - 1] != 4 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical - 1] != 6 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical - 1] != 8)
                                             tujuanPinky = 3;
-                                        else if (entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 1 || entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 4 || entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 6 || entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 8)
+                                        else if (entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 1 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 4 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 6 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 8)
                                             tujuanPinky = 4;
                                     }
                                 }
@@ -4662,22 +4872,62 @@ class Program
                                 Console.Write("C");
                             }
                         }
-                        if (score == 17900) //semua makanan habis
+                        if (score == 17900) //Jika semua makanan habis
                         {
                             Console.Clear();
                             Console.ForegroundColor = ConsoleColor.Yellow;
                             Console.WriteLine(@"
-                    /$$$$$$$$/$$                        /$$            /$$     /$$               
-                    |__  $$__| $$                       | $$          |  $$   /$$/               
-                        | $$  | $$$$$$$  /$$$$$$ /$$$$$$$| $$   /$$       \  $$ /$$/$$$$$$ /$$   /$$
-                        | $$  | $$__  $$|____  $| $$__  $| $$  /$$/        \  $$$$/$$__  $| $$  | $$
-                        | $$  | $$  \ $$ /$$$$$$| $$  \ $| $$$$$$/          \  $$| $$  \ $| $$  | $$
-                        | $$  | $$  | $$/$$__  $| $$  | $| $$_  $$           | $$| $$  | $| $$  | $$
-                        | $$  | $$  | $|  $$$$$$| $$  | $| $$ \  $$          | $$|  $$$$$$|  $$$$$$/
-                        |__/  |__/  |__/\_______|__/  |__|__/  \__/          |__/ \______/ \______/ 
+              /$$$$$$$$/$$                        /$$             /$$     /$$               
+             |__  $$__| $$                       | $$            |  $$   /$$/               
+                | $$  | $$$$$$$  /$$$$$$ /$$$$$$$| $$   /$$       \  $$ /$$/$$$$$$ /$$   /$$
+                | $$  | $$__  $$|____  $| $$__  $| $$  /$$/        \  $$$$/$$__  $| $$  | $$
+                | $$  | $$  \ $$ /$$$$$$| $$  \ $| $$$$$$/          \  $$| $$  \ $| $$  | $$
+                | $$  | $$  | $$/$$__  $| $$  | $| $$_  $$           | $$| $$  | $| $$  | $$
+                | $$  | $$  | $|  $$$$$$| $$  | $| $$ \  $$          | $$|  $$$$$$|  $$$$$$/
+                |__/  |__/  |__/\_______|__/  |__|__/  \__/          |__/ \______/ \______/ 
 
-                                     YOU WIN THIS GAME!!! LET'S PLAY VALORANT :D");
+                             YOU WIN THIS GAME!!! LET'S PLAY VALORANT :D");
                             System.Threading.Thread.Sleep(3000);
+                            //pacman
+                            posisiHorizontal = 51;
+                            posisiVertical = 22;
+                            Console.SetCursorPosition(posisiHorizontal, posisiVertical);
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.Write("C");
+                            //blinky
+                            Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
+                            Console.Write(" ");
+                            posisiBlinkyHorizontal = 48;
+                            posisiBlinkyVertical = 10;
+                            tujuanBlinky = 0;
+                            Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.Write("@");
+                            //pinky
+                            Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
+                            Console.Write(" ");
+                            posisiPinkyHorizontal = 50;
+                            posisiPinkyVertical = 13;
+                            tujuanPinky = 0;
+                            Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
+                            Console.ForegroundColor = ConsoleColor.Magenta;
+                            Console.Write("@");
+                            //inky
+                            Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
+                            Console.Write(" ");
+                            posisiInkyHorizontal = 52;
+                            posisiInkyVertical = 13;
+                            tujuanInky = 0;
+                            Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
+                            Console.ForegroundColor = ConsoleColor.Cyan;
+                            Console.Write("@");
+                            //status
+                            statusBlinky = 0;
+                            statusInky = 0;
+                            statusPinky = 0;
+                            livesPacMan = 3;
+                            score = 0;
+                            scoreAfter = score;
                             goto stagePage;
                         }
                         if ((powerUp == 35 || tujuanBlinky == 5) || (powerUp == 35 || tujuanPinky == 5) || (powerUp == 35 || tujuanInky == 5))
@@ -5052,6 +5302,12 @@ class Program
                                 Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
                                 Console.ForegroundColor = ConsoleColor.White;
                                 Console.Write(".");
+                            }
+                            else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 8)
+                            {
+                                Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                                Console.ForegroundColor = ConsoleColor.White;
+                                Console.Write("-");
                             }
                         }
                         else if (entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 1 && posisiBlinkyHorizontal == 90) //Jika bawah BLINKY bukan wall dan posisi BLINKY secara horizontal di 90
@@ -5738,7 +5994,7 @@ class Program
                                 if (entityPosition[posisiPinkyHorizontal, posisiPinkyVertical - 1] != 1 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical - 1] != 4 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical - 1] != 6 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical - 1] != 8)
                                     tujuanPinky = 3;
                                 //Jika bawah PINKY tidak ada halangan, jalan ke bawah
-                                else if (entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 1 || entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 4 || entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 6 || entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 8)
+                                else if (entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 1 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 4 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 6 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 8)
                                     tujuanPinky = 4;
                             }
                         }
@@ -6225,6 +6481,45 @@ class Program
                          ░ ░         ░ ░     ░           ░     ░     ░  ░   ░    
                          ░ ░                           ░                  ░      ");
                         System.Threading.Thread.Sleep(3000);
+                        //pacman
+                        posisiHorizontal = 51;
+                        posisiVertical = 22;
+                        Console.SetCursorPosition(posisiHorizontal, posisiVertical);
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.Write("C");
+                        //blinky
+                        Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
+                        Console.Write(" ");
+                        posisiBlinkyHorizontal = 48;
+                        posisiBlinkyVertical = 10;
+                        tujuanBlinky = 0;
+                        Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write("@");
+                        //pinky
+                        Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
+                        Console.Write(" ");
+                        posisiPinkyHorizontal = 50;
+                        posisiPinkyVertical = 13;
+                        tujuanPinky = 0;
+                        Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        Console.Write("@");
+                        //inky
+                        Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
+                        Console.Write(" ");
+                        posisiInkyHorizontal = 52;
+                        posisiInkyVertical = 13;
+                        tujuanInky = 0;
+                        Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.Write("@");
+                        //status
+                        statusBlinky = 0;
+                        statusInky = 0;
+                        statusPinky = 0;
+                        livesPacMan = 3;
+                        scoreAfter = score;
                         goto stagePage;
                     }
                 }
@@ -6233,17 +6528,57 @@ class Program
                     Console.Clear();
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine(@"
-            /$$$$$$$$/$$                        /$$            /$$     /$$               
-            |__  $$__| $$                       | $$          |  $$   /$$/               
-            | $$  | $$$$$$$  /$$$$$$ /$$$$$$$| $$   /$$       \  $$ /$$/$$$$$$ /$$   /$$
-            | $$  | $$__  $$|____  $| $$__  $| $$  /$$/        \  $$$$/$$__  $| $$  | $$
-            | $$  | $$  \ $$ /$$$$$$| $$  \ $| $$$$$$/          \  $$| $$  \ $| $$  | $$
-            | $$  | $$  | $$/$$__  $| $$  | $| $$_  $$           | $$| $$  | $| $$  | $$
-            | $$  | $$  | $|  $$$$$$| $$  | $| $$ \  $$          | $$|  $$$$$$|  $$$$$$/
-            |__/  |__/  |__/\_______|__/  |__|__/  \__/          |__/ \______/ \______/ 
+              /$$$$$$$$/$$                        /$$             /$$     /$$               
+             |__  $$__| $$                       | $$            |  $$   /$$/               
+                | $$  | $$$$$$$  /$$$$$$ /$$$$$$$| $$   /$$       \  $$ /$$/$$$$$$ /$$   /$$
+                | $$  | $$__  $$|____  $| $$__  $| $$  /$$/        \  $$$$/$$__  $| $$  | $$
+                | $$  | $$  \ $$ /$$$$$$| $$  \ $| $$$$$$/          \  $$| $$  \ $| $$  | $$
+                | $$  | $$  | $$/$$__  $| $$  | $| $$_  $$           | $$| $$  | $| $$  | $$
+                | $$  | $$  | $|  $$$$$$| $$  | $| $$ \  $$          | $$|  $$$$$$|  $$$$$$/
+                |__/  |__/  |__/\_______|__/  |__|__/  \__/          |__/ \______/ \______/ 
 
                              YOU WIN THIS GAME!!! LET'S PLAY VALORANT :D");
                     System.Threading.Thread.Sleep(3000);
+                    //pacman
+                    posisiHorizontal = 51;
+                    posisiVertical = 22;
+                    Console.SetCursorPosition(posisiHorizontal, posisiVertical);
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write("C");
+                    //blinky
+                    Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
+                    Console.Write(" ");
+                    posisiBlinkyHorizontal = 48;
+                    posisiBlinkyVertical = 10;
+                    tujuanBlinky = 0;
+                    Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write("@");
+                    //pinky
+                    Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
+                    Console.Write(" ");
+                    posisiPinkyHorizontal = 50;
+                    posisiPinkyVertical = 13;
+                    tujuanPinky = 0;
+                    Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
+                    Console.ForegroundColor = ConsoleColor.Magenta;
+                    Console.Write("@");
+                    //inky
+                    Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
+                    Console.Write(" ");
+                    posisiInkyHorizontal = 52;
+                    posisiInkyVertical = 13;
+                    tujuanInky = 0;
+                    Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.Write("@");
+                    //status
+                    statusBlinky = 0;
+                    statusInky = 0;
+                    statusPinky = 0;
+                    livesPacMan = 3;
+                    score = 0;
+                    scoreAfter = score;
                     goto stagePage;
                 }
                 if (entityPosition[posisiHorizontal, posisiVertical] == 7) //Jika pacman makan power up
@@ -6521,7 +6856,7 @@ class Program
                                     {
                                         if (entityPosition[posisiPinkyHorizontal, posisiPinkyVertical - 1] != 1 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical - 1] != 4 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical - 1] != 6 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical - 1] != 8)
                                             tujuanPinky = 3;
-                                        else if (entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 1 || entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 4 || entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 6 || entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 8)
+                                        else if (entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 1 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 4 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 6 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 8)
                                             tujuanPinky = 4;
                                     }
                                 }
@@ -6998,22 +7333,62 @@ class Program
                                 Console.Write("C");
                             }
                         }
-                        if (score == 17900) //semua makanan habis
+                        if (score == 17900) //Jika semua makanan habis
                         {
                             Console.Clear();
                             Console.ForegroundColor = ConsoleColor.Yellow;
                             Console.WriteLine(@"
-                    /$$$$$$$$/$$                        /$$            /$$     /$$               
-                    |__  $$__| $$                       | $$          |  $$   /$$/               
-                        | $$  | $$$$$$$  /$$$$$$ /$$$$$$$| $$   /$$       \  $$ /$$/$$$$$$ /$$   /$$
-                        | $$  | $$__  $$|____  $| $$__  $| $$  /$$/        \  $$$$/$$__  $| $$  | $$
-                        | $$  | $$  \ $$ /$$$$$$| $$  \ $| $$$$$$/          \  $$| $$  \ $| $$  | $$
-                        | $$  | $$  | $$/$$__  $| $$  | $| $$_  $$           | $$| $$  | $| $$  | $$
-                        | $$  | $$  | $|  $$$$$$| $$  | $| $$ \  $$          | $$|  $$$$$$|  $$$$$$/
-                        |__/  |__/  |__/\_______|__/  |__|__/  \__/          |__/ \______/ \______/ 
+              /$$$$$$$$/$$                        /$$             /$$     /$$               
+             |__  $$__| $$                       | $$            |  $$   /$$/               
+                | $$  | $$$$$$$  /$$$$$$ /$$$$$$$| $$   /$$       \  $$ /$$/$$$$$$ /$$   /$$
+                | $$  | $$__  $$|____  $| $$__  $| $$  /$$/        \  $$$$/$$__  $| $$  | $$
+                | $$  | $$  \ $$ /$$$$$$| $$  \ $| $$$$$$/          \  $$| $$  \ $| $$  | $$
+                | $$  | $$  | $$/$$__  $| $$  | $| $$_  $$           | $$| $$  | $| $$  | $$
+                | $$  | $$  | $|  $$$$$$| $$  | $| $$ \  $$          | $$|  $$$$$$|  $$$$$$/
+                |__/  |__/  |__/\_______|__/  |__|__/  \__/          |__/ \______/ \______/ 
 
-                                     YOU WIN THIS GAME!!! LET'S PLAY VALORANT :D");
+                             YOU WIN THIS GAME!!! LET'S PLAY VALORANT :D");
                             System.Threading.Thread.Sleep(3000);
+                            //pacman
+                            posisiHorizontal = 51;
+                            posisiVertical = 22;
+                            Console.SetCursorPosition(posisiHorizontal, posisiVertical);
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.Write("C");
+                            //blinky
+                            Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
+                            Console.Write(" ");
+                            posisiBlinkyHorizontal = 48;
+                            posisiBlinkyVertical = 10;
+                            tujuanBlinky = 0;
+                            Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.Write("@");
+                            //pinky
+                            Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
+                            Console.Write(" ");
+                            posisiPinkyHorizontal = 50;
+                            posisiPinkyVertical = 13;
+                            tujuanPinky = 0;
+                            Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
+                            Console.ForegroundColor = ConsoleColor.Magenta;
+                            Console.Write("@");
+                            //inky
+                            Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
+                            Console.Write(" ");
+                            posisiInkyHorizontal = 52;
+                            posisiInkyVertical = 13;
+                            tujuanInky = 0;
+                            Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
+                            Console.ForegroundColor = ConsoleColor.Cyan;
+                            Console.Write("@");
+                            //status
+                            statusBlinky = 0;
+                            statusInky = 0;
+                            statusPinky = 0;
+                            livesPacMan = 3;
+                            score = 0;
+                            scoreAfter = score;
                             goto stagePage;
                         }
                         if ((powerUp == 30 || tujuanBlinky == 5) || (powerUp == 30 || tujuanPinky == 5) || (powerUp == 30 || tujuanInky == 5))
