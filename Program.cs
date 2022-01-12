@@ -4,7 +4,6 @@ class Program
 {
     static void Main(string[] args)
     {
-
         //DECLARE VARIABLE
         int posisiHorizontal = 51;
         int posisiVertical = 22;
@@ -58,10 +57,10 @@ class Program
         Console.ForegroundColor = ConsoleColor.Blue;
         Console.Write("Press ENTER to start....");
         Console.ReadKey();
-    //
+        //
 
-    //CHOOSE STAGE LEVEL PAGE
-    stagePage:
+        //CHOOSE STAGE LEVEL PAGE
+        stagePage:
         Console.Clear();
         Console.SetCursorPosition(39, 2);
         Console.ForegroundColor = ConsoleColor.Yellow;
@@ -76,14 +75,16 @@ class Program
         Console.ForegroundColor = ConsoleColor.Red;
         Console.Write("3. Level 3");
         ConsoleKey pilihLevel = Console.ReadKey(true).Key;
+        //
 
-        //pacman
+        //Declare ulang untuk mereset game
+        ///pacman
         posisiHorizontal = 51;
         posisiVertical = 22;
         Console.SetCursorPosition(posisiHorizontal, posisiVertical);
         Console.ForegroundColor = ConsoleColor.Yellow;
         Console.Write("C");
-        //blinky
+        ///blinky
         Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
         Console.Write(" ");
         posisiBlinkyHorizontal = 48;
@@ -92,7 +93,7 @@ class Program
         Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
         Console.ForegroundColor = ConsoleColor.Red;
         Console.Write("@");
-        //pinky
+        ///pinky
         Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
         Console.Write(" ");
         posisiPinkyHorizontal = 50;
@@ -101,7 +102,7 @@ class Program
         Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
         Console.ForegroundColor = ConsoleColor.Magenta;
         Console.Write("@");
-        //inky
+        ///inky
         Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
         Console.Write(" ");
         posisiInkyHorizontal = 52;
@@ -110,14 +111,16 @@ class Program
         Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
         Console.ForegroundColor = ConsoleColor.Cyan;
         Console.Write("@");
-        //status
+        ///status
         statusBlinky = 0;
         statusInky = 0;
         statusPinky = 0;
         lifesPacMan = 3;
         score = 0;
         scoreAfter = score;
-
+        //
+        
+        //GAME
         if (pilihLevel == ConsoleKey.D1 || pilihLevel == ConsoleKey.NumPad1)
         {
             //MENCETAK MAP
