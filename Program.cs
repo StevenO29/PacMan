@@ -4,7 +4,6 @@ class Program
 {
     static void Main(string[] args)
     {
-
         //DECLARE VARIABLE
         int posisiHorizontal = 51;
         int posisiVertical = 22;
@@ -21,7 +20,6 @@ class Program
         int tujuanPinky = 0;
         int tujuanInky = 0;
         int score = 0;
-        int scoreAfter = 0;
         int lifesPacMan = 3;
         //
 
@@ -75,15 +73,22 @@ class Program
         Console.SetCursorPosition(40, 9);
         Console.ForegroundColor = ConsoleColor.Red;
         Console.Write("3. Level 3");
+        Console.SetCursorPosition(42, 12);
+        Console.BackgroundColor = ConsoleColor.Red;
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.Write("4. Exit");
+        Console.BackgroundColor = ConsoleColor.Black; //mengembalikan warna background jadi semula
         ConsoleKey pilihLevel = Console.ReadKey(true).Key;
+        //
 
-        //pacman
+        //Declare ulang untuk mereset game
+        ///pacman
         posisiHorizontal = 51;
         posisiVertical = 22;
         Console.SetCursorPosition(posisiHorizontal, posisiVertical);
         Console.ForegroundColor = ConsoleColor.Yellow;
         Console.Write("C");
-        //blinky
+        ///blinky
         Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
         Console.Write(" ");
         posisiBlinkyHorizontal = 48;
@@ -92,7 +97,7 @@ class Program
         Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
         Console.ForegroundColor = ConsoleColor.Red;
         Console.Write("@");
-        //pinky
+        ///pinky
         Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
         Console.Write(" ");
         posisiPinkyHorizontal = 50;
@@ -101,7 +106,7 @@ class Program
         Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
         Console.ForegroundColor = ConsoleColor.Magenta;
         Console.Write("@");
-        //inky
+        ///inky
         Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
         Console.Write(" ");
         posisiInkyHorizontal = 52;
@@ -110,14 +115,15 @@ class Program
         Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
         Console.ForegroundColor = ConsoleColor.Cyan;
         Console.Write("@");
-        //status
+        ///status
         statusBlinky = 0;
         statusInky = 0;
         statusPinky = 0;
         lifesPacMan = 3;
         score = 0;
-        scoreAfter = score;
+        //
 
+        //GAME
         if (pilihLevel == ConsoleKey.D1 || pilihLevel == ConsoleKey.NumPad1)
         {
             //MENCETAK MAP
@@ -656,7 +662,7 @@ class Program
                     }
                     statusPinky++;
                 }
-                if (score - scoreAfter >= 1500)
+                if (score >= 1500)
                 {
                     //scatter inky
                     if (statusInky <= 59) //INKY jalan sebanyak 59 steps
@@ -1318,7 +1324,7 @@ class Program
                         }
                     }
                 }
-                if (score - scoreAfter >= 1500) //Supaya INKY keluar setelah PACMAN makan 30 food
+                if (score >= 1500) //Supaya INKY keluar setelah PACMAN makan 30 food
                 {
                     //chase inky
                     if (statusInky > 59)
@@ -2426,7 +2432,6 @@ class Program
                                 tujuanInky = 5; //supaya tidak kemana-mana (berhenti)
                                 posisiInkyHorizontal = 52;
                                 posisiInkyVertical = 13;
-                                scoreAfter = score;
                                 Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
                                 Console.Write(" ");
                                 Console.SetCursorPosition(posisiHorizontal, posisiVertical);
@@ -3058,7 +3063,7 @@ class Program
                     }
                     statusPinky++;
                 }
-                if (score - scoreAfter >= 1500)
+                if (score >= 1500)
                 {
                     //scatter inky
                     if (statusInky <= 54) //INKY jalan sebanyak 54 steps
@@ -3720,7 +3725,7 @@ class Program
                         }
                     }
                 }
-                if (score - scoreAfter >= 1500) //Supaya INKY keluar setelah PACMAN makan 30 food
+                if (score >= 1500) //Supaya INKY keluar setelah PACMAN makan 30 food
                 {
                     //chase inky
                     if (statusInky > 54)
@@ -4828,7 +4833,6 @@ class Program
                                 tujuanInky = 5; //supaya tidak kemana-mana (berhenti)
                                 posisiInkyHorizontal = 52;
                                 posisiInkyVertical = 13;
-                                scoreAfter = score;
                                 Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
                                 Console.Write(" ");
                                 Console.SetCursorPosition(posisiHorizontal, posisiVertical);
@@ -5460,7 +5464,7 @@ class Program
                     }
                     statusPinky++;
                 }
-                if (score - scoreAfter >= 1500)
+                if (score >= 1500)
                 {
                     //scatter inky
                     if (statusInky <= 49) //INKY jalan sebanyak 49 steps
@@ -6122,7 +6126,7 @@ class Program
                         }
                     }
                 }
-                if (score - scoreAfter >= 1500) //Supaya INKY keluar setelah PACMAN makan 30 food
+                if (score >= 1500) //Supaya INKY keluar setelah PACMAN makan 30 food
                 {
                     //chase inky
                     if (statusInky > 49)
@@ -7230,7 +7234,6 @@ class Program
                                 tujuanInky = 5; //supaya tidak kemana-mana (berhenti)
                                 posisiInkyHorizontal = 52;
                                 posisiInkyVertical = 13;
-                                scoreAfter = score;
                                 Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
                                 Console.Write(" ");
                                 Console.SetCursorPosition(posisiHorizontal, posisiVertical);
@@ -7329,5 +7332,7 @@ class Program
                 System.Threading.Thread.Sleep(400);
             }
         }
+        else if (pilihLevel == ConsoleKey.D4 || pilihLevel == ConsoleKey.NumPad4)
+            System.Environment.Exit(0);
     }
 }
