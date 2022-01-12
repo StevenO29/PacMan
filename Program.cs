@@ -4,7 +4,6 @@ class Program
 {
     static void Main(string[] args)
     {
-
         //DECLARE VARIABLE
         int posisiHorizontal = 51;
         int posisiVertical = 22;
@@ -62,6 +61,9 @@ class Program
 
         //CHOOSE STAGE LEVEL PAGE
         stagePage:
+        score = 0;
+        scoreAfter = 0;
+        lifesPacMan = 3;
         Console.Clear();
         Console.SetCursorPosition(39, 2);
         Console.ForegroundColor = ConsoleColor.Yellow;
