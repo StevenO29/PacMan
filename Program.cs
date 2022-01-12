@@ -20,7 +20,6 @@ class Program
         int tujuanPinky = 0;
         int tujuanInky = 0;
         int score = 0;
-        int scoreAfter = 0;
         int lifesPacMan = 3;
         //
 
@@ -57,10 +56,10 @@ class Program
         Console.ForegroundColor = ConsoleColor.Blue;
         Console.Write("Press ENTER to start....");
         Console.ReadKey();
-        //
+    //
 
-        //CHOOSE STAGE LEVEL PAGE
-        stagePage:
+    //CHOOSE STAGE LEVEL PAGE
+    stagePage:
         Console.Clear();
         Console.SetCursorPosition(39, 2);
         Console.ForegroundColor = ConsoleColor.Yellow;
@@ -78,6 +77,7 @@ class Program
         Console.BackgroundColor = ConsoleColor.Red;
         Console.ForegroundColor = ConsoleColor.White;
         Console.Write("4. Exit");
+        Console.BackgroundColor = ConsoleColor.Black; //mengembalikan warna background jadi semula
         ConsoleKey pilihLevel = Console.ReadKey(true).Key;
         //
 
@@ -121,9 +121,8 @@ class Program
         statusPinky = 0;
         lifesPacMan = 3;
         score = 0;
-        scoreAfter = score;
         //
-        
+
         //GAME
         if (pilihLevel == ConsoleKey.D1 || pilihLevel == ConsoleKey.NumPad1)
         {
@@ -663,7 +662,7 @@ class Program
                     }
                     statusPinky++;
                 }
-                if (score - scoreAfter >= 1500)
+                if (score >= 1500)
                 {
                     //scatter inky
                     if (statusInky <= 59) //INKY jalan sebanyak 59 steps
@@ -1325,7 +1324,7 @@ class Program
                         }
                     }
                 }
-                if (score - scoreAfter >= 1500) //Supaya INKY keluar setelah PACMAN makan 30 food
+                if (score >= 1500) //Supaya INKY keluar setelah PACMAN makan 30 food
                 {
                     //chase inky
                     if (statusInky > 59)
@@ -2433,7 +2432,6 @@ class Program
                                 tujuanInky = 5; //supaya tidak kemana-mana (berhenti)
                                 posisiInkyHorizontal = 52;
                                 posisiInkyVertical = 13;
-                                scoreAfter = score;
                                 Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
                                 Console.Write(" ");
                                 Console.SetCursorPosition(posisiHorizontal, posisiVertical);
@@ -3065,7 +3063,7 @@ class Program
                     }
                     statusPinky++;
                 }
-                if (score - scoreAfter >= 1500)
+                if (score >= 1500)
                 {
                     //scatter inky
                     if (statusInky <= 54) //INKY jalan sebanyak 54 steps
@@ -3727,7 +3725,7 @@ class Program
                         }
                     }
                 }
-                if (score - scoreAfter >= 1500) //Supaya INKY keluar setelah PACMAN makan 30 food
+                if (score >= 1500) //Supaya INKY keluar setelah PACMAN makan 30 food
                 {
                     //chase inky
                     if (statusInky > 54)
@@ -4835,7 +4833,6 @@ class Program
                                 tujuanInky = 5; //supaya tidak kemana-mana (berhenti)
                                 posisiInkyHorizontal = 52;
                                 posisiInkyVertical = 13;
-                                scoreAfter = score;
                                 Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
                                 Console.Write(" ");
                                 Console.SetCursorPosition(posisiHorizontal, posisiVertical);
@@ -5467,7 +5464,7 @@ class Program
                     }
                     statusPinky++;
                 }
-                if (score - scoreAfter >= 1500)
+                if (score >= 1500)
                 {
                     //scatter inky
                     if (statusInky <= 49) //INKY jalan sebanyak 49 steps
@@ -6129,7 +6126,7 @@ class Program
                         }
                     }
                 }
-                if (score - scoreAfter >= 1500) //Supaya INKY keluar setelah PACMAN makan 30 food
+                if (score >= 1500) //Supaya INKY keluar setelah PACMAN makan 30 food
                 {
                     //chase inky
                     if (statusInky > 49)
@@ -7237,7 +7234,6 @@ class Program
                                 tujuanInky = 5; //supaya tidak kemana-mana (berhenti)
                                 posisiInkyHorizontal = 52;
                                 posisiInkyVertical = 13;
-                                scoreAfter = score;
                                 Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
                                 Console.Write(" ");
                                 Console.SetCursorPosition(posisiHorizontal, posisiVertical);
