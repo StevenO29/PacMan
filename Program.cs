@@ -74,6 +74,10 @@ class Program
         Console.SetCursorPosition(40, 9);
         Console.ForegroundColor = ConsoleColor.Red;
         Console.Write("3. Level 3");
+        Console.SetCursorPosition(42, 12);
+        Console.BackgroundColor = ConsoleColor.Red;
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.Write("4. Exit");
         ConsoleKey pilihLevel = Console.ReadKey(true).Key;
         //
 
@@ -7332,5 +7336,7 @@ class Program
                 System.Threading.Thread.Sleep(400);
             }
         }
+        else if (pilihLevel == ConsoleKey.D4 || pilihLevel == ConsoleKey.NumPad4)
+            System.Environment.Exit(0);
     }
 }
