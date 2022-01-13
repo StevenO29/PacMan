@@ -2,7 +2,6 @@
 using System.Runtime.InteropServices;
 class Program
 {
-    [System.Runtime.Versioning.SupportedOSPlatform("windows")]
     public static void Beep(int frequency, int duration) { }
     static void Main(string[] args)
     {
