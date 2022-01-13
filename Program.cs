@@ -81,47 +81,50 @@ class Program
         ConsoleKey pilihLevel = Console.ReadKey(true).Key;
         //
 
-        //Declare ulang untuk mereset game
-        ///pacman
-        posisiHorizontal = 51;
-        posisiVertical = 22;
-        Console.SetCursorPosition(posisiHorizontal, posisiVertical);
-        Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.Write("C");
-        ///blinky
-        Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
-        Console.Write(" ");
-        posisiBlinkyHorizontal = 48;
-        posisiBlinkyVertical = 10;
-        tujuanBlinky = 0;
-        Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.Write("@");
-        ///pinky
-        Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
-        Console.Write(" ");
-        posisiPinkyHorizontal = 50;
-        posisiPinkyVertical = 13;
-        tujuanPinky = 0;
-        Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
-        Console.ForegroundColor = ConsoleColor.Magenta;
-        Console.Write("@");
-        ///inky
-        Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
-        Console.Write(" ");
-        posisiInkyHorizontal = 52;
-        posisiInkyVertical = 13;
-        tujuanInky = 0;
-        Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
-        Console.ForegroundColor = ConsoleColor.Cyan;
-        Console.Write("@");
-        ///status
-        statusBlinky = 0;
-        statusInky = 0;
-        statusPinky = 0;
-        lifesPacMan = 3;
-        score = 0;
-        //
+        if (pilihLevel == ConsoleKey.D1 || pilihLevel == ConsoleKey.NumPad1 || pilihLevel == ConsoleKey.D2 || pilihLevel == ConsoleKey.NumPad2 || pilihLevel == ConsoleKey.D3 || pilihLevel == ConsoleKey.NumPad3)
+        {
+            // Declare ulang untuk mereset game
+            ///pacman
+            posisiHorizontal = 51;
+            posisiVertical = 22;
+            Console.SetCursorPosition(posisiHorizontal, posisiVertical);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write("C");
+            ///blinky
+            Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
+            Console.Write(" ");
+            posisiBlinkyHorizontal = 48;
+            posisiBlinkyVertical = 10;
+            tujuanBlinky = 0;
+            Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("@");
+            ///pinky
+            Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
+            Console.Write(" ");
+            posisiPinkyHorizontal = 50;
+            posisiPinkyVertical = 13;
+            tujuanPinky = 0;
+            Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.Write("@");
+            ///inky
+            Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
+            Console.Write(" ");
+            posisiInkyHorizontal = 52;
+            posisiInkyVertical = 13;
+            tujuanInky = 0;
+            Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write("@");
+            ///status
+            statusBlinky = 0;
+            statusInky = 0;
+            statusPinky = 0;
+            lifesPacMan = 3;
+            score = 0;
+            //
+        }
 
         //GAME
         if (pilihLevel == ConsoleKey.D1 || pilihLevel == ConsoleKey.NumPad1)
@@ -459,7 +462,7 @@ class Program
                                     Console.Write(".");
                                 }
                             }
-                            else //Jika kiri blinky adalah wall, jalan ke atas
+                            else //Jika kiri blinky adalah wall, jalan ke bawah
                             {
                                 posisiBlinkyVertical++;
                                 Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
@@ -665,9 +668,9 @@ class Program
                 if (score >= 1500)
                 {
                     //scatter inky
-                    if (statusInky <= 59) //INKY jalan sebanyak 59 steps
+                    if (statusInky <= 65) //INKY jalan sebanyak 59 steps
                     {
-                        if (statusInky <= 58) //INKY jalan sebanyak 58 steps
+                        if (statusInky <= 64) //INKY jalan sebanyak 58 steps
                         {
                             if (statusInky >= 0 && statusInky <= 2) //supaya INKY keluar dari ghost house
                             {
@@ -700,7 +703,7 @@ class Program
                             }
                             else
                             {
-                                if (entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] == 1) //Jika atas INKY ada wall
+                                if (entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] == 1) //Jika bawah INKY ada wall
                                 {
                                     if (entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 1 && posisiInkyVertical != 29) //Jika kanan INKY bukan wall dan posisi INKY secara vertical bukan di 29, jalan ke kanan
                                     {
@@ -1327,7 +1330,7 @@ class Program
                 if (score >= 1500) //Supaya INKY keluar setelah PACMAN makan 30 food
                 {
                     //chase inky
-                    if (statusInky > 59)
+                    if (statusInky > 65)
                     {
                         if (tujuanInky == 0)
                         {
@@ -3066,9 +3069,9 @@ class Program
                 if (score >= 1500)
                 {
                     //scatter inky
-                    if (statusInky <= 54) //INKY jalan sebanyak 54 steps
+                    if (statusInky <= 60) //INKY jalan sebanyak 54 steps
                     {
-                        if (statusInky <= 53) //INKY jalan sebanyak 53 steps
+                        if (statusInky <= 59) //INKY jalan sebanyak 53 steps
                         {
                             if (statusInky >= 0 && statusInky <= 2) //supaya INKY keluar dari ghost house
                             {
@@ -3728,7 +3731,7 @@ class Program
                 if (score >= 1500) //Supaya INKY keluar setelah PACMAN makan 30 food
                 {
                     //chase inky
-                    if (statusInky > 54)
+                    if (statusInky > 60)
                     {
                         if (tujuanInky == 0)
                         {
@@ -5467,9 +5470,9 @@ class Program
                 if (score >= 1500)
                 {
                     //scatter inky
-                    if (statusInky <= 49) //INKY jalan sebanyak 49 steps
+                    if (statusInky <= 55) //INKY jalan sebanyak 49 steps
                     {
-                        if (statusInky <= 48) //INKY jalan sebanyak 48 steps
+                        if (statusInky <= 54) //INKY jalan sebanyak 48 steps
                         {
                             if (statusInky >= 0 && statusInky <= 2) //supaya INKY keluar dari ghost house
                             {
@@ -6129,7 +6132,7 @@ class Program
                 if (score >= 1500) //Supaya INKY keluar setelah PACMAN makan 30 food
                 {
                     //chase inky
-                    if (statusInky > 49)
+                    if (statusInky > 55)
                     {
                         if (tujuanInky == 0)
                         {
