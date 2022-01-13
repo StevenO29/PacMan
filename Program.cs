@@ -462,7 +462,7 @@ class Program
                                     Console.Write(".");
                                 }
                             }
-                            else //Jika kiri blinky adalah wall, jalan ke atas
+                            else //Jika kiri blinky adalah wall, jalan ke bawah
                             {
                                 posisiBlinkyVertical++;
                                 Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
@@ -668,9 +668,9 @@ class Program
                 if (score >= 1500)
                 {
                     //scatter inky
-                    if (statusInky <= 59) //INKY jalan sebanyak 59 steps
+                    if (statusInky <= 65) //INKY jalan sebanyak 59 steps
                     {
-                        if (statusInky <= 58) //INKY jalan sebanyak 58 steps
+                        if (statusInky <= 64) //INKY jalan sebanyak 58 steps
                         {
                             if (statusInky >= 0 && statusInky <= 2) //supaya INKY keluar dari ghost house
                             {
@@ -1330,7 +1330,7 @@ class Program
                 if (score >= 1500) //Supaya INKY keluar setelah PACMAN makan 30 food
                 {
                     //chase inky
-                    if (statusInky > 59)
+                    if (statusInky > 65)
                     {
                         if (tujuanInky == 0)
                         {
@@ -3069,9 +3069,9 @@ class Program
                 if (score >= 1500)
                 {
                     //scatter inky
-                    if (statusInky <= 54) //INKY jalan sebanyak 54 steps
+                    if (statusInky <= 60) //INKY jalan sebanyak 54 steps
                     {
-                        if (statusInky <= 53) //INKY jalan sebanyak 53 steps
+                        if (statusInky <= 59) //INKY jalan sebanyak 53 steps
                         {
                             if (statusInky >= 0 && statusInky <= 2) //supaya INKY keluar dari ghost house
                             {
@@ -3731,7 +3731,7 @@ class Program
                 if (score >= 1500) //Supaya INKY keluar setelah PACMAN makan 30 food
                 {
                     //chase inky
-                    if (statusInky > 54)
+                    if (statusInky > 60)
                     {
                         if (tujuanInky == 0)
                         {
@@ -5470,9 +5470,9 @@ class Program
                 if (score >= 1500)
                 {
                     //scatter inky
-                    if (statusInky <= 49) //INKY jalan sebanyak 49 steps
+                    if (statusInky <= 55) //INKY jalan sebanyak 49 steps
                     {
-                        if (statusInky <= 48) //INKY jalan sebanyak 48 steps
+                        if (statusInky <= 54) //INKY jalan sebanyak 48 steps
                         {
                             if (statusInky >= 0 && statusInky <= 2) //supaya INKY keluar dari ghost house
                             {
@@ -6132,7 +6132,7 @@ class Program
                 if (score >= 1500) //Supaya INKY keluar setelah PACMAN makan 30 food
                 {
                     //chase inky
-                    if (statusInky > 49)
+                    if (statusInky > 55)
                     {
                         if (tujuanInky == 0)
                         {
