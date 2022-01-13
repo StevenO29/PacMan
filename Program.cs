@@ -2411,10 +2411,6 @@ class Program
                             if (posisiBlinkyHorizontal == posisiHorizontal && posisiBlinkyVertical == posisiVertical)
                             {
                                 tujuanBlinky = 5; //supaya tidak kemana-mana (berhenti)
-                                posisiBlinkyHorizontal = 48;
-                                posisiBlinkyVertical = 13;
-                                Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
-                                Console.Write(" ");
                                 Console.SetCursorPosition(posisiHorizontal, posisiVertical);
                                 Console.ForegroundColor = ConsoleColor.Yellow;
                                 Console.Write("C");
@@ -2422,10 +2418,6 @@ class Program
                             if (posisiPinkyHorizontal == posisiHorizontal && posisiPinkyVertical == posisiVertical)
                             {
                                 tujuanPinky = 5; //supaya tidak kemana-mana (berhenti)
-                                posisiPinkyHorizontal = 50;
-                                posisiPinkyVertical = 13;
-                                Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
-                                Console.Write(" ");
                                 Console.SetCursorPosition(posisiHorizontal, posisiVertical);
                                 Console.ForegroundColor = ConsoleColor.Yellow;
                                 Console.Write("C");
@@ -2433,10 +2425,6 @@ class Program
                             if (posisiInkyHorizontal == posisiHorizontal && posisiInkyVertical == posisiVertical)
                             {
                                 tujuanInky = 5; //supaya tidak kemana-mana (berhenti)
-                                posisiInkyHorizontal = 52;
-                                posisiInkyVertical = 13;
-                                Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
-                                Console.Write(" ");
                                 Console.SetCursorPosition(posisiHorizontal, posisiVertical);
                                 Console.ForegroundColor = ConsoleColor.Yellow;
                                 Console.Write("C");
@@ -4812,10 +4800,6 @@ class Program
                             if (posisiBlinkyHorizontal == posisiHorizontal && posisiBlinkyVertical == posisiVertical)
                             {
                                 tujuanBlinky = 5; //supaya tidak kemana-mana (berhenti)
-                                posisiBlinkyHorizontal = 48;
-                                posisiBlinkyVertical = 13;
-                                Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
-                                Console.Write(" ");
                                 Console.SetCursorPosition(posisiHorizontal, posisiVertical);
                                 Console.ForegroundColor = ConsoleColor.Yellow;
                                 Console.Write("C");
@@ -4823,10 +4807,6 @@ class Program
                             if (posisiPinkyHorizontal == posisiHorizontal && posisiPinkyVertical == posisiVertical)
                             {
                                 tujuanPinky = 5; //supaya tidak kemana-mana (berhenti)
-                                posisiPinkyHorizontal = 50;
-                                posisiPinkyVertical = 13;
-                                Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
-                                Console.Write(" ");
                                 Console.SetCursorPosition(posisiHorizontal, posisiVertical);
                                 Console.ForegroundColor = ConsoleColor.Yellow;
                                 Console.Write("C");
@@ -4834,10 +4814,6 @@ class Program
                             if (posisiInkyHorizontal == posisiHorizontal && posisiInkyVertical == posisiVertical)
                             {
                                 tujuanInky = 5; //supaya tidak kemana-mana (berhenti)
-                                posisiInkyHorizontal = 52;
-                                posisiInkyVertical = 13;
-                                Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
-                                Console.Write(" ");
                                 Console.SetCursorPosition(posisiHorizontal, posisiVertical);
                                 Console.ForegroundColor = ConsoleColor.Yellow;
                                 Console.Write("C");
@@ -7213,10 +7189,6 @@ class Program
                             if (posisiBlinkyHorizontal == posisiHorizontal && posisiBlinkyVertical == posisiVertical)
                             {
                                 tujuanBlinky = 5; //supaya tidak kemana-mana (berhenti)
-                                posisiBlinkyHorizontal = 48;
-                                posisiBlinkyVertical = 13;
-                                Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
-                                Console.Write(" ");
                                 Console.SetCursorPosition(posisiHorizontal, posisiVertical);
                                 Console.ForegroundColor = ConsoleColor.Yellow;
                                 Console.Write("C");
@@ -7224,10 +7196,6 @@ class Program
                             if (posisiPinkyHorizontal == posisiHorizontal && posisiPinkyVertical == posisiVertical)
                             {
                                 tujuanPinky = 5; //supaya tidak kemana-mana (berhenti)
-                                posisiPinkyHorizontal = 50;
-                                posisiPinkyVertical = 13;
-                                Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
-                                Console.Write(" ");
                                 Console.SetCursorPosition(posisiHorizontal, posisiVertical);
                                 Console.ForegroundColor = ConsoleColor.Yellow;
                                 Console.Write("C");
@@ -7235,10 +7203,6 @@ class Program
                             if (posisiInkyHorizontal == posisiHorizontal && posisiInkyVertical == posisiVertical)
                             {
                                 tujuanInky = 5; //supaya tidak kemana-mana (berhenti)
-                                posisiInkyHorizontal = 52;
-                                posisiInkyVertical = 13;
-                                Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
-                                Console.Write(" ");
                                 Console.SetCursorPosition(posisiHorizontal, posisiVertical);
                                 Console.ForegroundColor = ConsoleColor.Yellow;
                                 Console.Write("C");
