@@ -81,47 +81,50 @@ class Program
         ConsoleKey pilihLevel = Console.ReadKey(true).Key;
         //
 
-        //Declare ulang untuk mereset game
-        ///pacman
-        posisiHorizontal = 51;
-        posisiVertical = 22;
-        Console.SetCursorPosition(posisiHorizontal, posisiVertical);
-        Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.Write("C");
-        ///blinky
-        Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
-        Console.Write(" ");
-        posisiBlinkyHorizontal = 48;
-        posisiBlinkyVertical = 10;
-        tujuanBlinky = 0;
-        Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.Write("@");
-        ///pinky
-        Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
-        Console.Write(" ");
-        posisiPinkyHorizontal = 50;
-        posisiPinkyVertical = 13;
-        tujuanPinky = 0;
-        Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
-        Console.ForegroundColor = ConsoleColor.Magenta;
-        Console.Write("@");
-        ///inky
-        Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
-        Console.Write(" ");
-        posisiInkyHorizontal = 52;
-        posisiInkyVertical = 13;
-        tujuanInky = 0;
-        Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
-        Console.ForegroundColor = ConsoleColor.Cyan;
-        Console.Write("@");
-        ///status
-        statusBlinky = 0;
-        statusInky = 0;
-        statusPinky = 0;
-        lifesPacMan = 3;
-        score = 0;
-        //
+        if (pilihLevel == ConsoleKey.D1 || pilihLevel == ConsoleKey.NumPad1 || pilihLevel == ConsoleKey.D2 || pilihLevel == ConsoleKey.NumPad2 || pilihLevel == ConsoleKey.D3 || pilihLevel == ConsoleKey.NumPad3)
+        {
+            // Declare ulang untuk mereset game
+            ///pacman
+            posisiHorizontal = 51;
+            posisiVertical = 22;
+            Console.SetCursorPosition(posisiHorizontal, posisiVertical);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write("C");
+            ///blinky
+            Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
+            Console.Write(" ");
+            posisiBlinkyHorizontal = 48;
+            posisiBlinkyVertical = 10;
+            tujuanBlinky = 0;
+            Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("@");
+            ///pinky
+            Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
+            Console.Write(" ");
+            posisiPinkyHorizontal = 50;
+            posisiPinkyVertical = 13;
+            tujuanPinky = 0;
+            Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.Write("@");
+            ///inky
+            Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
+            Console.Write(" ");
+            posisiInkyHorizontal = 52;
+            posisiInkyVertical = 13;
+            tujuanInky = 0;
+            Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write("@");
+            ///status
+            statusBlinky = 0;
+            statusInky = 0;
+            statusPinky = 0;
+            lifesPacMan = 3;
+            score = 0;
+            //
+        }
 
         //GAME
         if (pilihLevel == ConsoleKey.D1 || pilihLevel == ConsoleKey.NumPad1)
@@ -700,7 +703,7 @@ class Program
                             }
                             else
                             {
-                                if (entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] == 1) //Jika atas INKY ada wall
+                                if (entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] == 1) //Jika bawah INKY ada wall
                                 {
                                     if (entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 1 && posisiInkyVertical != 29) //Jika kanan INKY bukan wall dan posisi INKY secara vertical bukan di 29, jalan ke kanan
                                     {
