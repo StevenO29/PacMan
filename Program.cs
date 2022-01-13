@@ -1,7 +1,9 @@
 ﻿using System;
-
+using System.Runtime.InteropServices;
 class Program
 {
+    [System.Runtime.Versioning.SupportedOSPlatform("windows")]
+    public static void Beep(int frequency, int duration) { }
     static void Main(string[] args)
     {
         //DECLARE VARIABLE
@@ -56,6 +58,12 @@ class Program
         Console.ForegroundColor = ConsoleColor.Blue;
         Console.Write("Press ENTER to start....");
         Console.ReadKey();
+
+        Console.Beep(400, 200);
+        Console.Beep(500, 300);
+        Console.Beep(600, 300);
+        Console.Beep(700, 300);
+        Console.Beep(800, 300);
     //
 
     //CHOOSE STAGE LEVEL PAGE
@@ -76,52 +84,56 @@ class Program
         Console.SetCursorPosition(42, 12);
         Console.BackgroundColor = ConsoleColor.Red;
         Console.ForegroundColor = ConsoleColor.White;
-        Console.Write("4. Exit");
+        Console.Write("4. Exit\n\n");
         Console.BackgroundColor = ConsoleColor.Black; //mengembalikan warna background jadi semula
         ConsoleKey pilihLevel = Console.ReadKey(true).Key;
         //
 
-        //Declare ulang untuk mereset game
-        ///pacman
-        posisiHorizontal = 51;
-        posisiVertical = 22;
-        Console.SetCursorPosition(posisiHorizontal, posisiVertical);
-        Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.Write("C");
-        ///blinky
-        Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
-        Console.Write(" ");
-        posisiBlinkyHorizontal = 48;
-        posisiBlinkyVertical = 10;
-        tujuanBlinky = 0;
-        Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.Write("@");
-        ///pinky
-        Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
-        Console.Write(" ");
-        posisiPinkyHorizontal = 50;
-        posisiPinkyVertical = 13;
-        tujuanPinky = 0;
-        Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
-        Console.ForegroundColor = ConsoleColor.Magenta;
-        Console.Write("@");
-        ///inky
-        Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
-        Console.Write(" ");
-        posisiInkyHorizontal = 52;
-        posisiInkyVertical = 13;
-        tujuanInky = 0;
-        Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
-        Console.ForegroundColor = ConsoleColor.Cyan;
-        Console.Write("@");
-        ///status
-        statusBlinky = 0;
-        statusInky = 0;
-        statusPinky = 0;
-        lifesPacMan = 3;
-        score = 0;
-        //
+        if (pilihLevel == ConsoleKey.D1 || pilihLevel == ConsoleKey.NumPad1 || pilihLevel == ConsoleKey.D2 || pilihLevel == ConsoleKey.NumPad2 || pilihLevel == ConsoleKey.D3 || pilihLevel == ConsoleKey.NumPad3)
+        {
+            Console.Beep(400, 500);
+            // Declare ulang untuk mereset game
+            ///pacman
+            posisiHorizontal = 51;
+            posisiVertical = 22;
+            Console.SetCursorPosition(posisiHorizontal, posisiVertical);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write("C");
+            ///blinky
+            Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
+            Console.Write(" ");
+            posisiBlinkyHorizontal = 48;
+            posisiBlinkyVertical = 10;
+            tujuanBlinky = 0;
+            Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("@");
+            ///pinky
+            Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
+            Console.Write(" ");
+            posisiPinkyHorizontal = 50;
+            posisiPinkyVertical = 13;
+            tujuanPinky = 0;
+            Console.SetCursorPosition(posisiPinkyHorizontal, posisiPinkyVertical);
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.Write("@");
+            ///inky
+            Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
+            Console.Write(" ");
+            posisiInkyHorizontal = 52;
+            posisiInkyVertical = 13;
+            tujuanInky = 0;
+            Console.SetCursorPosition(posisiInkyHorizontal, posisiInkyVertical);
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write("@");
+            ///status
+            statusBlinky = 0;
+            statusInky = 0;
+            statusPinky = 0;
+            lifesPacMan = 3;
+            score = 0;
+            //
+        }
 
         //GAME
         if (pilihLevel == ConsoleKey.D1 || pilihLevel == ConsoleKey.NumPad1)
@@ -459,7 +471,7 @@ class Program
                                     Console.Write(".");
                                 }
                             }
-                            else //Jika kiri blinky adalah wall, jalan ke atas
+                            else //Jika kiri blinky adalah wall, jalan ke bawah
                             {
                                 posisiBlinkyVertical++;
                                 Console.SetCursorPosition(posisiBlinkyHorizontal, posisiBlinkyVertical);
@@ -665,9 +677,9 @@ class Program
                 if (score >= 1500)
                 {
                     //scatter inky
-                    if (statusInky <= 59) //INKY jalan sebanyak 59 steps
+                    if (statusInky <= 65) //INKY jalan sebanyak 65 steps
                     {
-                        if (statusInky <= 58) //INKY jalan sebanyak 58 steps
+                        if (statusInky <= 64) //INKY jalan sebanyak 64 steps
                         {
                             if (statusInky >= 0 && statusInky <= 2) //supaya INKY keluar dari ghost house
                             {
@@ -700,7 +712,7 @@ class Program
                             }
                             else
                             {
-                                if (entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] == 1) //Jika atas INKY ada wall
+                                if (entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] == 1) //Jika bawah INKY ada wall
                                 {
                                     if (entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 1 && posisiInkyVertical != 29) //Jika kanan INKY bukan wall dan posisi INKY secara vertical bukan di 29, jalan ke kanan
                                     {
@@ -1327,7 +1339,7 @@ class Program
                 if (score >= 1500) //Supaya INKY keluar setelah PACMAN makan 30 food
                 {
                     //chase inky
-                    if (statusInky > 59)
+                    if (statusInky > 65)
                     {
                         if (tujuanInky == 0)
                         {
@@ -1583,6 +1595,7 @@ class Program
                 //Jika GHOST menabrak PACMAN
                 if ((posisiHorizontal == posisiBlinkyHorizontal && posisiVertical == posisiBlinkyVertical) || (posisiPinkyHorizontal == posisiHorizontal && posisiPinkyVertical == posisiVertical) || (posisiInkyHorizontal == posisiHorizontal && posisiInkyVertical == posisiVertical)) //hantu nabrak pacman (game reset)
                 {
+                    Console.Beep(300, 500);
                     lifesPacMan--;
                     Console.SetCursorPosition(8, 31);
                     Console.ForegroundColor = ConsoleColor.White;
@@ -1642,6 +1655,8 @@ class Program
                          ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ 
                          ░ ░         ░ ░     ░           ░     ░     ░  ░   ░    
                          ░ ░                           ░                  ░      ");
+                        Console.Beep(300, 300);
+                        Console.Beep(200, 500);
                         System.Threading.Thread.Sleep(3000);
                         goto stagePage;
                     }
@@ -1661,11 +1676,16 @@ class Program
                 |__/  |__/  |__/\_______|__/  |__|__/  \__/          |__/ \______/ \______/ 
 
                              YOU WIN THIS GAME!!! LET'S PLAY VALORANT :D");
+                    Console.Beep(500, 200);
+                    Console.Beep(600, 300);
+                    Console.Beep(700, 300);
+                    Console.Beep(800, 500);
                     System.Threading.Thread.Sleep(3000);
                     goto stagePage;
                 }
                 if (entityPosition[posisiHorizontal, posisiVertical] == 7) //Jika pacman makan power up
                 {
+                    Console.Beep(500, 300);
                     ///Declare ulang untuk tujuan GHOST dan membuat nilai Array pada posisi PACMAN menjadi 0
                     ///Menambahkan powerUp untuk menentukan setelah PACMAN makan power up, FRIGHTENED PHASE akan berlangsung selama 40 kali GHOST/PACMAN berjalan
                     ///Isi while sama dengan di atas, bedanya pada penentuan rute GHOST
@@ -2405,6 +2425,7 @@ class Program
                         }
                         if ((posisiBlinkyHorizontal == posisiHorizontal && posisiBlinkyVertical == posisiVertical) || (posisiPinkyHorizontal == posisiHorizontal && posisiPinkyVertical == posisiVertical) || (posisiInkyHorizontal == posisiHorizontal && posisiInkyVertical == posisiVertical))
                         {
+                            Console.Beep(500, 300);
                             if (posisiBlinkyHorizontal == posisiHorizontal && posisiBlinkyVertical == posisiVertical)
                             {
                                 tujuanBlinky = 5; //supaya tidak kemana-mana (berhenti)
@@ -2454,6 +2475,10 @@ class Program
                 |__/  |__/  |__/\_______|__/  |__|__/  \__/          |__/ \______/ \______/ 
 
                              YOU WIN THIS GAME!!! LET'S PLAY VALORANT :D");
+                            Console.Beep(500, 200);
+                            Console.Beep(600, 300);
+                            Console.Beep(700, 300);
+                            Console.Beep(800, 500);
                             System.Threading.Thread.Sleep(3000);
                             goto stagePage;
                         }
@@ -3066,9 +3091,9 @@ class Program
                 if (score >= 1500)
                 {
                     //scatter inky
-                    if (statusInky <= 54) //INKY jalan sebanyak 54 steps
+                    if (statusInky <= 60) //INKY jalan sebanyak 60 steps
                     {
-                        if (statusInky <= 53) //INKY jalan sebanyak 53 steps
+                        if (statusInky <= 59) //INKY jalan sebanyak 59 steps
                         {
                             if (statusInky >= 0 && statusInky <= 2) //supaya INKY keluar dari ghost house
                             {
@@ -3728,7 +3753,7 @@ class Program
                 if (score >= 1500) //Supaya INKY keluar setelah PACMAN makan 30 food
                 {
                     //chase inky
-                    if (statusInky > 54)
+                    if (statusInky > 60)
                     {
                         if (tujuanInky == 0)
                         {
@@ -3984,6 +4009,7 @@ class Program
                 //Jika GHOST menabrak PACMAN
                 if ((posisiHorizontal == posisiBlinkyHorizontal && posisiVertical == posisiBlinkyVertical) || (posisiPinkyHorizontal == posisiHorizontal && posisiPinkyVertical == posisiVertical) || (posisiInkyHorizontal == posisiHorizontal && posisiInkyVertical == posisiVertical)) //hantu nabrak pacman (game reset)
                 {
+                    Console.Beep(300, 500);
                     lifesPacMan--;
                     Console.SetCursorPosition(8, 31);
                     Console.ForegroundColor = ConsoleColor.White;
@@ -4043,6 +4069,8 @@ class Program
                          ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ 
                          ░ ░         ░ ░     ░           ░     ░     ░  ░   ░    
                          ░ ░                           ░                  ░      ");
+                        Console.Beep(300, 300);
+                        Console.Beep(200, 500);
                         System.Threading.Thread.Sleep(3000);
                         goto stagePage;
                     }
@@ -4062,11 +4090,16 @@ class Program
                 |__/  |__/  |__/\_______|__/  |__|__/  \__/          |__/ \______/ \______/ 
 
                              YOU WIN THIS GAME!!! LET'S PLAY VALORANT :D");
+                    Console.Beep(500, 200);
+                    Console.Beep(600, 300);
+                    Console.Beep(700, 300);
+                    Console.Beep(800, 500);
                     System.Threading.Thread.Sleep(3000);
                     goto stagePage;
                 }
                 if (entityPosition[posisiHorizontal, posisiVertical] == 7) //Jika pacman makan power up
                 {
+                    Console.Beep(500, 300);
                     ///Declare ulang untuk tujuan GHOST dan membuat nilai Array pada posisi PACMAN menjadi 0
                     ///Menambahkan powerUp untuk menentukan setelah PACMAN makan power up, FRIGHTENED PHASE akan berlangsung selama 40 kali GHOST/PACMAN berjalan
                     ///Isi while sama dengan di atas, bedanya pada penentuan rute GHOST
@@ -4806,6 +4839,7 @@ class Program
                         }
                         if ((posisiBlinkyHorizontal == posisiHorizontal && posisiBlinkyVertical == posisiVertical) || (posisiPinkyHorizontal == posisiHorizontal && posisiPinkyVertical == posisiVertical) || (posisiInkyHorizontal == posisiHorizontal && posisiInkyVertical == posisiVertical))
                         {
+                            Console.Beep(500, 300);
                             if (posisiBlinkyHorizontal == posisiHorizontal && posisiBlinkyVertical == posisiVertical)
                             {
                                 tujuanBlinky = 5; //supaya tidak kemana-mana (berhenti)
@@ -4855,6 +4889,10 @@ class Program
                 |__/  |__/  |__/\_______|__/  |__|__/  \__/          |__/ \______/ \______/ 
 
                              YOU WIN THIS GAME!!! LET'S PLAY VALORANT :D");
+                            Console.Beep(500, 200);
+                            Console.Beep(600, 300);
+                            Console.Beep(700, 300);
+                            Console.Beep(800, 500);
                             System.Threading.Thread.Sleep(3000);
                             goto stagePage;
                         }
@@ -5467,9 +5505,9 @@ class Program
                 if (score >= 1500)
                 {
                     //scatter inky
-                    if (statusInky <= 49) //INKY jalan sebanyak 49 steps
+                    if (statusInky <= 55) //INKY jalan sebanyak 55 steps
                     {
-                        if (statusInky <= 48) //INKY jalan sebanyak 48 steps
+                        if (statusInky <= 54) //INKY jalan sebanyak 54 steps
                         {
                             if (statusInky >= 0 && statusInky <= 2) //supaya INKY keluar dari ghost house
                             {
@@ -6129,7 +6167,7 @@ class Program
                 if (score >= 1500) //Supaya INKY keluar setelah PACMAN makan 30 food
                 {
                     //chase inky
-                    if (statusInky > 49)
+                    if (statusInky > 55)
                     {
                         if (tujuanInky == 0)
                         {
@@ -6385,6 +6423,7 @@ class Program
                 //Jika GHOST menabrak PACMAN
                 if ((posisiHorizontal == posisiBlinkyHorizontal && posisiVertical == posisiBlinkyVertical) || (posisiPinkyHorizontal == posisiHorizontal && posisiPinkyVertical == posisiVertical) || (posisiInkyHorizontal == posisiHorizontal && posisiInkyVertical == posisiVertical)) //hantu nabrak pacman (game reset)
                 {
+                    Console.Beep(300, 500);
                     lifesPacMan--;
                     Console.SetCursorPosition(8, 31);
                     Console.ForegroundColor = ConsoleColor.White;
@@ -6444,6 +6483,8 @@ class Program
                          ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ 
                          ░ ░         ░ ░     ░           ░     ░     ░  ░   ░    
                          ░ ░                           ░                  ░      ");
+                        Console.Beep(300, 300);
+                        Console.Beep(200, 500);
                         System.Threading.Thread.Sleep(3000);
                         goto stagePage;
                     }
@@ -6463,11 +6504,16 @@ class Program
                 |__/  |__/  |__/\_______|__/  |__|__/  \__/          |__/ \______/ \______/ 
 
                              YOU WIN THIS GAME!!! LET'S PLAY VALORANT :D");
+                    Console.Beep(500, 200);
+                    Console.Beep(600, 300);
+                    Console.Beep(700, 300);
+                    Console.Beep(800, 500);
                     System.Threading.Thread.Sleep(3000);
                     goto stagePage;
                 }
                 if (entityPosition[posisiHorizontal, posisiVertical] == 7) //Jika pacman makan power up
                 {
+                    Console.Beep(500, 300);
                     ///Declare ulang untuk tujuan GHOST dan membuat nilai Array pada posisi PACMAN menjadi 0
                     ///Menambahkan powerUp untuk menentukan setelah PACMAN makan power up, FRIGHTENED PHASE akan berlangsung selama 40 kali GHOST/PACMAN berjalan
                     ///Isi while sama dengan di atas, bedanya pada penentuan rute GHOST
@@ -7207,6 +7253,7 @@ class Program
                         }
                         if ((posisiBlinkyHorizontal == posisiHorizontal && posisiBlinkyVertical == posisiVertical) || (posisiPinkyHorizontal == posisiHorizontal && posisiPinkyVertical == posisiVertical) || (posisiInkyHorizontal == posisiHorizontal && posisiInkyVertical == posisiVertical))
                         {
+                            Console.Beep(500, 300);
                             if (posisiBlinkyHorizontal == posisiHorizontal && posisiBlinkyVertical == posisiVertical)
                             {
                                 tujuanBlinky = 5; //supaya tidak kemana-mana (berhenti)
@@ -7256,6 +7303,10 @@ class Program
                 |__/  |__/  |__/\_______|__/  |__|__/  \__/          |__/ \______/ \______/ 
 
                              YOU WIN THIS GAME!!! LET'S PLAY VALORANT :D");
+                            Console.Beep(500, 200);
+                            Console.Beep(600, 300);
+                            Console.Beep(700, 300);
+                            Console.Beep(800, 500);
                             System.Threading.Thread.Sleep(3000);
                             goto stagePage;
                         }
@@ -7333,6 +7384,9 @@ class Program
             }
         }
         else if (pilihLevel == ConsoleKey.D4 || pilihLevel == ConsoleKey.NumPad4)
+        {
+            Console.Beep(300, 400);
             System.Environment.Exit(0);
+        }
     }
 }
