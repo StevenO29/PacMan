@@ -56,10 +56,10 @@ class Program
         Console.ForegroundColor = ConsoleColor.Blue;
         Console.Write("Press ENTER to start....");
         Console.ReadKey();
-    //
+        //
 
-    //CHOOSE STAGE LEVEL PAGE
-    stagePage:
+        //CHOOSE STAGE LEVEL PAGE
+        stagePage:
         Console.Clear();
         Console.SetCursorPosition(39, 2);
         Console.ForegroundColor = ConsoleColor.Yellow;
@@ -76,7 +76,7 @@ class Program
         Console.SetCursorPosition(42, 12);
         Console.BackgroundColor = ConsoleColor.Red;
         Console.ForegroundColor = ConsoleColor.White;
-        Console.Write("4. Exit");
+        Console.Write("4. Exit\n\n");
         Console.BackgroundColor = ConsoleColor.Black; //mengembalikan warna background jadi semula
         ConsoleKey pilihLevel = Console.ReadKey(true).Key;
         //
