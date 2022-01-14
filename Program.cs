@@ -360,6 +360,12 @@ class Program
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
                                 }
+                                else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
+                                }
                                 else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 8)
                                 {
                                     Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
@@ -386,6 +392,12 @@ class Program
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
                                 }
+                                else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
+                                }
                             }
                             else if (entityPosition[posisiBlinkyHorizontal - 3, posisiBlinkyVertical] != 1 && posisiBlinkyVertical == 4) //Jika kiri BLINKY tidak ada wall dan posisi BLINKY secara vertical di 4, jalan ke kiri
                             {
@@ -405,6 +417,12 @@ class Program
                                     Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
+                                }
+                                else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
                                 }
                                 else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 7)
                                 {
@@ -432,6 +450,12 @@ class Program
                                 Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
                                 Console.ForegroundColor = ConsoleColor.White;
                                 Console.Write(".");
+                            }
+                            else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                            {
+                                Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                Console.Write("C");
                             }
                             else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 8)
                             {
@@ -461,6 +485,12 @@ class Program
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
                                 }
+                                else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
+                                }
                             }
                             else //Jika kiri blinky adalah wall, jalan ke bawah
                             {
@@ -475,6 +505,12 @@ class Program
                                     Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
+                                }
+                                else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
                                 }
                             }
                         }
@@ -504,6 +540,12 @@ class Program
                             {
                                 Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
                                 Console.Write(" ");
+                            }
+                            else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                            {
+                                Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                Console.Write("C");
                             }
                             else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 8)
                             {
@@ -544,6 +586,12 @@ class Program
                                         Console.ForegroundColor = ConsoleColor.White;
                                         Console.Write(".");
                                     }
+                                    else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                                    {
+                                        Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                        Console.Write("C");
+                                    }
                                 }
                                 else if (entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] == 1)//Jika kiri PINKY ada wall, jalan ke bawah
                                 {
@@ -564,6 +612,12 @@ class Program
                                         Console.ForegroundColor = ConsoleColor.White;
                                         Console.Write(".");
                                     }
+                                    else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                                    {
+                                        Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                        Console.Write("C");
+                                    }
                                 }
                                 else if (entityPosition[posisiPinkyHorizontal + 3, posisiPinkyVertical] != 1 && posisiPinkyVertical == 4) //Jika kanan PINKY bukan wall dan posisi PINKY secara vertical di 4, jalan ke kanan
                                 {
@@ -583,6 +637,12 @@ class Program
                                         Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
                                         Console.ForegroundColor = ConsoleColor.White;
                                         Console.Write(".");
+                                    }
+                                    else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                                    {
+                                        Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                        Console.Write("C");
                                     }
                                     else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 7)
                                     {
@@ -611,6 +671,12 @@ class Program
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
                                 }
+                                else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
+                                }
                             }
                             else if (entityPosition[posisiPinkyHorizontal, posisiPinkyVertical - 1] != 1 && posisiPinkyHorizontal == 3) //Jika atas PINKY bukan wall dan posisi PINKY secara horizontal di 3
                             {
@@ -633,6 +699,12 @@ class Program
                                         Console.ForegroundColor = ConsoleColor.White;
                                         Console.Write(".");
                                     }
+                                    else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                                    {
+                                        Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                        Console.Write("C");
+                                    }
                                 }
                                 else //Jika kanan PINKY ada wall, jalan ke bawah
                                 {
@@ -652,6 +724,12 @@ class Program
                                         Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
                                         Console.ForegroundColor = ConsoleColor.White;
                                         Console.Write(".");
+                                    }
+                                    else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                                    {
+                                        Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                        Console.Write("C");
                                     }
                                 }
                             }
@@ -684,6 +762,12 @@ class Program
                                 {
                                     Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
                                     Console.Write(" ");
+                                }
+                                else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
                                 }
                                 else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 8)
                                 {
@@ -724,6 +808,12 @@ class Program
                                             Console.ForegroundColor = ConsoleColor.White;
                                             Console.Write(".");
                                         }
+                                        else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                                        {
+                                            Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                            Console.Write("C");
+                                        }
                                         else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 7)
                                         {
                                             Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
@@ -745,6 +835,12 @@ class Program
                                             Console.ForegroundColor = ConsoleColor.White;
                                             Console.Write(".");
                                         }
+                                        else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                                        {
+                                            Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                            Console.Write("C");
+                                        }
                                     }
                                     else if (entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] != 1 && (posisiInkyHorizontal == 63 || posisiInkyHorizontal == 78)) //Jika atas INKY bukan wall dan posisi INKY secara horizontal di 63 atau 78, jalan ke atas
                                     {
@@ -759,6 +855,12 @@ class Program
                                             Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
                                             Console.ForegroundColor = ConsoleColor.White;
                                             Console.Write(".");
+                                        }
+                                        else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                                        {
+                                            Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                            Console.Write("C");
                                         }
                                     }
                                 }
@@ -778,6 +880,12 @@ class Program
                                             Console.ForegroundColor = ConsoleColor.White;
                                             Console.Write(".");
                                         }
+                                        else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                                        {
+                                            Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                            Console.Write("C");
+                                        }
                                     }
                                     else if (posisiInkyHorizontal != 63 && posisiInkyHorizontal != 78) //x bukan di 53 dan 78, jalan ke bawah
                                     {
@@ -793,6 +901,12 @@ class Program
                                             Console.ForegroundColor = ConsoleColor.White;
                                             Console.Write(".");
                                         }
+                                        else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                                        {
+                                            Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                            Console.Write("C");
+                                        }
                                     }
                                     else if (posisiInkyHorizontal == 63 || posisiInkyHorizontal == 78) //x di 63 atau 78, jalan ke atas
                                     {
@@ -807,6 +921,12 @@ class Program
                                             Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
                                             Console.ForegroundColor = ConsoleColor.White;
                                             Console.Write(".");
+                                        }
+                                        else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                                        {
+                                            Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                            Console.Write("C");
                                         }
                                     }
                                 }
@@ -964,6 +1084,12 @@ class Program
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.Write(".");
                         }
+                        else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                        {
+                            Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.Write("C");
+                        }
                         else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 7)
                         {
                             Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
@@ -995,6 +1121,12 @@ class Program
                             Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.Write(".");
+                        }
+                        else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                        {
+                            Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.Write("C");
                         }
                         else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 7)
                         {
@@ -1028,6 +1160,12 @@ class Program
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.Write(".");
                         }
+                        else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                        {
+                            Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.Write("C");
+                        }
                         else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 7)
                         {
                             Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
@@ -1059,6 +1197,12 @@ class Program
                             Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.Write(".");
+                        }
+                        else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                        {
+                            Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.Write("C");
                         }
                         else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 7)
                         {
@@ -1217,6 +1361,12 @@ class Program
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.Write(".");
                         }
+                        else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                        {
+                            Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.Write("C");
+                        }
                         else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 7)
                         {
                             Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
@@ -1248,6 +1398,12 @@ class Program
                             Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.Write(".");
+                        }
+                        else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                        {
+                            Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.Write("C");
                         }
                         else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 7)
                         {
@@ -1281,6 +1437,12 @@ class Program
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.Write(".");
                         }
+                        else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                        {
+                            Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.Write("C");
+                        }
                         else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 7)
                         {
                             Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
@@ -1312,6 +1474,12 @@ class Program
                             Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.Write(".");
+                        }
+                        else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                        {
+                            Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.Write("C");
                         }
                         else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 7)
                         {
@@ -1472,6 +1640,12 @@ class Program
                                 Console.ForegroundColor = ConsoleColor.White;
                                 Console.Write(".");
                             }
+                            else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                            {
+                                Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                Console.Write("C");
+                            }
                             else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 7)
                             {
                                 Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
@@ -1503,6 +1677,12 @@ class Program
                                 Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
                                 Console.ForegroundColor = ConsoleColor.White;
                                 Console.Write(".");
+                            }
+                            else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                            {
+                                Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                Console.Write("C");
                             }
                             else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 7)
                             {
@@ -1536,6 +1716,12 @@ class Program
                                 Console.ForegroundColor = ConsoleColor.White;
                                 Console.Write(".");
                             }
+                            else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                            {
+                                Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                Console.Write("C");
+                            }
                             else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 7)
                             {
                                 Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
@@ -1567,6 +1753,12 @@ class Program
                                 Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
                                 Console.ForegroundColor = ConsoleColor.White;
                                 Console.Write(".");
+                            }
+                            else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                            {
+                                Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                Console.Write("C");
                             }
                             else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 7)
                             {
@@ -2112,6 +2304,12 @@ class Program
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
                                 }
+                                else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
+                                }
                                 else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 7)
                                 {
                                     Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
@@ -2137,6 +2335,12 @@ class Program
                                     Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
+                                }
+                                else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
                                 }
                                 else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 7)
                                 {
@@ -2164,6 +2368,12 @@ class Program
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
                                 }
+                                else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
+                                }
                                 else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 7)
                                 {
                                     Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
@@ -2189,6 +2399,12 @@ class Program
                                     Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
+                                }
+                                else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
                                 }
                                 else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 7)
                                 {
@@ -2216,6 +2432,12 @@ class Program
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
                                 }
+                                else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
+                                }
                                 else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 7)
                                 {
                                     Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
@@ -2241,6 +2463,12 @@ class Program
                                     Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
+                                }
+                                else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
                                 }
                                 else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 7)
                                 {
@@ -2268,6 +2496,12 @@ class Program
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
                                 }
+                                else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
+                                }
                                 else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 7)
                                 {
                                     Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
@@ -2293,6 +2527,12 @@ class Program
                                     Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
+                                }
+                                else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
                                 }
                                 else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 7)
                                 {
@@ -2320,6 +2560,12 @@ class Program
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
                                 }
+                                else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
+                                }
                                 else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 7)
                                 {
                                     Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
@@ -2345,6 +2591,12 @@ class Program
                                     Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
+                                }
+                                else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
                                 }
                                 else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 7)
                                 {
@@ -2372,6 +2624,12 @@ class Program
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
                                 }
+                                else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
+                                }
                                 else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 7)
                                 {
                                     Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
@@ -2397,6 +2655,12 @@ class Program
                                     Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
+                                }
+                                else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
                                 }
                                 else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 7)
                                 {
@@ -2754,6 +3018,12 @@ class Program
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
                                 }
+                                else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
+                                }
                             }
                             else if (entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] == 1)//Jika kanan BLINKY ada wall, jalan ke atas
                             {
@@ -2774,6 +3044,12 @@ class Program
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
                                 }
+                                else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
+                                }
                             }
                             else if (entityPosition[posisiBlinkyHorizontal - 3, posisiBlinkyVertical] != 1 && posisiBlinkyVertical == 4) //Jika kiri BLINKY tidak ada wall dan posisi BLINKY secara vertical di 4, jalan ke kiri
                             {
@@ -2793,6 +3069,12 @@ class Program
                                     Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
+                                }
+                                else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
                                 }
                                 else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 7)
                                 {
@@ -2820,6 +3102,12 @@ class Program
                                 Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
                                 Console.ForegroundColor = ConsoleColor.White;
                                 Console.Write(".");
+                            }
+                            else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                            {
+                                Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                Console.Write("C");
                             }
                             else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 8)
                             {
@@ -2849,6 +3137,12 @@ class Program
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
                                 }
+                                else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
+                                }
                             }
                             else //Jika kiri blinky adalah wall, jalan ke atas
                             {
@@ -2858,12 +3152,17 @@ class Program
                                 Console.Write("@");
                                 Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
                                 Console.Write(" ");
-
                                 if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 2)
                                 {
                                     Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
+                                }
+                                else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
                                 }
                             }
                         }
@@ -2893,6 +3192,12 @@ class Program
                             {
                                 Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
                                 Console.Write(" ");
+                            }
+                            else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                            {
+                                Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                Console.Write("C");
                             }
                             else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 8)
                             {
@@ -2933,6 +3238,12 @@ class Program
                                         Console.ForegroundColor = ConsoleColor.White;
                                         Console.Write(".");
                                     }
+                                    else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                                    {
+                                        Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                        Console.Write("C");
+                                    }
                                 }
                                 else if (entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] == 1)//Jika kiri PINKY ada wall, jalan ke bawah
                                 {
@@ -2953,6 +3264,12 @@ class Program
                                         Console.ForegroundColor = ConsoleColor.White;
                                         Console.Write(".");
                                     }
+                                    else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                                    {
+                                        Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                        Console.Write("C");
+                                    }
                                 }
                                 else if (entityPosition[posisiPinkyHorizontal + 3, posisiPinkyVertical] != 1 && posisiPinkyVertical == 4) //Jika kanan PINKY bukan wall dan posisi PINKY secara vertical di 4, jalan ke kanan
                                 {
@@ -2972,6 +3289,12 @@ class Program
                                         Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
                                         Console.ForegroundColor = ConsoleColor.White;
                                         Console.Write(".");
+                                    }
+                                    else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                                    {
+                                        Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                        Console.Write("C");
                                     }
                                     else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 7)
                                     {
@@ -3000,6 +3323,12 @@ class Program
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
                                 }
+                                else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
+                                }
                             }
                             else if (entityPosition[posisiPinkyHorizontal, posisiPinkyVertical - 1] != 1 && posisiPinkyHorizontal == 3) //Jika atas PINKY bukan wall dan posisi PINKY secara horizontal di 3
                             {
@@ -3022,6 +3351,12 @@ class Program
                                         Console.ForegroundColor = ConsoleColor.White;
                                         Console.Write(".");
                                     }
+                                    else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                                    {
+                                        Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                        Console.Write("C");
+                                    }
                                 }
                                 else //Jika kanan PINKY ada wall, jalan ke bawah
                                 {
@@ -3041,6 +3376,12 @@ class Program
                                         Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
                                         Console.ForegroundColor = ConsoleColor.White;
                                         Console.Write(".");
+                                    }
+                                    else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                                    {
+                                        Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                        Console.Write("C");
                                     }
                                 }
                             }
@@ -3073,6 +3414,12 @@ class Program
                                 {
                                     Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
                                     Console.Write(" ");
+                                }
+                                else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
                                 }
                                 else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 8)
                                 {
@@ -3113,6 +3460,12 @@ class Program
                                             Console.ForegroundColor = ConsoleColor.White;
                                             Console.Write(".");
                                         }
+                                        else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                                        {
+                                            Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                            Console.Write("C");
+                                        }
                                         else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 7)
                                         {
                                             Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
@@ -3134,6 +3487,12 @@ class Program
                                             Console.ForegroundColor = ConsoleColor.White;
                                             Console.Write(".");
                                         }
+                                        else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                                        {
+                                            Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                            Console.Write("C");
+                                        }
                                     }
                                     else if (entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] != 1 && (posisiInkyHorizontal == 63 || posisiInkyHorizontal == 78)) //Jika atas INKY bukan wall dan posisi INKY secara horizontal di 63 atau 78, jalan ke atas
                                     {
@@ -3148,6 +3507,12 @@ class Program
                                             Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
                                             Console.ForegroundColor = ConsoleColor.White;
                                             Console.Write(".");
+                                        }
+                                        else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                                        {
+                                            Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                            Console.Write("C");
                                         }
                                     }
                                 }
@@ -3167,6 +3532,12 @@ class Program
                                             Console.ForegroundColor = ConsoleColor.White;
                                             Console.Write(".");
                                         }
+                                        else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                                        {
+                                            Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                            Console.Write("C");
+                                        }
                                     }
                                     else if (posisiInkyHorizontal != 63 && posisiInkyHorizontal != 78) //x bukan di 53 dan 78, jalan ke bawah
                                     {
@@ -3182,6 +3553,12 @@ class Program
                                             Console.ForegroundColor = ConsoleColor.White;
                                             Console.Write(".");
                                         }
+                                        else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                                        {
+                                            Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                            Console.Write("C");
+                                        }
                                     }
                                     else if (posisiInkyHorizontal == 63 || posisiInkyHorizontal == 78) //x di 63 atau 78, jalan ke atas
                                     {
@@ -3196,6 +3573,12 @@ class Program
                                             Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
                                             Console.ForegroundColor = ConsoleColor.White;
                                             Console.Write(".");
+                                        }
+                                        else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                                        {
+                                            Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                            Console.Write("C");
                                         }
                                     }
                                 }
@@ -3353,6 +3736,12 @@ class Program
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.Write(".");
                         }
+                        else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                        {
+                            Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.Write("C");
+                        }
                         else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 7)
                         {
                             Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
@@ -3384,6 +3773,12 @@ class Program
                             Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.Write(".");
+                        }
+                        else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                        {
+                            Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.Write("C");
                         }
                         else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 7)
                         {
@@ -3417,6 +3812,12 @@ class Program
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.Write(".");
                         }
+                        else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                        {
+                            Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.Write("C");
+                        }
                         else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 7)
                         {
                             Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
@@ -3448,6 +3849,12 @@ class Program
                             Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.Write(".");
+                        }
+                        else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                        {
+                            Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.Write("C");
                         }
                         else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 7)
                         {
@@ -3606,6 +4013,12 @@ class Program
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.Write(".");
                         }
+                        else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                        {
+                            Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.Write("C");
+                        }
                         else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 7)
                         {
                             Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
@@ -3637,6 +4050,12 @@ class Program
                             Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.Write(".");
+                        }
+                        else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                        {
+                            Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.Write("C");
                         }
                         else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 7)
                         {
@@ -3670,6 +4089,12 @@ class Program
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.Write(".");
                         }
+                        else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                        {
+                            Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.Write("C");
+                        }
                         else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 7)
                         {
                             Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
@@ -3701,6 +4126,12 @@ class Program
                             Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.Write(".");
+                        }
+                        else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                        {
+                            Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.Write("C");
                         }
                         else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 7)
                         {
@@ -3861,6 +4292,12 @@ class Program
                                 Console.ForegroundColor = ConsoleColor.White;
                                 Console.Write(".");
                             }
+                            else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                            {
+                                Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                Console.Write("C");
+                            }
                             else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 7)
                             {
                                 Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
@@ -3892,6 +4329,12 @@ class Program
                                 Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
                                 Console.ForegroundColor = ConsoleColor.White;
                                 Console.Write(".");
+                            }
+                            else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                            {
+                                Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                Console.Write("C");
                             }
                             else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 7)
                             {
@@ -3925,6 +4368,12 @@ class Program
                                 Console.ForegroundColor = ConsoleColor.White;
                                 Console.Write(".");
                             }
+                            else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                            {
+                                Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                Console.Write("C");
+                            }
                             else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 7)
                             {
                                 Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
@@ -3956,6 +4405,12 @@ class Program
                                 Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
                                 Console.ForegroundColor = ConsoleColor.White;
                                 Console.Write(".");
+                            }
+                            else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                            {
+                                Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                Console.Write("C");
                             }
                             else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 7)
                             {
@@ -4501,6 +4956,12 @@ class Program
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
                                 }
+                                else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
+                                }
                                 else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 7)
                                 {
                                     Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
@@ -4526,6 +4987,12 @@ class Program
                                     Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
+                                }
+                                else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
                                 }
                                 else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 7)
                                 {
@@ -4553,6 +5020,12 @@ class Program
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
                                 }
+                                else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
+                                }
                                 else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 7)
                                 {
                                     Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
@@ -4578,6 +5051,12 @@ class Program
                                     Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
+                                }
+                                else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
                                 }
                                 else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 7)
                                 {
@@ -4605,6 +5084,12 @@ class Program
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
                                 }
+                                else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
+                                }
                                 else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 7)
                                 {
                                     Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
@@ -4630,6 +5115,12 @@ class Program
                                     Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
+                                }
+                                else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
                                 }
                                 else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 7)
                                 {
@@ -4657,6 +5148,12 @@ class Program
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
                                 }
+                                else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
+                                }
                                 else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 7)
                                 {
                                     Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
@@ -4682,6 +5179,12 @@ class Program
                                     Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
+                                }
+                                else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
                                 }
                                 else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 7)
                                 {
@@ -4709,6 +5212,12 @@ class Program
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
                                 }
+                                else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
+                                }
                                 else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 7)
                                 {
                                     Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
@@ -4734,6 +5243,12 @@ class Program
                                     Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
+                                }
+                                else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
                                 }
                                 else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 7)
                                 {
@@ -4761,6 +5276,12 @@ class Program
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
                                 }
+                                else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
+                                }
                                 else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 7)
                                 {
                                     Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
@@ -4786,6 +5307,12 @@ class Program
                                     Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
+                                }
+                                else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
                                 }
                                 else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 7)
                                 {
@@ -4980,7 +5507,7 @@ class Program
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write("Level : 3");
             ConsoleKey bacaKey = Console.ReadKey(true).Key; //mengecek key yang dipencet
-                                                            //
+            //
 
             //GAME
             ///Game akan dijalankan selama score < 17900 / semua makanan habis
@@ -5143,6 +5670,12 @@ class Program
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
                                 }
+                                else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
+                                }
                             }
                             else if (entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] == 1)//Jika kanan BLINKY ada wall, jalan ke atas
                             {
@@ -5163,6 +5696,12 @@ class Program
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
                                 }
+                                else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
+                                }
                             }
                             else if (entityPosition[posisiBlinkyHorizontal - 3, posisiBlinkyVertical] != 1 && posisiBlinkyVertical == 4) //Jika kiri BLINKY tidak ada wall dan posisi BLINKY secara vertical di 4, jalan ke kiri
                             {
@@ -5182,6 +5721,12 @@ class Program
                                     Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
+                                }
+                                else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
                                 }
                                 else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 7)
                                 {
@@ -5209,6 +5754,12 @@ class Program
                                 Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
                                 Console.ForegroundColor = ConsoleColor.White;
                                 Console.Write(".");
+                            }
+                            else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                            {
+                                Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                Console.Write("C");
                             }
                             else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 8)
                             {
@@ -5238,6 +5789,12 @@ class Program
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
                                 }
+                                else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
+                                }
                             }
                             else //Jika kiri blinky adalah wall, jalan ke atas
                             {
@@ -5247,12 +5804,17 @@ class Program
                                 Console.Write("@");
                                 Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
                                 Console.Write(" ");
-
                                 if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 2)
                                 {
                                     Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
+                                }
+                                else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
                                 }
                             }
                         }
@@ -5282,6 +5844,12 @@ class Program
                             {
                                 Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
                                 Console.Write(" ");
+                            }
+                            else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                            {
+                                Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                Console.Write("C");
                             }
                             else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 8)
                             {
@@ -5322,6 +5890,12 @@ class Program
                                         Console.ForegroundColor = ConsoleColor.White;
                                         Console.Write(".");
                                     }
+                                    else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                                    {
+                                        Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                        Console.Write("C");
+                                    }
                                 }
                                 else if (entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] == 1)//Jika kiri PINKY ada wall, jalan ke bawah
                                 {
@@ -5342,6 +5916,12 @@ class Program
                                         Console.ForegroundColor = ConsoleColor.White;
                                         Console.Write(".");
                                     }
+                                    else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                                    {
+                                        Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                        Console.Write("C");
+                                    }
                                 }
                                 else if (entityPosition[posisiPinkyHorizontal + 3, posisiPinkyVertical] != 1 && posisiPinkyVertical == 4) //Jika kanan PINKY bukan wall dan posisi PINKY secara vertical di 4, jalan ke kanan
                                 {
@@ -5361,6 +5941,12 @@ class Program
                                         Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
                                         Console.ForegroundColor = ConsoleColor.White;
                                         Console.Write(".");
+                                    }
+                                    else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                                    {
+                                        Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                        Console.Write("C");
                                     }
                                     else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 7)
                                     {
@@ -5389,6 +5975,12 @@ class Program
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
                                 }
+                                else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
+                                }
                             }
                             else if (entityPosition[posisiPinkyHorizontal, posisiPinkyVertical - 1] != 1 && posisiPinkyHorizontal == 3) //Jika atas PINKY bukan wall dan posisi PINKY secara horizontal di 3
                             {
@@ -5411,6 +6003,12 @@ class Program
                                         Console.ForegroundColor = ConsoleColor.White;
                                         Console.Write(".");
                                     }
+                                    else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                                    {
+                                        Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                        Console.Write("C");
+                                    }
                                 }
                                 else //Jika kanan PINKY ada wall, jalan ke bawah
                                 {
@@ -5430,6 +6028,12 @@ class Program
                                         Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
                                         Console.ForegroundColor = ConsoleColor.White;
                                         Console.Write(".");
+                                    }
+                                    else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                                    {
+                                        Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                        Console.Write("C");
                                     }
                                 }
                             }
@@ -5462,6 +6066,12 @@ class Program
                                 {
                                     Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
                                     Console.Write(" ");
+                                }
+                                else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
                                 }
                                 else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 8)
                                 {
@@ -5502,6 +6112,12 @@ class Program
                                             Console.ForegroundColor = ConsoleColor.White;
                                             Console.Write(".");
                                         }
+                                        else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                                        {
+                                            Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                            Console.Write("C");
+                                        }
                                         else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 7)
                                         {
                                             Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
@@ -5523,6 +6139,12 @@ class Program
                                             Console.ForegroundColor = ConsoleColor.White;
                                             Console.Write(".");
                                         }
+                                        else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                                        {
+                                            Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                            Console.Write("C");
+                                        }
                                     }
                                     else if (entityPosition[posisiInkyHorizontal, posisiInkyVertical - 1] != 1 && (posisiInkyHorizontal == 63 || posisiInkyHorizontal == 78)) //Jika atas INKY bukan wall dan posisi INKY secara horizontal di 63 atau 78, jalan ke atas
                                     {
@@ -5537,6 +6159,12 @@ class Program
                                             Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
                                             Console.ForegroundColor = ConsoleColor.White;
                                             Console.Write(".");
+                                        }
+                                        else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                                        {
+                                            Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                            Console.Write("C");
                                         }
                                     }
                                 }
@@ -5556,6 +6184,12 @@ class Program
                                             Console.ForegroundColor = ConsoleColor.White;
                                             Console.Write(".");
                                         }
+                                        else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                                        {
+                                            Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                            Console.Write("C");
+                                        }
                                     }
                                     else if (posisiInkyHorizontal != 63 && posisiInkyHorizontal != 78) //x bukan di 53 dan 78, jalan ke bawah
                                     {
@@ -5571,6 +6205,12 @@ class Program
                                             Console.ForegroundColor = ConsoleColor.White;
                                             Console.Write(".");
                                         }
+                                        else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                                        {
+                                            Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                            Console.Write("C");
+                                        }
                                     }
                                     else if (posisiInkyHorizontal == 63 || posisiInkyHorizontal == 78) //x di 63 atau 78, jalan ke atas
                                     {
@@ -5585,6 +6225,12 @@ class Program
                                             Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
                                             Console.ForegroundColor = ConsoleColor.White;
                                             Console.Write(".");
+                                        }
+                                        else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                                        {
+                                            Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                            Console.Write("C");
                                         }
                                     }
                                 }
@@ -5742,6 +6388,12 @@ class Program
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.Write(".");
                         }
+                        else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                        {
+                            Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.Write("C");
+                        }
                         else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 7)
                         {
                             Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
@@ -5773,6 +6425,12 @@ class Program
                             Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.Write(".");
+                        }
+                        else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                        {
+                            Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.Write("C");
                         }
                         else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 7)
                         {
@@ -5806,6 +6464,12 @@ class Program
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.Write(".");
                         }
+                        else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                        {
+                            Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.Write("C");
+                        }
                         else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 7)
                         {
                             Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
@@ -5837,6 +6501,12 @@ class Program
                             Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.Write(".");
+                        }
+                        else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                        {
+                            Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.Write("C");
                         }
                         else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 7)
                         {
@@ -5995,6 +6665,12 @@ class Program
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.Write(".");
                         }
+                        else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                        {
+                            Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.Write("C");
+                        }
                         else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 7)
                         {
                             Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
@@ -6026,6 +6702,12 @@ class Program
                             Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.Write(".");
+                        }
+                        else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                        {
+                            Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.Write("C");
                         }
                         else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 7)
                         {
@@ -6059,6 +6741,12 @@ class Program
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.Write(".");
                         }
+                        else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                        {
+                            Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.Write("C");
+                        }
                         else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 7)
                         {
                             Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
@@ -6090,6 +6778,12 @@ class Program
                             Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.Write(".");
+                        }
+                        else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                        {
+                            Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.Write("C");
                         }
                         else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 7)
                         {
@@ -6250,6 +6944,12 @@ class Program
                                 Console.ForegroundColor = ConsoleColor.White;
                                 Console.Write(".");
                             }
+                            else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                            {
+                                Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                Console.Write("C");
+                            }
                             else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 7)
                             {
                                 Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
@@ -6281,6 +6981,12 @@ class Program
                                 Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
                                 Console.ForegroundColor = ConsoleColor.White;
                                 Console.Write(".");
+                            }
+                            else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                            {
+                                Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                Console.Write("C");
                             }
                             else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 7)
                             {
@@ -6314,6 +7020,12 @@ class Program
                                 Console.ForegroundColor = ConsoleColor.White;
                                 Console.Write(".");
                             }
+                            else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                            {
+                                Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                Console.Write("C");
+                            }
                             else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 7)
                             {
                                 Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
@@ -6345,6 +7057,12 @@ class Program
                                 Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
                                 Console.ForegroundColor = ConsoleColor.White;
                                 Console.Write(".");
+                            }
+                            else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                            {
+                                Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                Console.Write("C");
                             }
                             else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 7)
                             {
@@ -6890,6 +7608,12 @@ class Program
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
                                 }
+                                else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
+                                }
                                 else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 7)
                                 {
                                     Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
@@ -6915,6 +7639,12 @@ class Program
                                     Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
+                                }
+                                else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
                                 }
                                 else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 7)
                                 {
@@ -6942,6 +7672,12 @@ class Program
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
                                 }
+                                else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
+                                }
                                 else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 7)
                                 {
                                     Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
@@ -6967,6 +7703,12 @@ class Program
                                     Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
+                                }
+                                else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
                                 }
                                 else if (entityPosition[posisiBlinkyHorizontalOld, posisiBlinkyVerticalOld] == 7)
                                 {
@@ -6994,6 +7736,12 @@ class Program
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
                                 }
+                                else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
+                                }
                                 else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 7)
                                 {
                                     Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
@@ -7019,6 +7767,12 @@ class Program
                                     Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
+                                }
+                                else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
                                 }
                                 else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 7)
                                 {
@@ -7046,6 +7800,12 @@ class Program
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
                                 }
+                                else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
+                                }
                                 else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 7)
                                 {
                                     Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
@@ -7071,6 +7831,12 @@ class Program
                                     Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
+                                }
+                                else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiPinkyHorizontalOld, posisiPinkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
                                 }
                                 else if (entityPosition[posisiPinkyHorizontalOld, posisiPinkyVerticalOld] == 7)
                                 {
@@ -7098,6 +7864,12 @@ class Program
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
                                 }
+                                else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
+                                }
                                 else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 7)
                                 {
                                     Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
@@ -7123,6 +7895,12 @@ class Program
                                     Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
+                                }
+                                else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
                                 }
                                 else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 7)
                                 {
@@ -7150,6 +7928,12 @@ class Program
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
                                 }
+                                else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
+                                }
                                 else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 7)
                                 {
                                     Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
@@ -7175,6 +7959,12 @@ class Program
                                     Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
                                     Console.ForegroundColor = ConsoleColor.White;
                                     Console.Write(".");
+                                }
+                                else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 3)
+                                {
+                                    Console.SetCursorPosition(posisiInkyHorizontalOld, posisiInkyVerticalOld);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.Write("C");
                                 }
                                 else if (entityPosition[posisiInkyHorizontalOld, posisiInkyVerticalOld] == 7)
                                 {
