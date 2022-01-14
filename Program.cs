@@ -1,7 +1,8 @@
 ﻿using System;
-
+using System.Runtime.InteropServices;
 class Program
 {
+    public static void Beep(int frequency, int duration) { }
     static void Main(string[] args)
     {
         //DECLARE VARIABLE
@@ -56,10 +57,16 @@ class Program
         Console.ForegroundColor = ConsoleColor.Blue;
         Console.Write("Press ENTER to start....");
         Console.ReadKey();
-        //
 
-        //CHOOSE STAGE LEVEL PAGE
-        stagePage:
+        Console.Beep(400, 200);
+        Console.Beep(500, 300);
+        Console.Beep(600, 300);
+        Console.Beep(700, 300);
+        Console.Beep(800, 300);
+    //
+
+    //CHOOSE STAGE LEVEL PAGE
+    stagePage:
         Console.Clear();
         Console.SetCursorPosition(39, 2);
         Console.ForegroundColor = ConsoleColor.Yellow;
@@ -83,6 +90,7 @@ class Program
 
         if (pilihLevel == ConsoleKey.D1 || pilihLevel == ConsoleKey.NumPad1 || pilihLevel == ConsoleKey.D2 || pilihLevel == ConsoleKey.NumPad2 || pilihLevel == ConsoleKey.D3 || pilihLevel == ConsoleKey.NumPad3)
         {
+            Console.Beep(400, 500);
             // Declare ulang untuk mereset game
             ///pacman
             posisiHorizontal = 51;
@@ -746,9 +754,9 @@ class Program
                 if (score >= 1500)
                 {
                     //scatter inky
-                    if (statusInky <= 65) //INKY jalan sebanyak 59 steps
+                    if (statusInky <= 65) //INKY jalan sebanyak 65 steps
                     {
-                        if (statusInky <= 64) //INKY jalan sebanyak 58 steps
+                        if (statusInky <= 64) //INKY jalan sebanyak 64 steps
                         {
                             if (statusInky >= 0 && statusInky <= 2) //supaya INKY keluar dari ghost house
                             {
@@ -981,9 +989,6 @@ class Program
                                 //Jika bawah BLINKY tidak ada halangan, jalan ke bawah
                                 else if (entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 1 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 5 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 6 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 8)
                                     tujuanBlinky = 4;
-                                //Jika kanan BLINKY tidak ada halangan, kanan ke kanan
-                                else if (entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] != 1 && entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] != 5 && entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] != 6 && entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] != 8)
-                                    tujuanBlinky = 2;
                             }
                         }
                     }
@@ -1007,9 +1012,6 @@ class Program
                                 //Jika bawah BLINKY tidak ada halangan, jalan ke bawah
                                 else if (entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 1 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 5 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 6 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 8)
                                     tujuanBlinky = 4;
-                                //Jika kiri BLINKY tidak ada halangan, jalan ke kiri
-                                else if (entityPosition[posisiBlinkyHorizontal - 3, posisiBlinkyVertical] != 1 && entityPosition[posisiBlinkyHorizontal - 3, posisiBlinkyVertical] != 5 && entityPosition[posisiBlinkyHorizontal - 3, posisiBlinkyVertical] != 6 && entityPosition[posisiBlinkyHorizontal - 3, posisiBlinkyVertical] != 6)
-                                    tujuanBlinky = 1;
                             }
                         }
                     }
@@ -1258,9 +1260,6 @@ class Program
                                 //Jika bawah PINKY tidak ada halangan, jalan ke bawah
                                 else if (entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 1 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 4 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 6 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 8)
                                     tujuanPinky = 4;
-                                //Jika kanan PINKY tidak ada halangan, jalan ke kanan
-                                else if (entityPosition[posisiPinkyHorizontal + 3, posisiPinkyVertical] != 1 && entityPosition[posisiPinkyHorizontal + 3, posisiPinkyVertical] != 4 && entityPosition[posisiPinkyHorizontal + 3, posisiPinkyVertical] != 6 && entityPosition[posisiPinkyHorizontal + 3, posisiPinkyVertical] != 8)
-                                    tujuanPinky = 2;
                             }
                         }
                     }
@@ -1284,9 +1283,6 @@ class Program
                                 //Jika bawah PINKY tidak ada halangan, jalan ke bawah
                                 else if (entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 1 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 4 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 6 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 8)
                                     tujuanPinky = 4;
-                                //Jika kiri PINKY tidak ada halangan, jalan ke kiri
-                                else if (entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] != 1 && entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] != 4 && entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] != 6 && entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] != 8)
-                                    tujuanPinky = 1;
                             }
                         }
                     }
@@ -1537,9 +1533,6 @@ class Program
                                     //Jika bawah INKY tidak ada halangan, jalan ke bawah
                                     else if (entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 1 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 4 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 5 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 8)
                                         tujuanInky = 4;
-                                    //Jika kanan INKY tidak ada halangan, jalan ke kanan
-                                    else if (entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 1 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 4 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 5 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 8)
-                                        tujuanInky = 2;
                                 }
                             }
                         }
@@ -1563,9 +1556,6 @@ class Program
                                     //Jika bawah INKY tidak ada halangan, jalan ke bawah
                                     else if (entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 1 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 4 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 5 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 8)
                                         tujuanInky = 4;
-                                    //Jika kiri INKY tidak ada halangan, jalan ke kiri
-                                    else if (entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 1 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 4 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 5 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 8)
-                                        tujuanInky = 1;
                                 }
                             }
                         }
@@ -1778,6 +1768,7 @@ class Program
                 //Jika GHOST menabrak PACMAN
                 if ((posisiHorizontal == posisiBlinkyHorizontal && posisiVertical == posisiBlinkyVertical) || (posisiPinkyHorizontal == posisiHorizontal && posisiPinkyVertical == posisiVertical) || (posisiInkyHorizontal == posisiHorizontal && posisiInkyVertical == posisiVertical)) //hantu nabrak pacman (game reset)
                 {
+                    Console.Beep(300, 500);
                     lifesPacMan--;
                     Console.SetCursorPosition(8, 31);
                     Console.ForegroundColor = ConsoleColor.White;
@@ -1837,6 +1828,8 @@ class Program
                          ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ 
                          ░ ░         ░ ░     ░           ░     ░     ░  ░   ░    
                          ░ ░                           ░                  ░      ");
+                        Console.Beep(300, 300);
+                        Console.Beep(200, 500);
                         System.Threading.Thread.Sleep(3000);
                         goto stagePage;
                     }
@@ -1856,11 +1849,16 @@ class Program
                 |__/  |__/  |__/\_______|__/  |__|__/  \__/          |__/ \______/ \______/ 
 
                              YOU WIN THIS GAME!!! LET'S PLAY VALORANT :D");
+                    Console.Beep(500, 200);
+                    Console.Beep(600, 300);
+                    Console.Beep(700, 300);
+                    Console.Beep(800, 500);
                     System.Threading.Thread.Sleep(3000);
                     goto stagePage;
                 }
                 if (entityPosition[posisiHorizontal, posisiVertical] == 7) //Jika pacman makan power up
                 {
+                    Console.Beep(500, 300);
                     ///Declare ulang untuk tujuan GHOST dan membuat nilai Array pada posisi PACMAN menjadi 0
                     ///Menambahkan powerUp untuk menentukan setelah PACMAN makan power up, FRIGHTENED PHASE akan berlangsung selama 40 kali GHOST/PACMAN berjalan
                     ///Isi while sama dengan di atas, bedanya pada penentuan rute GHOST
@@ -2034,8 +2032,6 @@ class Program
                                             tujuanBlinky = 3;
                                         else if (entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 1 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 5 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 6 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 8)
                                             tujuanBlinky = 4;
-                                        else if (entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] != 1 && entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] != 5 && entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] != 6 && entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] != 8)
-                                            tujuanBlinky = 2;
                                     }
                                 }
                             }
@@ -2053,8 +2049,6 @@ class Program
                                             tujuanBlinky = 3;
                                         else if (entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 1 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 5 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 6 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 8)
                                             tujuanBlinky = 4;
-                                        else if (entityPosition[posisiBlinkyHorizontal - 3, posisiBlinkyVertical] != 1 && entityPosition[posisiBlinkyHorizontal - 3, posisiBlinkyVertical] != 5 && entityPosition[posisiBlinkyHorizontal - 3, posisiBlinkyVertical] != 6 && entityPosition[posisiBlinkyHorizontal - 3, posisiBlinkyVertical] != 6)
-                                            tujuanBlinky = 1;
                                     }
                                 }
                             }
@@ -2127,8 +2121,6 @@ class Program
                                             tujuanPinky = 3;
                                         else if (entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 1 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 4 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 6 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 8)
                                             tujuanPinky = 4;
-                                        else if (entityPosition[posisiPinkyHorizontal + 3, posisiPinkyVertical] != 1 && entityPosition[posisiPinkyHorizontal + 3, posisiPinkyVertical] != 4 && entityPosition[posisiPinkyHorizontal + 3, posisiPinkyVertical] != 6 && entityPosition[posisiPinkyHorizontal + 3, posisiPinkyVertical] != 8)
-                                            tujuanPinky = 2;
                                     }
                                 }
                             }
@@ -2146,8 +2138,6 @@ class Program
                                             tujuanPinky = 3;
                                         else if (entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 1 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 4 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 6 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 8)
                                             tujuanPinky = 4;
-                                        if (entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] != 1 && entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] != 4 && entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] != 6 && entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] != 8)
-                                            tujuanPinky = 1;
                                     }
                                 }
                             }
@@ -2222,8 +2212,6 @@ class Program
                                                 tujuanInky = 3;
                                             else if (entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 1 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 4 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 5 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 8)
                                                 tujuanInky = 4;
-                                            else if (entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 1 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 4 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 5 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 8)
-                                                tujuanInky = 2;
                                         }
                                     }
                                 }
@@ -2241,8 +2229,6 @@ class Program
                                                 tujuanInky = 3;
                                             else if (entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 1 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 4 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 5 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 8)
                                                 tujuanInky = 4;
-                                            else if (entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 1 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 4 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 5 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 8)
-                                                tujuanInky = 1;
                                         }
                                     }
                                 }
@@ -2672,6 +2658,7 @@ class Program
                         }
                         if ((posisiBlinkyHorizontal == posisiHorizontal && posisiBlinkyVertical == posisiVertical) || (posisiPinkyHorizontal == posisiHorizontal && posisiPinkyVertical == posisiVertical) || (posisiInkyHorizontal == posisiHorizontal && posisiInkyVertical == posisiVertical))
                         {
+                            Console.Beep(500, 300);
                             if (posisiBlinkyHorizontal == posisiHorizontal && posisiBlinkyVertical == posisiVertical)
                             {
                                 tujuanBlinky = 5; //supaya tidak kemana-mana (berhenti)
@@ -2709,6 +2696,10 @@ class Program
                 |__/  |__/  |__/\_______|__/  |__|__/  \__/          |__/ \______/ \______/ 
 
                              YOU WIN THIS GAME!!! LET'S PLAY VALORANT :D");
+                            Console.Beep(500, 200);
+                            Console.Beep(600, 300);
+                            Console.Beep(700, 300);
+                            Console.Beep(800, 500);
                             System.Threading.Thread.Sleep(3000);
                             goto stagePage;
                         }
@@ -3398,9 +3389,9 @@ class Program
                 if (score >= 1500)
                 {
                     //scatter inky
-                    if (statusInky <= 60) //INKY jalan sebanyak 54 steps
+                    if (statusInky <= 60) //INKY jalan sebanyak 60 steps
                     {
-                        if (statusInky <= 59) //INKY jalan sebanyak 53 steps
+                        if (statusInky <= 59) //INKY jalan sebanyak 59 steps
                         {
                             if (statusInky >= 0 && statusInky <= 2) //supaya INKY keluar dari ghost house
                             {
@@ -3633,9 +3624,6 @@ class Program
                                 //Jika bawah BLINKY tidak ada halangan, jalan ke bawah
                                 else if (entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 1 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 5 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 6 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 8)
                                     tujuanBlinky = 4;
-                                //Jika kanan BLINKY tidak ada halangan, kanan ke kanan
-                                else if (entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] != 1 && entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] != 5 && entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] != 6 && entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] != 8)
-                                    tujuanBlinky = 2;
                             }
                         }
                     }
@@ -3659,9 +3647,6 @@ class Program
                                 //Jika bawah BLINKY tidak ada halangan, jalan ke bawah
                                 else if (entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 1 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 5 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 6 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 8)
                                     tujuanBlinky = 4;
-                                //Jika kiri BLINKY tidak ada halangan, jalan ke kiri
-                                else if (entityPosition[posisiBlinkyHorizontal - 3, posisiBlinkyVertical] != 1 && entityPosition[posisiBlinkyHorizontal - 3, posisiBlinkyVertical] != 5 && entityPosition[posisiBlinkyHorizontal - 3, posisiBlinkyVertical] != 6 && entityPosition[posisiBlinkyHorizontal - 3, posisiBlinkyVertical] != 6)
-                                    tujuanBlinky = 1;
                             }
                         }
                     }
@@ -3910,9 +3895,6 @@ class Program
                                 //Jika bawah PINKY tidak ada halangan, jalan ke bawah
                                 else if (entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 1 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 4 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 6 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 8)
                                     tujuanPinky = 4;
-                                //Jika kanan PINKY tidak ada halangan, jalan ke kanan
-                                else if (entityPosition[posisiPinkyHorizontal + 3, posisiPinkyVertical] != 1 && entityPosition[posisiPinkyHorizontal + 3, posisiPinkyVertical] != 4 && entityPosition[posisiPinkyHorizontal + 3, posisiPinkyVertical] != 6 && entityPosition[posisiPinkyHorizontal + 3, posisiPinkyVertical] != 8)
-                                    tujuanPinky = 2;
                             }
                         }
                     }
@@ -3936,9 +3918,6 @@ class Program
                                 //Jika bawah PINKY tidak ada halangan, jalan ke bawah
                                 else if (entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 1 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 4 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 6 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 8)
                                     tujuanPinky = 4;
-                                //Jika kiri PINKY tidak ada halangan, jalan ke kiri
-                                else if (entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] != 1 && entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] != 4 && entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] != 6 && entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] != 8)
-                                    tujuanPinky = 1;
                             }
                         }
                     }
@@ -4189,9 +4168,6 @@ class Program
                                     //Jika bawah INKY tidak ada halangan, jalan ke bawah
                                     else if (entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 1 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 4 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 5 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 8)
                                         tujuanInky = 4;
-                                    //Jika kanan INKY tidak ada halangan, jalan ke kanan
-                                    else if (entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 1 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 4 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 5 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 8)
-                                        tujuanInky = 2;
                                 }
                             }
                         }
@@ -4215,9 +4191,6 @@ class Program
                                     //Jika bawah INKY tidak ada halangan, jalan ke bawah
                                     else if (entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 1 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 4 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 5 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 8)
                                         tujuanInky = 4;
-                                    //Jika kiri INKY tidak ada halangan, jalan ke kiri
-                                    else if (entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 1 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 4 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 5 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 8)
-                                        tujuanInky = 1;
                                 }
                             }
                         }
@@ -4430,6 +4403,7 @@ class Program
                 //Jika GHOST menabrak PACMAN
                 if ((posisiHorizontal == posisiBlinkyHorizontal && posisiVertical == posisiBlinkyVertical) || (posisiPinkyHorizontal == posisiHorizontal && posisiPinkyVertical == posisiVertical) || (posisiInkyHorizontal == posisiHorizontal && posisiInkyVertical == posisiVertical)) //hantu nabrak pacman (game reset)
                 {
+                    Console.Beep(300, 500);
                     lifesPacMan--;
                     Console.SetCursorPosition(8, 31);
                     Console.ForegroundColor = ConsoleColor.White;
@@ -4489,6 +4463,8 @@ class Program
                          ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ 
                          ░ ░         ░ ░     ░           ░     ░     ░  ░   ░    
                          ░ ░                           ░                  ░      ");
+                        Console.Beep(300, 300);
+                        Console.Beep(200, 500);
                         System.Threading.Thread.Sleep(3000);
                         goto stagePage;
                     }
@@ -4508,11 +4484,16 @@ class Program
                 |__/  |__/  |__/\_______|__/  |__|__/  \__/          |__/ \______/ \______/ 
 
                              YOU WIN THIS GAME!!! LET'S PLAY VALORANT :D");
+                    Console.Beep(500, 200);
+                    Console.Beep(600, 300);
+                    Console.Beep(700, 300);
+                    Console.Beep(800, 500);
                     System.Threading.Thread.Sleep(3000);
                     goto stagePage;
                 }
                 if (entityPosition[posisiHorizontal, posisiVertical] == 7) //Jika pacman makan power up
                 {
+                    Console.Beep(500, 300);
                     ///Declare ulang untuk tujuan GHOST dan membuat nilai Array pada posisi PACMAN menjadi 0
                     ///Menambahkan powerUp untuk menentukan setelah PACMAN makan power up, FRIGHTENED PHASE akan berlangsung selama 40 kali GHOST/PACMAN berjalan
                     ///Isi while sama dengan di atas, bedanya pada penentuan rute GHOST
@@ -4686,8 +4667,6 @@ class Program
                                             tujuanBlinky = 3;
                                         else if (entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 1 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 5 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 6 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 8)
                                             tujuanBlinky = 4;
-                                        else if (entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] != 1 && entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] != 5 && entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] != 6 && entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] != 8)
-                                            tujuanBlinky = 2;
                                     }
                                 }
                             }
@@ -4705,8 +4684,6 @@ class Program
                                             tujuanBlinky = 3;
                                         else if (entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 1 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 5 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 6 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 8)
                                             tujuanBlinky = 4;
-                                        else if (entityPosition[posisiBlinkyHorizontal - 3, posisiBlinkyVertical] != 1 && entityPosition[posisiBlinkyHorizontal - 3, posisiBlinkyVertical] != 5 && entityPosition[posisiBlinkyHorizontal - 3, posisiBlinkyVertical] != 6 && entityPosition[posisiBlinkyHorizontal - 3, posisiBlinkyVertical] != 6)
-                                            tujuanBlinky = 1;
                                     }
                                 }
                             }
@@ -4779,8 +4756,6 @@ class Program
                                             tujuanPinky = 3;
                                         else if (entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 1 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 4 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 6 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 8)
                                             tujuanPinky = 4;
-                                        else if (entityPosition[posisiPinkyHorizontal + 3, posisiPinkyVertical] != 1 && entityPosition[posisiPinkyHorizontal + 3, posisiPinkyVertical] != 4 && entityPosition[posisiPinkyHorizontal + 3, posisiPinkyVertical] != 6 && entityPosition[posisiPinkyHorizontal + 3, posisiPinkyVertical] != 8)
-                                            tujuanPinky = 2;
                                     }
                                 }
                             }
@@ -4798,8 +4773,6 @@ class Program
                                             tujuanPinky = 3;
                                         else if (entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 1 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 4 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 6 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 8)
                                             tujuanPinky = 4;
-                                        if (entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] != 1 && entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] != 4 && entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] != 6 && entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] != 8)
-                                            tujuanPinky = 1;
                                     }
                                 }
                             }
@@ -4874,8 +4847,6 @@ class Program
                                                 tujuanInky = 3;
                                             else if (entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 1 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 4 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 5 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 8)
                                                 tujuanInky = 4;
-                                            else if (entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 1 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 4 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 5 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 8)
-                                                tujuanInky = 2;
                                         }
                                     }
                                 }
@@ -4893,8 +4864,6 @@ class Program
                                                 tujuanInky = 3;
                                             else if (entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 1 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 4 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 5 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 8)
                                                 tujuanInky = 4;
-                                            else if (entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 1 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 4 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 5 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 8)
-                                                tujuanInky = 1;
                                         }
                                     }
                                 }
@@ -5324,6 +5293,7 @@ class Program
                         }
                         if ((posisiBlinkyHorizontal == posisiHorizontal && posisiBlinkyVertical == posisiVertical) || (posisiPinkyHorizontal == posisiHorizontal && posisiPinkyVertical == posisiVertical) || (posisiInkyHorizontal == posisiHorizontal && posisiInkyVertical == posisiVertical))
                         {
+                            Console.Beep(500, 300);
                             if (posisiBlinkyHorizontal == posisiHorizontal && posisiBlinkyVertical == posisiVertical)
                             {
                                 tujuanBlinky = 5; //supaya tidak kemana-mana (berhenti)
@@ -5361,6 +5331,10 @@ class Program
                 |__/  |__/  |__/\_______|__/  |__|__/  \__/          |__/ \______/ \______/ 
 
                              YOU WIN THIS GAME!!! LET'S PLAY VALORANT :D");
+                            Console.Beep(500, 200);
+                            Console.Beep(600, 300);
+                            Console.Beep(700, 300);
+                            Console.Beep(800, 500);
                             System.Threading.Thread.Sleep(3000);
                             goto stagePage;
                         }
@@ -6050,9 +6024,9 @@ class Program
                 if (score >= 1500)
                 {
                     //scatter inky
-                    if (statusInky <= 55) //INKY jalan sebanyak 49 steps
+                    if (statusInky <= 55) //INKY jalan sebanyak 55 steps
                     {
-                        if (statusInky <= 54) //INKY jalan sebanyak 48 steps
+                        if (statusInky <= 54) //INKY jalan sebanyak 54 steps
                         {
                             if (statusInky >= 0 && statusInky <= 2) //supaya INKY keluar dari ghost house
                             {
@@ -6285,9 +6259,6 @@ class Program
                                 //Jika bawah BLINKY tidak ada halangan, jalan ke bawah
                                 else if (entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 1 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 5 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 6 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 8)
                                     tujuanBlinky = 4;
-                                //Jika kanan BLINKY tidak ada halangan, kanan ke kanan
-                                else if (entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] != 1 && entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] != 5 && entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] != 6 && entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] != 8)
-                                    tujuanBlinky = 2;
                             }
                         }
                     }
@@ -6311,9 +6282,6 @@ class Program
                                 //Jika bawah BLINKY tidak ada halangan, jalan ke bawah
                                 else if (entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 1 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 5 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 6 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 8)
                                     tujuanBlinky = 4;
-                                //Jika kiri BLINKY tidak ada halangan, jalan ke kiri
-                                else if (entityPosition[posisiBlinkyHorizontal - 3, posisiBlinkyVertical] != 1 && entityPosition[posisiBlinkyHorizontal - 3, posisiBlinkyVertical] != 5 && entityPosition[posisiBlinkyHorizontal - 3, posisiBlinkyVertical] != 6 && entityPosition[posisiBlinkyHorizontal - 3, posisiBlinkyVertical] != 6)
-                                    tujuanBlinky = 1;
                             }
                         }
                     }
@@ -6562,9 +6530,6 @@ class Program
                                 //Jika bawah PINKY tidak ada halangan, jalan ke bawah
                                 else if (entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 1 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 4 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 6 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 8)
                                     tujuanPinky = 4;
-                                //Jika kanan PINKY tidak ada halangan, jalan ke kanan
-                                else if (entityPosition[posisiPinkyHorizontal + 3, posisiPinkyVertical] != 1 && entityPosition[posisiPinkyHorizontal + 3, posisiPinkyVertical] != 4 && entityPosition[posisiPinkyHorizontal + 3, posisiPinkyVertical] != 6 && entityPosition[posisiPinkyHorizontal + 3, posisiPinkyVertical] != 8)
-                                    tujuanPinky = 2;
                             }
                         }
                     }
@@ -6588,9 +6553,6 @@ class Program
                                 //Jika bawah PINKY tidak ada halangan, jalan ke bawah
                                 else if (entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 1 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 4 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 6 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 8)
                                     tujuanPinky = 4;
-                                //Jika kiri PINKY tidak ada halangan, jalan ke kiri
-                                else if (entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] != 1 && entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] != 4 && entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] != 6 && entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] != 8)
-                                    tujuanPinky = 1;
                             }
                         }
                     }
@@ -6841,9 +6803,6 @@ class Program
                                     //Jika bawah INKY tidak ada halangan, jalan ke bawah
                                     else if (entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 1 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 4 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 5 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 8)
                                         tujuanInky = 4;
-                                    //Jika kanan INKY tidak ada halangan, jalan ke kanan
-                                    else if (entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 1 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 4 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 5 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 8)
-                                        tujuanInky = 2;
                                 }
                             }
                         }
@@ -6867,9 +6826,6 @@ class Program
                                     //Jika bawah INKY tidak ada halangan, jalan ke bawah
                                     else if (entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 1 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 4 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 5 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 8)
                                         tujuanInky = 4;
-                                    //Jika kiri INKY tidak ada halangan, jalan ke kiri
-                                    else if (entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 1 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 4 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 5 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 8)
-                                        tujuanInky = 1;
                                 }
                             }
                         }
@@ -7082,6 +7038,7 @@ class Program
                 //Jika GHOST menabrak PACMAN
                 if ((posisiHorizontal == posisiBlinkyHorizontal && posisiVertical == posisiBlinkyVertical) || (posisiPinkyHorizontal == posisiHorizontal && posisiPinkyVertical == posisiVertical) || (posisiInkyHorizontal == posisiHorizontal && posisiInkyVertical == posisiVertical)) //hantu nabrak pacman (game reset)
                 {
+                    Console.Beep(300, 500);
                     lifesPacMan--;
                     Console.SetCursorPosition(8, 31);
                     Console.ForegroundColor = ConsoleColor.White;
@@ -7141,6 +7098,8 @@ class Program
                          ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ 
                          ░ ░         ░ ░     ░           ░     ░     ░  ░   ░    
                          ░ ░                           ░                  ░      ");
+                        Console.Beep(300, 300);
+                        Console.Beep(200, 500);
                         System.Threading.Thread.Sleep(3000);
                         goto stagePage;
                     }
@@ -7160,11 +7119,16 @@ class Program
                 |__/  |__/  |__/\_______|__/  |__|__/  \__/          |__/ \______/ \______/ 
 
                              YOU WIN THIS GAME!!! LET'S PLAY VALORANT :D");
+                    Console.Beep(500, 200);
+                    Console.Beep(600, 300);
+                    Console.Beep(700, 300);
+                    Console.Beep(800, 500);
                     System.Threading.Thread.Sleep(3000);
                     goto stagePage;
                 }
                 if (entityPosition[posisiHorizontal, posisiVertical] == 7) //Jika pacman makan power up
                 {
+                    Console.Beep(500, 300);
                     ///Declare ulang untuk tujuan GHOST dan membuat nilai Array pada posisi PACMAN menjadi 0
                     ///Menambahkan powerUp untuk menentukan setelah PACMAN makan power up, FRIGHTENED PHASE akan berlangsung selama 40 kali GHOST/PACMAN berjalan
                     ///Isi while sama dengan di atas, bedanya pada penentuan rute GHOST
@@ -7338,8 +7302,6 @@ class Program
                                             tujuanBlinky = 3;
                                         else if (entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 1 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 5 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 6 && entityPosition[posisiBlinkyHorizontal, posisiBlinkyVertical + 1] != 8)
                                             tujuanBlinky = 4;
-                                        else if (entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] != 1 && entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] != 5 && entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] != 6 && entityPosition[posisiBlinkyHorizontal + 3, posisiBlinkyVertical] != 8)
-                                            tujuanBlinky = 2;
                                     }
                                 }
                             }
@@ -7431,8 +7393,6 @@ class Program
                                             tujuanPinky = 3;
                                         else if (entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 1 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 4 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 6 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 8)
                                             tujuanPinky = 4;
-                                        else if (entityPosition[posisiPinkyHorizontal + 3, posisiPinkyVertical] != 1 && entityPosition[posisiPinkyHorizontal + 3, posisiPinkyVertical] != 4 && entityPosition[posisiPinkyHorizontal + 3, posisiPinkyVertical] != 6 && entityPosition[posisiPinkyHorizontal + 3, posisiPinkyVertical] != 8)
-                                            tujuanPinky = 2;
                                     }
                                 }
                             }
@@ -7450,8 +7410,6 @@ class Program
                                             tujuanPinky = 3;
                                         else if (entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 1 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 4 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 6 && entityPosition[posisiPinkyHorizontal, posisiPinkyVertical + 1] != 8)
                                             tujuanPinky = 4;
-                                        if (entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] != 1 && entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] != 4 && entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] != 6 && entityPosition[posisiPinkyHorizontal - 3, posisiPinkyVertical] != 8)
-                                            tujuanPinky = 1;
                                     }
                                 }
                             }
@@ -7526,8 +7484,6 @@ class Program
                                                 tujuanInky = 3;
                                             else if (entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 1 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 4 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 5 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 8)
                                                 tujuanInky = 4;
-                                            else if (entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 1 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 4 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 5 && entityPosition[posisiInkyHorizontal + 3, posisiInkyVertical] != 8)
-                                                tujuanInky = 2;
                                         }
                                     }
                                 }
@@ -7545,8 +7501,6 @@ class Program
                                                 tujuanInky = 3;
                                             else if (entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 1 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 4 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 5 && entityPosition[posisiInkyHorizontal, posisiInkyVertical + 1] != 8)
                                                 tujuanInky = 4;
-                                            else if (entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 1 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 4 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 5 && entityPosition[posisiInkyHorizontal - 3, posisiInkyVertical] != 8)
-                                                tujuanInky = 1;
                                         }
                                     }
                                 }
@@ -7976,6 +7930,7 @@ class Program
                         }
                         if ((posisiBlinkyHorizontal == posisiHorizontal && posisiBlinkyVertical == posisiVertical) || (posisiPinkyHorizontal == posisiHorizontal && posisiPinkyVertical == posisiVertical) || (posisiInkyHorizontal == posisiHorizontal && posisiInkyVertical == posisiVertical))
                         {
+                            Console.Beep(500, 300);
                             if (posisiBlinkyHorizontal == posisiHorizontal && posisiBlinkyVertical == posisiVertical)
                             {
                                 tujuanBlinky = 5; //supaya tidak kemana-mana (berhenti)
@@ -8013,6 +7968,10 @@ class Program
                 |__/  |__/  |__/\_______|__/  |__|__/  \__/          |__/ \______/ \______/ 
 
                              YOU WIN THIS GAME!!! LET'S PLAY VALORANT :D");
+                            Console.Beep(500, 200);
+                            Console.Beep(600, 300);
+                            Console.Beep(700, 300);
+                            Console.Beep(800, 500);
                             System.Threading.Thread.Sleep(3000);
                             goto stagePage;
                         }
@@ -8090,6 +8049,9 @@ class Program
             }
         }
         else if (pilihLevel == ConsoleKey.D4 || pilihLevel == ConsoleKey.NumPad4)
+        {
+            Console.Beep(300, 400);
             System.Environment.Exit(0);
+        }
     }
 }
