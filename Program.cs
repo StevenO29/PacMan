@@ -57,16 +57,15 @@ class Program
         Console.ForegroundColor = ConsoleColor.Blue;
         Console.Write("Press ENTER to start....");
         Console.ReadKey();
-
         Console.Beep(400, 200);
         Console.Beep(500, 300);
         Console.Beep(600, 300);
         Console.Beep(700, 300);
         Console.Beep(800, 300);
-    //
+        //
 
-    //CHOOSE STAGE LEVEL PAGE
-    stagePage:
+        //CHOOSE STAGE LEVEL PAGE
+        stagePage:
         Console.Clear();
         Console.SetCursorPosition(39, 2);
         Console.ForegroundColor = ConsoleColor.Yellow;
